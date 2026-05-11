@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #a3e635; /* Solar Lime */
+  --color-brand-green-hover: #84cc16;
+  --color-brand-dark: #111827;
+  --color-brand-light: #f8f9ff;
+  --color-brand-surface: #ffffff;
+  
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+  --radius-5xl: 3rem;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.05)];
+  }
+  .glass-panel-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.2)];
+  }
+}
+
