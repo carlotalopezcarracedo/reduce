@@ -22,7 +22,7 @@ export function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           <div className="lg:col-span-1">
-            <img src="/logo.png" alt="REDUCE" className="h-10 w-auto object-contain mb-5 brightness-200" />
+            <img src="/logo-reduce.png" alt="REDUCE" className="h-12 w-auto max-w-[220px] object-contain mb-5" />
             <p className="text-white/50 text-sm leading-relaxed">
               Estructura independiente de control, auditoría y gestión energética multisede. Sin vínculos con comercializadoras.
             </p>
