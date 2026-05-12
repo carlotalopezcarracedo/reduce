@@ -11,9 +11,10 @@ export const CONTACT_INFO = {
 export const CLIENTS = [
   { name: 'Primor', logo: '/primor.png' },
   { name: 'Perfumerías Arenal', logo: '/arenal.png' },
-  { name: 'ISSGA', logo: '/issga.png' },
+  { name: 'ISGA', logo: '/isga.png' },
   { name: 'Digamel', logo: '/digamel.png' },
   { name: 'Hierros Diego', logo: '/hierros-diego.png' },
+  { name: 'Inasus', logo: '/inasus.png' },
 ];
 
 // ─── Territories ─────────────────────────────────────────────────────────────

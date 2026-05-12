@@ -5,9 +5,9 @@ interface Logo {
   logo: string;
 }
 
-const ITEM_H = 100;
-const SPEED = 38; // px per second
-const REEL_H = 320;
+const ITEM_H = 140;
+const SPEED = 45; // px per second
+const REEL_H = 460;
 
 export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -70,7 +70,7 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
             src={logo.logo}
             alt={logo.name}
             draggable={false}
-            className="h-16 w-72 object-contain grayscale"
+            className="h-24 w-96 object-contain grayscale"
           />
         </div>
       ))}
