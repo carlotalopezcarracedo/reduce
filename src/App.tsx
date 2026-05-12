@@ -10,6 +10,8 @@ import { Technology } from './pages/Technology';
 import { Sectors } from './pages/Sectors';
 import { Contact } from './pages/Contact';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
-]);
+], { basename: base });
 
 export default function App() {
   return <RouterProvider router={router} />;
