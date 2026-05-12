@@ -78,20 +78,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── LOGOS ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 px-6 bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-xs font-bold text-muted uppercase tracking-widest mb-8">
-            Grandes clientes retail que confían en REDUCE
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-45">
-            {CLIENTS.map((c) => (
-              <img key={c.name} src={c.logo} alt={c.name} className="h-11 w-auto object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── MODELO 5 CAPAS ────────────────────────────────────────────────── */}
       <section className="py-32 px-6 bg-brand-dark">
         <div className="max-w-7xl mx-auto">
