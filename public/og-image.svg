@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grad)" opacity="0.4"/>
+  <defs>
+    <radialGradient id="grad" cx="20%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Logo wordmark -->
+  <text x="100" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="900" fill="#ffffff" letter-spacing="-4">REDUCE</text>
+  <!-- Green accent line -->
+  <rect x="100" y="300" width="80" height="5" rx="2" fill="#22c55e"/>
+  <!-- Tagline -->
+  <text x="100" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#94a3b8">Control, auditoría y gestión energética multisede.</text>
+  <!-- Domain -->
+  <text x="100" y="530" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#22c55e">reduce.es</text>
+</svg>
