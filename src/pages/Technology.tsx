@@ -1,4 +1,5 @@
 import { CheckCircle2, Database, FileSearch, BarChart3, Link2 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { CTABand } from '../components/ui/CTABand';
 
 const PILLARS = [
@@ -40,6 +41,14 @@ const CAPABILITIES = [
 export function Technology() {
   return (
     <>
+      <Helmet>
+        <title>Tecnología | REDUCE</title>
+        <meta name="description" content="Infraestructura técnica propia para auditoría energética: base de datos, ingestión automática de facturas y dashboards de control multisede." />
+        <link rel="canonical" href="https://reduce.es/tecnologia" />
+        <meta property="og:title" content="Tecnología | REDUCE" />
+        <meta property="og:description" content="Infraestructura técnica propia para auditoría energética: base de datos, ingestión automática de facturas y dashboards de control multisede." />
+        <meta property="og:url" content="https://reduce.es/tecnologia" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />

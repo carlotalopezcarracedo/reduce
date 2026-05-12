@@ -1,5 +1,6 @@
 import { CheckCircle2, Mail, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/Button';
 import { FormField, SelectField, TextareaField } from '../components/ui/FormField';
 import { CONTACT_INFO } from '../data/content';
@@ -24,6 +25,14 @@ export function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Contacto | REDUCE</title>
+        <meta name="description" content="Contacta con REDUCE para analizar tu estructura energética multisede. Auditoría independiente, control y operativa desde 2012." />
+        <link rel="canonical" href="https://reduce.es/contacto" />
+        <meta property="og:title" content="Contacto | REDUCE" />
+        <meta property="og:description" content="Contacta con REDUCE para analizar tu estructura energética multisede. Auditoría independiente, control y operativa desde 2012." />
+        <meta property="og:url" content="https://reduce.es/contacto" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-20 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />

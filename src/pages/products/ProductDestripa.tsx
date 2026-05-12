@@ -1,5 +1,6 @@
 import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '../../components/ui/Button';
 import { FormField, SelectField, TextareaField } from '../../components/ui/FormField';
 import { FileUpload } from '../../components/ui/FileUpload';
@@ -24,6 +25,14 @@ export function ProductDestripa() {
 
   return (
     <>
+      <Helmet>
+        <title>Destripa tu Indexado | REDUCE</title>
+        <meta name="description" content="Análisis técnico independiente de contratos de energía indexada. Coste efectivo real, fórmulas auditables y detección de fees ocultos." />
+        <link rel="canonical" href="https://reduce.es/productos/destripa-tu-indexado" />
+        <meta property="og:title" content="Destripa tu Indexado | REDUCE" />
+        <meta property="og:description" content="Análisis técnico independiente de contratos de energía indexada. Coste efectivo real, fórmulas auditables y detección de fees ocultos." />
+        <meta property="og:url" content="https://reduce.es/productos/destripa-tu-indexado" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/12 rounded-full blur-[130px] translate-x-1/3 -translate-y-1/4 pointer-events-none" />

@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CTABand } from '../components/ui/CTABand';
 import { SECTORS, CLIENTS } from '../data/content';
@@ -6,6 +7,14 @@ import { SECTORS, CLIENTS } from '../data/content';
 export function Sectors() {
   return (
     <>
+      <Helmet>
+        <title>Sectores | REDUCE</title>
+        <meta name="description" content="Empresas retail, perfumerías y superficies con operaciones multisede. Control energético centralizado desde 2012." />
+        <link rel="canonical" href="https://reduce.es/sectores" />
+        <meta property="og:title" content="Sectores | REDUCE" />
+        <meta property="og:description" content="Empresas retail, perfumerías y superficies con operaciones multisede. Control energético centralizado desde 2012." />
+        <meta property="og:url" content="https://reduce.es/sectores" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[130px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />

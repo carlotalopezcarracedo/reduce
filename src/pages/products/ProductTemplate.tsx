@@ -1,5 +1,6 @@
 import { CheckCircle2, XCircle, ChevronLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Button } from '../../components/ui/Button';
 import { FormField, TextareaField } from '../../components/ui/FormField';
@@ -23,6 +24,14 @@ export function ProductTemplate() {
 
   return (
     <>
+      <Helmet>
+        <title>{product.name} | REDUCE</title>
+        <meta name="description" content={product.tagline} />
+        <link rel="canonical" href={`https://reduce.es/productos/${product.slug}`} />
+        <meta property="og:title" content={`${product.name} | REDUCE`} />
+        <meta property="og:description" content={product.tagline} />
+        <meta property="og:url" content={`https://reduce.es/productos/${product.slug}`} />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />

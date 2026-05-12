@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CTABand } from '../../components/ui/CTABand';
 import { PRODUCTS } from '../../data/content';
@@ -6,6 +7,14 @@ import { PRODUCTS } from '../../data/content';
 export function ProductsIndex() {
   return (
     <>
+      <Helmet>
+        <title>Productos | REDUCE</title>
+        <meta name="description" content="Auditoría de contratos indexados, concursos energéticos, control multisede y operativa retail internacional. Lo que hace REDUCE." />
+        <link rel="canonical" href="https://reduce.es/productos" />
+        <meta property="og:title" content="Productos | REDUCE" />
+        <meta property="og:description" content="Auditoría de contratos indexados, concursos energéticos, control multisede y operativa retail internacional. Lo que hace REDUCE." />
+        <meta property="og:url" content="https://reduce.es/productos" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-green/8 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />

@@ -1,4 +1,5 @@
 import { ChevronRight, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CTABand } from '../../components/ui/CTABand';
 import { LAYERS } from '../../data/content';
@@ -6,6 +7,14 @@ import { LAYERS } from '../../data/content';
 export function LayersIndex() {
   return (
     <>
+      <Helmet>
+        <title>Modelo de 5 Capas | REDUCE</title>
+        <meta name="description" content="El modelo estructural de REDUCE: compra, control de facturación, operativa retail, eficiencia y reporting. Cinco capas para gestionar la energía multisede." />
+        <link rel="canonical" href="https://reduce.es/modelo" />
+        <meta property="og:title" content="Modelo de 5 Capas | REDUCE" />
+        <meta property="og:description" content="El modelo estructural de REDUCE: compra, control de facturación, operativa retail, eficiencia y reporting. Cinco capas para gestionar la energía multisede." />
+        <meta property="og:url" content="https://reduce.es/modelo" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />

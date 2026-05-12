@@ -1,4 +1,5 @@
 import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Button } from '../../components/ui/Button';
 import { CTABand } from '../../components/ui/CTABand';
@@ -16,6 +17,14 @@ export function LayerPage() {
 
   return (
     <>
+      <Helmet>
+        <title>{layer.title} | REDUCE</title>
+        <meta name="description" content={layer.tagline} />
+        <link rel="canonical" href={`https://reduce.es/modelo/${layer.slug}`} />
+        <meta property="og:title" content={`${layer.title} | REDUCE`} />
+        <meta property="og:description" content={layer.tagline} />
+        <meta property="og:url" content={`https://reduce.es/modelo/${layer.slug}`} />
+      </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/10 rounded-full blur-[130px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />

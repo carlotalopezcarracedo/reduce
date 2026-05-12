@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
@@ -12,6 +13,14 @@ export function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>REDUCE | Control, Auditoría y Gestión Energética Multisede</title>
+        <meta name="description" content="Estructura independiente de control, auditoría y gestión energética para operaciones multisede. Operando desde 2012 en España, Portugal, Italia y Andorra." />
+        <link rel="canonical" href="https://reduce.es/" />
+        <meta property="og:title" content="REDUCE | Control, Auditoría y Gestión Energética Multisede" />
+        <meta property="og:description" content="Estructura independiente de control, auditoría y gestión energética para operaciones multisede. Operando desde 2012 en España, Portugal, Italia y Andorra." />
+        <meta property="og:url" content="https://reduce.es/" />
+      </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[92vh] flex items-center pt-20 pb-16 bg-brand-dark overflow-hidden">
         <div className="absolute inset-0 z-0">
