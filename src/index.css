@@ -1,27 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-green: #a3e635; /* Solar Lime */
+  --color-brand-green: #a3e635;
   --color-brand-green-hover: #84cc16;
-  --color-brand-dark: #111827;
-  --color-brand-light: #f8f9ff;
-  --color-brand-surface: #ffffff;
-  
+  --color-brand-dark: #0c1a2e;
+  --color-brand-mid: #152741;
+  --color-brand-light: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-muted: #64748b;
+
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
-  --radius-4xl: 2.5rem;
-  --radius-5xl: 3rem;
 }
 
-@layer utilities {
-  .glass-panel {
-    @apply bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.05)];
-  }
-  .glass-panel-dark {
-    @apply bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.2)];
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #0c1a2e;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #0c1a2e;
 }
 
+::selection {
+  background-color: #a3e635;
+  color: #0c1a2e;
+}
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@keyframes layer-fadein {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
