@@ -67,7 +67,7 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
           }}
         >
           <img
-            src={logo.logo}
+            src={`${import.meta.env.BASE_URL}${logo.logo.replace(/^\//, '')}`}
             alt={logo.name}
             draggable={false}
             className="h-24 w-96 object-contain grayscale"

@@ -21,7 +21,7 @@ export function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img src="/logo-reduce.png" alt="REDUCE" className="h-9 w-auto max-w-[160px] object-contain" />
+            <img src={`${import.meta.env.BASE_URL}logo-reduce.png`} alt="REDUCE" className="h-9 w-auto max-w-[160px] object-contain" />
           </Link>
 
           {/* Nav — desktop */}
