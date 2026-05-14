@@ -16,20 +16,52 @@ export function Sectors() {
         <meta property="og:url" content="https://reduce.es/sectores" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[130px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">A quién servimos</span>
-          <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[1.02] mb-6 max-w-4xl">
-            Sectores con operaciones{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-              multisede complejas.
+      <section className="bg-brand-dark min-h-[72vh] flex items-center py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
+        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-brand-green/8 rounded-full blur-[160px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10 w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-6 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
+              A quién servimos
             </span>
-          </h1>
-          <p className="text-white/55 text-xl leading-relaxed max-w-2xl font-medium">
-            No trabajamos con todo tipo de cliente. Trabajamos con empresas que tienen decenas o cientos de suministros y necesidad real de control energético.
-          </p>
+            <h1 className="text-5xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[0.95] mb-6">
+              Sectores con<br />operaciones{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+                multisede.
+              </span>
+            </h1>
+            <p className="text-white/50 text-xl leading-relaxed max-w-lg font-medium">
+              No trabajamos con todo tipo de cliente. Solo con empresas que tienen decenas o cientos de suministros y necesidad real de control energético.
+            </p>
+          </div>
+
+          {/* Stats grid */}
+          <div className="hidden lg:grid grid-cols-2 gap-3">
+            <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-6 flex flex-col justify-between">
+              <p className="text-7xl font-black text-white tracking-tighter leading-none">+12</p>
+              <div className="mt-4">
+                <p className="text-brand-green font-bold text-sm">años operando</p>
+                <p className="text-white/30 text-xs mt-0.5">Activos desde 2012</p>
+              </div>
+            </div>
+            <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-6 flex flex-col justify-between">
+              <p className="text-7xl font-black text-white tracking-tighter leading-none">8</p>
+              <div className="mt-4">
+                <p className="text-brand-green font-bold text-sm">territorios</p>
+                <p className="text-white/30 text-xs mt-0.5">ES · PT · IT · AD</p>
+              </div>
+            </div>
+            <div className="col-span-2 bg-brand-green/8 border border-brand-green/20 rounded-2xl p-5">
+              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">Sectores activos</p>
+              <div className="flex flex-wrap gap-2">
+                {SECTORS.map((s) => (
+                  <span key={s.name} className="text-xs bg-white/[0.05] border border-white/[0.08] text-white/55 px-3 py-1.5 rounded-full font-medium">
+                    {s.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

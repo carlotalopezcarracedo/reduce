@@ -16,20 +16,45 @@ export function ProductsIndex() {
         <meta property="og:url" content="https://reduce.es/productos" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-green/8 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Lo que hacemos</span>
-          <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[1.02] mb-6 max-w-4xl">
-            Cuatro formas{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-              de intervenir.
+      <section className="bg-brand-dark min-h-[72vh] flex items-center py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-green/8 rounded-full blur-[160px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10 w-full grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-6 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
+              Lo que hacemos
             </span>
-          </h1>
-          <p className="text-white/55 text-xl leading-relaxed max-w-2xl font-medium">
-            Cada producto responde a un problema concreto. Sin promesas de ahorro sin base. Sin porcentajes inventados.
-          </p>
+            <h1 className="text-5xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[0.95] mb-6">
+              Cuatro formas{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+                de intervenir.
+              </span>
+            </h1>
+            <p className="text-white/50 text-xl leading-relaxed max-w-lg font-medium">
+              Cada producto responde a un problema concreto. Sin promesas de ahorro sin base. Sin porcentajes inventados.
+            </p>
+          </div>
+
+          {/* Product preview grid */}
+          <div className="hidden lg:grid grid-cols-2 gap-3">
+            {PRODUCTS.map((p, i) => (
+              <div key={p.slug} className={`rounded-2xl p-6 border flex flex-col gap-3 ${
+                i === 0
+                  ? 'border-brand-green/30 bg-brand-green/8 shadow-[0_0_40px_rgba(163,230,53,0.07)]'
+                  : 'border-white/[0.06] bg-white/[0.025]'
+              }`}>
+                <span className={`text-4xl font-black tracking-tighter leading-none ${i === 0 ? 'text-brand-green' : 'text-white/12'}`}>
+                  0{i + 1}
+                </span>
+                <p className={`font-bold text-sm leading-snug ${i === 0 ? 'text-white' : 'text-white/35'}`}>
+                  {p.name}
+                </p>
+                {p.star && (
+                  <span className="self-start text-[10px] bg-brand-green text-brand-dark font-black px-2 py-0.5 rounded-full tracking-wide">DESTACADO</span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
