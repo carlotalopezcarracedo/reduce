@@ -67,7 +67,7 @@ export function ProductsIndex() {
               to={`/productos/${p.slug}`}
               className={`group rounded-[2rem] p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
                 p.star
-                  ? 'bg-brand-dark shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] lg:col-span-2'
+                  ? 'bg-brand-dark shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)]'
                   : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
               }`}
             >
