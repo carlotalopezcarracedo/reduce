@@ -22,16 +22,16 @@ export function Home() {
         <meta property="og:url" content="https://reduce.es/" />
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[78vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 opacity-[0.028]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-brand-green/18 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-green/12 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
+        <div className="absolute top-0 right-0 w-[900px] h-[900px] bg-brand-green/15 rounded-full blur-[160px] translate-x-1/2 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[500px] bg-brand-green/10 rounded-full blur-[140px] -translate-x-1/4 translate-y-1/3 pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1fr_380px] gap-14 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <div className="max-w-[740px]">
 
-          {/* Left */}
-          <div>
+            {/* Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-green/25 bg-brand-green/[0.07] text-brand-green text-xs font-bold tracking-wide mb-8">
               <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
@@ -40,18 +40,21 @@ export function Home() {
               Estructura independiente · Operando desde 2012
             </div>
 
-            <h1 className="text-[2.8rem] sm:text-[3.8rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.92] mb-6">
-              Control, auditoría<br />y operativa energética<br />
+            {/* Headline */}
+            <h1 className="text-[2.8rem] sm:text-[4rem] lg:text-[5.2rem] font-black text-white tracking-tighter leading-[0.92] mb-6">
+              Control, auditoría<br />y operativa energética{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
                 para retail multisede.
               </span>
             </h1>
 
+            {/* Subtitle */}
             <p className="text-white/50 text-lg leading-relaxed max-w-lg font-medium mb-10">
               No vendemos energía. La auditamos, la operamos y la hacemos trazable. Desde 2012.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-14">
               <Button
                 to="/contacto"
                 size="lg"
@@ -65,39 +68,24 @@ export function Home() {
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
-          </div>
 
-          {/* Right — single audit card */}
-          <div className="hidden lg:block rounded-3xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm overflow-hidden">
-            <div className="px-7 py-5 border-b border-white/[0.08] flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/30">Áreas de auditoría</span>
-              <span className="w-2 h-2 rounded-full bg-brand-green shadow-[0_0_8px_rgba(163,230,53,0.8)]" />
-            </div>
-            <div className="px-7 py-2">
+            {/* Stats row */}
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-8 border-t border-white/[0.07]">
               {[
-                'Contratos indexados',
-                'Control de facturación',
-                'Perfilado y datos REE',
-                'Energía reactiva',
-                'Alta de suministros multisede',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 py-3.5 border-b border-white/[0.06] last:border-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green flex-shrink-0" />
-                  <span className="text-white/65 text-sm font-medium">{item}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-white/15 ml-auto flex-shrink-0" />
+                { num: '+12', label: 'años operando' },
+                { num: '8', label: 'territorios' },
+                { num: '5', label: 'capas de gestión' },
+                { num: '100%', label: 'independencia comercial' },
+              ].map((s, i) => (
+                <div key={s.num} className="flex items-baseline gap-2">
+                  {i > 0 && <span className="text-white/10 mr-0 hidden sm:inline">·</span>}
+                  <span className="text-brand-green font-black text-2xl tracking-tighter">{s.num}</span>
+                  <span className="text-white/35 text-sm font-medium">{s.label}</span>
                 </div>
               ))}
             </div>
-            <div className="px-7 py-4 border-t border-white/[0.08] grid grid-cols-3 gap-4">
-              {[{ num: '+12', label: 'años' }, { num: '8', label: 'territorios' }, { num: '5', label: 'capas' }].map((s) => (
-                <div key={s.num} className="text-center">
-                  <p className="text-xl font-black text-brand-green tracking-tighter leading-none">{s.num}</p>
-                  <p className="text-white/30 text-[10px] font-semibold mt-1">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
