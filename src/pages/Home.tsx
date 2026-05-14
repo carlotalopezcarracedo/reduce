@@ -23,38 +23,51 @@ export function Home() {
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[96vh] flex flex-col items-center justify-center pt-20 pb-24 bg-brand-dark overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
+        {/* Dot grid */}
+        <div className="absolute inset-0 opacity-[0.028]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
+        {/* Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[600px] bg-brand-green/20 rounded-full blur-[130px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/15 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-green/12 rounded-full blur-[130px] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+        {/* Depth lines */}
+        <div className="absolute left-0 right-0 top-[28%] h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent pointer-events-none" />
+        <div className="absolute left-0 right-0 bottom-[22%] h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center w-full flex flex-col items-center">
+
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.05] text-brand-green text-sm font-semibold mb-10">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-brand-green/25 bg-brand-green/[0.07] text-brand-green text-sm font-bold mb-12">
+            <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
             </span>
             Estructura independiente · Operando desde 2012
           </div>
 
-          {/* Headline */}
-          <h1 className="text-[4rem] sm:text-[5.5rem] lg:text-[8rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
-            Control, auditoría<br />y operativa energética{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+          {/* Headline — mix filled + outline */}
+          <h1 className="font-black tracking-tighter leading-[0.88] mb-8">
+            <span className="block text-white text-[3rem] sm:text-[4.5rem] lg:text-[6.5rem]">
+              Control, auditoría
+            </span>
+            <span className="block text-white text-[3rem] sm:text-[4.5rem] lg:text-[6.5rem]">
+              y operativa energética
+            </span>
+            <span
+              className="block text-[3rem] sm:text-[4.5rem] lg:text-[6.5rem] mt-1"
+              style={{ WebkitTextStroke: '2px #a3e635', color: 'transparent' }}
+            >
               para retail multisede.
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-white/50 text-xl lg:text-2xl leading-relaxed max-w-2xl font-medium mb-12">
+          <p className="text-white/50 text-lg lg:text-xl leading-relaxed max-w-xl font-medium mb-12">
             No vendemos energía. La auditamos, la operamos y la hacemos trazable.{' '}
-            <span className="text-white/75">Desde 2012.</span>
+            <span className="text-white/80 font-semibold">Desde 2012.</span>
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-20">
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Button
               to="/contacto"
               size="lg"
@@ -70,17 +83,16 @@ export function Home() {
           </div>
 
           {/* Stats strip */}
-          <div className="flex items-center justify-center gap-10 lg:gap-16 flex-wrap border-t border-white/[0.08] pt-10 w-full">
+          <div className="flex items-stretch justify-center gap-0 flex-wrap border border-white/[0.08] rounded-2xl overflow-hidden w-full max-w-3xl">
             {[
-              { num: '+12', label: 'años operando', sub: 'Desde 2012' },
-              { num: '8', label: 'territorios', sub: 'ES · PT · IT · AD' },
-              { num: '5', label: 'capas de gestión', sub: 'Modelo propio' },
-              { num: '100%', label: 'independencia', sub: 'No vendemos energía' },
-            ].map((s) => (
-              <div key={s.num} className="text-center">
-                <p className="text-3xl lg:text-4xl font-black text-brand-green tracking-tighter leading-none">{s.num}</p>
-                <p className="text-white/70 font-bold text-sm mt-1.5">{s.label}</p>
-                <p className="text-white/30 text-xs mt-0.5">{s.sub}</p>
+              { num: '+12', label: 'años operando' },
+              { num: '8', label: 'territorios' },
+              { num: '5', label: 'capas de gestión' },
+              { num: '100%', label: 'independencia' },
+            ].map((s, i) => (
+              <div key={s.num} className={`flex-1 min-w-[120px] text-center px-6 py-5 ${i > 0 ? 'border-l border-white/[0.08]' : ''}`}>
+                <p className="text-2xl lg:text-3xl font-black text-brand-green tracking-tighter leading-none">{s.num}</p>
+                <p className="text-white/45 text-xs font-semibold mt-1.5 leading-tight">{s.label}</p>
               </div>
             ))}
           </div>
