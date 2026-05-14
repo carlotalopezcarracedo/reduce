@@ -23,10 +23,19 @@ export function Home() {
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[78vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
-        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 70% 80% at 75% 50%, rgba(163,230,53,0.13) 0%, transparent 65%)'}} />
-        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 50% 60% at 10% 80%, rgba(163,230,53,0.08) 0%, transparent 60%)'}} />
+        {/* Animated dot grid */}
+        <div className="absolute inset-0 opacity-[0.028] pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px', animation: 'grid-scroll 14s linear infinite'}} />
+
+        {/* Scan line */}
+        <div className="absolute left-0 right-0 h-px pointer-events-none z-0" style={{background: 'linear-gradient(90deg, transparent 0%, rgba(163,230,53,0.25) 30%, rgba(163,230,53,0.5) 50%, rgba(163,230,53,0.25) 70%, transparent 100%)', animation: 'scan-line 10s linear infinite'}} />
+
+        {/* Animated glow blobs */}
+        <div className="absolute w-[900px] h-[500px] rounded-full pointer-events-none top-1/2 left-1/2 bg-brand-green/18 blur-[130px]"
+          style={{animation: 'glow-drift-1 18s ease-in-out infinite'}} />
+        <div className="absolute w-[700px] h-[700px] rounded-full pointer-events-none top-0 right-0 bg-brand-green/12 blur-[150px]"
+          style={{animation: 'glow-drift-2 22s ease-in-out infinite'}} />
+        <div className="absolute w-[500px] h-[500px] rounded-full pointer-events-none bottom-0 left-0 bg-brand-green/10 blur-[130px]"
+          style={{animation: 'glow-drift-3 16s ease-in-out infinite'}} />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1fr_340px] gap-12 xl:gap-20 items-center">
 
@@ -42,7 +51,14 @@ export function Home() {
 
             <h1 className="text-[2.6rem] sm:text-[3.6rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.9] mb-6">
               La energía multisede,{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+              <span
+                className="text-transparent bg-clip-text"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #a3e635, #86efac, #34d399, #a3e635, #86efac)',
+                  backgroundSize: '300% 100%',
+                  animation: 'gradient-x 5s ease infinite',
+                }}
+              >
                 bajo control total.
               </span>
             </h1>
