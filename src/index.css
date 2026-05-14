@@ -37,31 +37,16 @@ body {
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Hero background animations */
-@keyframes glow-drift-1 {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  33%       { transform: translate(-47%, -54%) scale(1.05); }
-  66%       { transform: translate(-54%, -46%) scale(0.96); }
+/* Hero animations */
+@keyframes orb-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-@keyframes glow-drift-2 {
-  0%, 100% { transform: translate(33%, -33%) scale(1); }
-  50%       { transform: translate(38%, -28%) scale(1.07); }
-}
-@keyframes glow-drift-3 {
-  0%, 100% { transform: translate(-25%, 25%) scale(1); }
-  50%       { transform: translate(-20%, 31%) scale(1.04); }
-}
-@keyframes grid-scroll {
-  0%   { background-position: 0 0; }
-  100% { background-position: 44px 44px; }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
   50%       { background-position: 100% 50%; }
-}
-@keyframes scan-line {
-  0%        { top: 0%; opacity: 0; }
-  3%        { opacity: 1; }
-  97%       { opacity: 1; }
-  100%      { top: 100%; opacity: 0; }
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,21 @@ import { LAYERS, PRODUCTS, CLIENTS, TERRITORIES, KEY_MESSAGES } from '../data/co
 export function Home() {
   const [activeId, setActiveId] = useState(LAYERS[0].id);
   const active = LAYERS.find((l) => l.id === activeId)!;
+
+  const [counts, setCounts] = useState({ years: 0, terr: 0, layers: 0 });
+  useEffect(() => {
+    const targets = [12, 8, 5];
+    const total = 50;
+    let step = 0;
+    const id = setInterval(() => {
+      step++;
+      const t = step / total;
+      const e = 1 - Math.pow(1 - t, 3);
+      setCounts({ years: Math.round(targets[0] * e), terr: Math.round(targets[1] * e), layers: Math.round(targets[2] * e) });
+      if (step >= total) clearInterval(id);
+    }, 30);
+    return () => clearInterval(id);
+  }, []);;
 
   return (
     <>
@@ -23,25 +38,29 @@ export function Home() {
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[78vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
-        {/* Animated dot grid */}
-        <div className="absolute inset-0 opacity-[0.028] pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px', animation: 'grid-scroll 14s linear infinite'}} />
+        {/* Dot grid — static, subtle */}
+        <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
 
-        {/* Scan line */}
-        <div className="absolute left-0 right-0 h-px pointer-events-none z-0" style={{background: 'linear-gradient(90deg, transparent 0%, rgba(163,230,53,0.25) 30%, rgba(163,230,53,0.5) 50%, rgba(163,230,53,0.25) 70%, transparent 100%)', animation: 'scan-line 10s linear infinite'}} />
+        {/* Rotating conic orb — the main visual effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div style={{
+            width: 1000, height: 1000, borderRadius: '50%',
+            background: 'conic-gradient(from 0deg, transparent 0deg, rgba(163,230,53,0.22) 60deg, transparent 120deg, transparent 200deg, rgba(163,230,53,0.1) 260deg, transparent 320deg)',
+            filter: 'blur(70px)',
+            animation: 'orb-rotate 18s linear infinite',
+          }} />
+        </div>
 
-        {/* Animated glow blobs */}
-        <div className="absolute w-[900px] h-[500px] rounded-full pointer-events-none top-1/2 left-1/2 bg-brand-green/18 blur-[130px]"
-          style={{animation: 'glow-drift-1 18s ease-in-out infinite'}} />
-        <div className="absolute w-[700px] h-[700px] rounded-full pointer-events-none top-0 right-0 bg-brand-green/12 blur-[150px]"
-          style={{animation: 'glow-drift-2 22s ease-in-out infinite'}} />
-        <div className="absolute w-[500px] h-[500px] rounded-full pointer-events-none bottom-0 left-0 bg-brand-green/10 blur-[130px]"
-          style={{animation: 'glow-drift-3 16s ease-in-out infinite'}} />
+        {/* Static ambient fill glows */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none bg-brand-green/10 blur-[140px] translate-x-1/3 -translate-y-1/4" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none bg-brand-green/8 blur-[120px] -translate-x-1/4 translate-y-1/4" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1fr_340px] gap-12 xl:gap-20 items-center">
 
           {/* ── Left ── */}
           <div>
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-green/25 bg-brand-green/[0.07] text-brand-green text-xs font-bold tracking-wide mb-8">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-green/25 bg-brand-green/[0.07] text-brand-green text-xs font-bold tracking-wide mb-8"
+              style={{animation: 'fade-up 0.5s ease both', animationDelay: '0.1s'}}>
               <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-green" />
@@ -49,13 +68,14 @@ export function Home() {
               Estructura independiente · Operando desde 2012
             </div>
 
-            <h1 className="text-[2.6rem] sm:text-[3.6rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-[2.6rem] sm:text-[3.6rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.9] mb-6"
+              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.25s'}}>
               La energía multisede,{' '}
               <span
                 className="text-transparent bg-clip-text"
                 style={{
-                  backgroundImage: 'linear-gradient(90deg, #a3e635, #86efac, #34d399, #a3e635, #86efac)',
-                  backgroundSize: '300% 100%',
+                  backgroundImage: 'linear-gradient(90deg, #a3e635, #86efac, #34d399, #a3e635)',
+                  backgroundSize: '250% 100%',
                   animation: 'gradient-x 5s ease infinite',
                 }}
               >
@@ -63,11 +83,13 @@ export function Home() {
               </span>
             </h1>
 
-            <p className="text-white/50 text-lg leading-relaxed max-w-md font-medium mb-10">
+            <p className="text-white/50 text-lg leading-relaxed max-w-md font-medium mb-10"
+              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.4s'}}>
               Auditamos, operamos y hacemos trazable la energía de empresas retail con decenas o cientos de suministros. Sin vender ni un kWh.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-12">
+            <div className="flex flex-wrap gap-3 mb-12"
+              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.55s'}}>
               <Button to="/contacto" size="lg" arrow className="shadow-[0_0_35px_rgba(163,230,53,0.35)] hover:shadow-[0_0_55px_rgba(163,230,53,0.55)] hover:scale-[1.02]">
                 Analizar mi situación
               </Button>
@@ -76,14 +98,15 @@ export function Home() {
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-x-7 gap-y-2 items-center pt-7 border-t border-white/[0.07]">
+            <div className="flex flex-wrap gap-x-7 gap-y-2 items-center pt-7 border-t border-white/[0.07]"
+              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.7s'}}>
               {[
-                { num: '+12', label: 'años' },
-                { num: '8', label: 'territorios' },
-                { num: '5', label: 'capas de gestión' },
+                { num: `+${counts.years}`, label: 'años' },
+                { num: String(counts.terr), label: 'territorios' },
+                { num: String(counts.layers), label: 'capas de gestión' },
                 { num: '100%', label: 'independencia' },
               ].map((s) => (
-                <div key={s.num} className="flex items-baseline gap-1.5">
+                <div key={s.label} className="flex items-baseline gap-1.5">
                   <span className="text-brand-green font-black text-xl tracking-tighter">{s.num}</span>
                   <span className="text-white/30 text-sm">{s.label}</span>
                 </div>
@@ -92,7 +115,8 @@ export function Home() {
           </div>
 
           {/* ── Right: dashboard mockup ── */}
-          <div className="hidden lg:flex flex-col rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5),0_0_40px_rgba(163,230,53,0.06)]" style={{background: 'rgba(255,255,255,0.04)'}}>
+          <div className="hidden lg:flex flex-col rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5),0_0_40px_rgba(163,230,53,0.08)]"
+            style={{background: 'rgba(255,255,255,0.04)', animation: 'fade-up 0.7s ease both', animationDelay: '0.5s'}}>
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.07]" style={{background: 'rgba(255,255,255,0.02)'}}>
               <div className="flex items-center gap-2">
