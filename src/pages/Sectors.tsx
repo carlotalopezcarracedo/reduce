@@ -75,7 +75,7 @@ export function Sectors() {
       </section>
 
       {/* Sectors grid */}
-      <section className="py-24 px-6 bg-brand-light">
+      <section className="relative z-0 -mt-12 pt-36 pb-24 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-14">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Sectores</span>

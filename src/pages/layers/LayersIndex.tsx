@@ -73,7 +73,7 @@ export function LayersIndex() {
       </section>
 
       {/* Layer list */}
-      <section className="py-24 px-6 bg-brand-light">
+      <section className="relative z-0 -mt-12 pt-36 pb-24 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto space-y-4">
           {LAYERS.map((layer, index) => (
             <Link
