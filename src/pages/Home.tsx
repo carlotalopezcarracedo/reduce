@@ -457,22 +457,23 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── FILOSOFÍA ─────────────────────────────────────────────────────── */}
-      <section className="py-32 px-6 bg-brand-dark relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-12 block text-center">
-            Filosofía REDUCE
-          </span>
-          <div className="space-y-5">
-            {KEY_MESSAGES.map((msg) => (
-              <div key={msg} className="border-l-2 border-brand-green/30 pl-8 hover:border-brand-green transition-colors duration-300 group">
-                <p className="text-2xl lg:text-3xl font-bold text-white/85 leading-snug group-hover:text-white transition-colors">
-                  {msg}
-                </p>
-              </div>
-            ))}
-          </div>
+      {/* ── STATEMENT ─────────────────────────────────────────────────────── */}
+      <section className="py-24 px-6 bg-brand-dark relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(163,230,53,0.08) 0%, transparent 70%)'}} />
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <p className="text-[2.2rem] sm:text-[3rem] lg:text-[4rem] font-black text-white tracking-tighter leading-[1.05]">
+            No vendemos energía.{' '}
+            <span
+              className="text-transparent bg-clip-text"
+              style={{
+                backgroundImage: 'linear-gradient(90deg, #a3e635, #86efac, #34d399, #a3e635)',
+                backgroundSize: '250% 100%',
+                animation: 'gradient-x 5s ease infinite',
+              }}
+            >
+              La auditamos y la operamos.
+            </span>
+          </p>
         </div>
       </section>
 
