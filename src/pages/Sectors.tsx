@@ -83,45 +83,64 @@ export function Sectors() {
               Dónde tenemos experiencia acumulada.
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SECTORS.map((sector, index) => (
-              <div
-                key={sector.name}
-                className={`rounded-[2rem] p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
-                  index === 0
-                    ? 'bg-brand-dark shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] md:col-span-2 lg:col-span-1'
-                    : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
-                }`}
-              >
-                {index === 0 && (
-                  <div className="absolute right-0 top-0 w-[250px] h-[250px] bg-brand-green/12 rounded-full blur-[70px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                )}
-                <h3 className={`text-xl font-black tracking-tight relative z-10 ${index === 0 ? 'text-white' : 'text-brand-dark'}`}>
-                  {sector.name}
-                </h3>
-                <div className="relative z-10">
-                  <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${index === 0 ? 'text-white/35' : 'text-muted/60'}`}>
-                    El problema
-                  </p>
-                  <p className={`text-sm leading-relaxed ${index === 0 ? 'text-white/55' : 'text-muted'}`}>
-                    {sector.problem}
-                  </p>
-                </div>
-                <div className={`pt-5 border-t relative z-10 ${index === 0 ? 'border-white/10' : 'border-border'}`}>
-                  <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${index === 0 ? 'text-brand-green/70' : 'text-brand-green/80'}`}>
-                    Qué aportamos
-                  </p>
-                  <p className={`text-sm font-semibold leading-relaxed ${index === 0 ? 'text-white/80' : 'text-brand-dark'}`}>
-                    {sector.value}
-                  </p>
-                </div>
-                {sector.ref && (
-                  <p className={`text-xs relative z-10 ${index === 0 ? 'text-white/25' : 'text-muted/50'}`}>
-                    Ref: {sector.ref}
-                  </p>
+          {/* Bento: row 1 = featured (2/3) + card (1/3) · row 2 = 3 equal */}
+          <div className="grid lg:grid-cols-3 gap-5">
+
+            {/* Featured — col-span-2, split interior */}
+            <div className="lg:col-span-2 rounded-[2rem] p-10 bg-brand-dark relative overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] flex flex-col gap-6">
+              <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-brand-green/12 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-brand-green/6 rounded-full blur-[60px] pointer-events-none" />
+              <div className="flex items-start justify-between gap-4 relative z-10">
+                <h3 className="text-2xl font-black tracking-tight text-white">{SECTORS[0].name}</h3>
+                {SECTORS[0].ref && (
+                  <span className="text-xs text-white/25 bg-white/8 border border-white/10 rounded-full px-3 py-1 flex-shrink-0 mt-1">
+                    {SECTORS[0].ref}
+                  </span>
                 )}
               </div>
+              <div className="grid sm:grid-cols-2 gap-6 relative z-10 flex-1">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-2 text-white/35">El problema</p>
+                  <p className="text-sm leading-relaxed text-white/55">{SECTORS[0].problem}</p>
+                </div>
+                <div className="pt-6 sm:pt-0 sm:pl-6 sm:border-l border-white/10">
+                  <p className="text-xs font-bold uppercase tracking-widest mb-2 text-brand-green/70">Qué aportamos</p>
+                  <p className="text-sm font-semibold leading-relaxed text-white/85">{SECTORS[0].value}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 1, card 2 */}
+            <div className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col gap-5">
+              <h3 className="text-xl font-black tracking-tight text-brand-dark">{SECTORS[1].name}</h3>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-muted/60">El problema</p>
+                <p className="text-sm leading-relaxed text-muted">{SECTORS[1].problem}</p>
+              </div>
+              <div className="pt-5 border-t border-border mt-auto">
+                <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-brand-green/80">Qué aportamos</p>
+                <p className="text-sm font-semibold leading-relaxed text-brand-dark">{SECTORS[1].value}</p>
+              </div>
+            </div>
+
+            {/* Row 2 — 3 equal cards */}
+            {SECTORS.slice(2).map((sector) => (
+              <div key={sector.name} className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col gap-5">
+                <h3 className="text-xl font-black tracking-tight text-brand-dark">{sector.name}</h3>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-muted/60">El problema</p>
+                  <p className="text-sm leading-relaxed text-muted">{sector.problem}</p>
+                </div>
+                <div className="pt-5 border-t border-border mt-auto">
+                  <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-brand-green/80">Qué aportamos</p>
+                  <p className="text-sm font-semibold leading-relaxed text-brand-dark">{sector.value}</p>
+                  {sector.ref && (
+                    <p className="text-xs text-muted/50 mt-3">Ref: {sector.ref}</p>
+                  )}
+                </div>
+              </div>
             ))}
+
           </div>
         </div>
       </section>
