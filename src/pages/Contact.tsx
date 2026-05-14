@@ -73,8 +73,8 @@ export function Contact() {
       </section>
 
       {/* Main content: dark left + form right */}
-      <section className="bg-brand-light py-0 px-0">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <section className="relative z-10 -mt-10 rounded-t-[3rem] bg-brand-light py-0 px-0 shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
           <div className="bg-white rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.06)] border border-border overflow-hidden flex flex-col lg:flex-row">
 
             {/* Left dark panel */}

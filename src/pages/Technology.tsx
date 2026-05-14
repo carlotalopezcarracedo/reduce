@@ -95,7 +95,7 @@ export function Technology() {
       </section>
 
       {/* Statement */}
-      <section className="py-14 px-6 bg-white border-b border-border">
+      <section className="relative z-10 -mt-10 rounded-t-[3rem] pt-24 pb-14 px-6 bg-white shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
         <div className="max-w-3xl mx-auto">
           <div className="border-l-4 border-brand-green pl-8">
             <p className="text-2xl lg:text-3xl font-bold text-brand-dark leading-snug">
