@@ -21,8 +21,9 @@ export function LayersIndex() {
       {/* Hero */}
       <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-brand-green/6 rounded-full blur-[160px] pointer-events-none" />
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[32rem] font-black text-white/[0.022] select-none pointer-events-none leading-none tracking-tighter pr-8">5</div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-brand-green/5 rounded-full blur-[180px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/4 rounded-full blur-[200px] translate-x-1/4 -translate-y-1/4 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-green/4 rounded-full blur-[160px] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
         <div className="max-w-4xl mx-auto relative z-10 text-center w-full">
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             Metodología
