@@ -22,62 +22,65 @@ export function Home() {
         <meta property="og:url" content="https://reduce.es/" />
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[92vh] flex items-center pt-20 pb-16 bg-brand-dark overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=2000&auto=format&fit=crop&q=80" alt="" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-transparent to-brand-dark" />
-          <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-brand-green/12 rounded-full blur-[140px] pointer-events-none" />
-        </div>
+      <section className="relative min-h-[96vh] flex flex-col items-center justify-center pt-20 pb-24 bg-brand-dark overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[600px] bg-brand-green/20 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/15 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-green/12 rounded-full blur-[130px] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-[1fr_auto] gap-12 items-center">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 text-brand-green text-sm font-semibold mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
-              </span>
-              Estructura independiente · Operando desde 2012
-            </div>
-
-            <h1 className="text-5xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[0.95] mb-6">
-              Control, auditoría y gestión energética para{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-                operaciones multisede.
-              </span>
-            </h1>
-
-            <p className="text-white/60 text-xl leading-relaxed mb-10 max-w-lg font-medium">
-              No vendemos energía: la auditamos y la operamos. Damos de alta suministros en ocho territorios y analizamos a fondo cualquier producto energético.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                to="/contacto"
-                size="lg"
-                arrow
-                className="shadow-[0_0_30px_rgba(163,230,53,0.35)] hover:shadow-[0_0_50px_rgba(163,230,53,0.55)] hover:scale-105"
-              >
-                Solicitar reunión
-              </Button>
-              <Button to="/modelo" variant="outline-light" size="lg">
-                Conocer el modelo de las 5 capas
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-            </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center w-full flex flex-col items-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.05] text-brand-green text-sm font-semibold mb-10">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
+            </span>
+            Estructura independiente · Operando desde 2012
           </div>
 
-          {/* Floating stats panel */}
-          <div className="hidden xl:flex flex-col gap-3 w-56">
+          {/* Headline */}
+          <h1 className="text-[4rem] sm:text-[5.5rem] lg:text-[8rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+            Control, auditoría<br />y operativa energética{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+              para retail multisede.
+            </span>
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-white/50 text-xl lg:text-2xl leading-relaxed max-w-2xl font-medium mb-12">
+            No vendemos energía. La auditamos, la operamos y la hacemos trazable.{' '}
+            <span className="text-white/75">Desde 2012.</span>
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-20">
+            <Button
+              to="/contacto"
+              size="lg"
+              arrow
+              className="shadow-[0_0_40px_rgba(163,230,53,0.4)] hover:shadow-[0_0_60px_rgba(163,230,53,0.6)] hover:scale-105"
+            >
+              Analizar mi situación
+            </Button>
+            <Button to="/modelo" variant="outline-light" size="lg">
+              El modelo de las 5 capas
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </div>
+
+          {/* Stats strip */}
+          <div className="flex items-center justify-center gap-10 lg:gap-16 flex-wrap border-t border-white/[0.08] pt-10 w-full">
             {[
-              { num: '5', label: 'capas de gestión', sub: 'Modelo propio' },
-              { num: '8', label: 'territorios', sub: 'ES · PT · IT · AD' },
               { num: '+12', label: 'años operando', sub: 'Desde 2012' },
+              { num: '8', label: 'territorios', sub: 'ES · PT · IT · AD' },
+              { num: '5', label: 'capas de gestión', sub: 'Modelo propio' },
+              { num: '100%', label: 'independencia', sub: 'No vendemos energía' },
             ].map((s) => (
-              <div key={s.num} className="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl px-5 py-4">
-                <p className="text-3xl font-black text-brand-green tracking-tighter leading-none">{s.num}</p>
-                <p className="text-white font-bold text-xs mt-1.5">{s.label}</p>
-                <p className="text-white/35 text-xs">{s.sub}</p>
+              <div key={s.num} className="text-center">
+                <p className="text-3xl lg:text-4xl font-black text-brand-green tracking-tighter leading-none">{s.num}</p>
+                <p className="text-white/70 font-bold text-sm mt-1.5">{s.label}</p>
+                <p className="text-white/30 text-xs mt-0.5">{s.sub}</p>
               </div>
             ))}
           </div>
