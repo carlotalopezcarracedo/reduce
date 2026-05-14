@@ -126,14 +126,28 @@ export function Home() {
       </section>
 
       {/* ── POSICIONAMIENTO ───────────────────────────────────────────────── */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] pt-24 pb-14 px-6 bg-white shadow-[0_0_60px_rgba(0,0,0,0.25)]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-2xl lg:text-3xl font-bold text-brand-dark leading-snug">
-            Somos una capa técnica independiente entre la energía y la operación del cliente.
-          </p>
-          <p className="text-xl lg:text-2xl font-semibold text-muted leading-snug mt-3">
-            No vendemos energía: la controlamos, la auditamos y la hacemos trazable.
-          </p>
+      <section className="relative z-10 -mt-10 rounded-[3rem] pt-16 pb-16 px-8 lg:px-16 bg-white shadow-[0_0_60px_rgba(0,0,0,0.25)]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: statement */}
+          <div>
+            <p className="text-[1.7rem] lg:text-[2.2rem] font-black text-brand-dark leading-[1.1] tracking-tight">
+              Somos la capa técnica independiente entre la energía y la operación del cliente.
+            </p>
+            <div className="mt-6 h-1 w-12 bg-brand-green rounded-full" />
+          </div>
+          {/* Right: 3 puntos */}
+          <div className="space-y-4">
+            {[
+              'No vendemos energía: somos independientes de cualquier comercializadora.',
+              'Controlamos, auditamos y hacemos trazable la energía de estructuras multisede.',
+              'Infraestructura técnica propia para reproducir y validar cada factura.',
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <span className="text-brand-green font-black text-sm flex-shrink-0 mt-0.5 w-6">0{i + 1}</span>
+                <p className="text-muted text-sm leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
