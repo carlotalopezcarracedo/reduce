@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CTABand } from '../components/ui/CTABand';
+import { LogoReel } from '../components/ui/LogoReel';
 import { SECTORS, CLIENTS } from '../data/content';
 
 export function Sectors() {
@@ -141,16 +142,7 @@ export function Sectors() {
               Logos sujetos a autorización expresa de cada cliente.
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-3">
-            {CLIENTS.map((c) => (
-              <div key={c.name} className="glass-dark border border-white/10 rounded-2xl p-5 flex items-center justify-center hover:border-white/25 transition-colors">
-                <img src={c.logo} alt={c.name} className="h-9 w-auto object-contain opacity-40 grayscale brightness-200 hover:opacity-70 transition-opacity" />
-              </div>
-            ))}
-            <div className="glass-dark border border-dashed border-white/15 rounded-2xl p-5 flex items-center justify-center">
-              <p className="text-white/30 text-xs text-center font-medium">STL, Bico de Xeado y otros</p>
-            </div>
-          </div>
+          <LogoReel logos={CLIENTS} bgColor="#0c1a2e" />
         </div>
       </section>
 
