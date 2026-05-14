@@ -16,45 +16,23 @@ export function ProductsIndex() {
         <meta property="og:url" content="https://reduce.es/productos" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[72vh] flex items-center py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-green/8 rounded-full blur-[160px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10 w-full grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-6 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
-              Lo que hacemos
+      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-brand-green/6 rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[30rem] font-black text-white/[0.022] select-none pointer-events-none leading-none tracking-tighter pr-4">4</div>
+        <div className="max-w-4xl mx-auto relative z-10 text-center w-full">
+          <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
+            Lo que hacemos
+          </span>
+          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+            Cuatro formas{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+              de intervenir.
             </span>
-            <h1 className="text-5xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[0.95] mb-6">
-              Cuatro formas{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-                de intervenir.
-              </span>
-            </h1>
-            <p className="text-white/50 text-xl leading-relaxed max-w-lg font-medium">
-              Cada producto responde a un problema concreto. Sin promesas de ahorro sin base. Sin porcentajes inventados.
-            </p>
-          </div>
-
-          {/* Product preview grid */}
-          <div className="hidden lg:grid grid-cols-2 gap-3">
-            {PRODUCTS.map((p, i) => (
-              <div key={p.slug} className={`rounded-2xl p-6 border flex flex-col gap-3 ${
-                i === 0
-                  ? 'border-brand-green/30 bg-brand-green/8 shadow-[0_0_40px_rgba(163,230,53,0.07)]'
-                  : 'border-white/[0.06] bg-white/[0.025]'
-              }`}>
-                <span className={`text-4xl font-black tracking-tighter leading-none ${i === 0 ? 'text-brand-green' : 'text-white/12'}`}>
-                  0{i + 1}
-                </span>
-                <p className={`font-bold text-sm leading-snug ${i === 0 ? 'text-white' : 'text-white/35'}`}>
-                  {p.name}
-                </p>
-                {p.star && (
-                  <span className="self-start text-[10px] bg-brand-green text-brand-dark font-black px-2 py-0.5 rounded-full tracking-wide">DESTACADO</span>
-                )}
-              </div>
-            ))}
-          </div>
+          </h1>
+          <p className="text-white/45 text-xl leading-relaxed max-w-2xl mx-auto font-medium">
+            Cada producto responde a un problema concreto. Sin promesas de ahorro sin base. Sin porcentajes inventados.
+          </p>
         </div>
       </section>
 

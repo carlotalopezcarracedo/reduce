@@ -16,51 +16,30 @@ export function Sectors() {
         <meta property="og:url" content="https://reduce.es/sectores" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[72vh] flex items-center py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
-        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-brand-green/8 rounded-full blur-[160px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10 w-full grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-6 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
-              A quién servimos
+      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-brand-green/6 rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[28rem] font-black text-white/[0.022] select-none pointer-events-none leading-none tracking-tighter pr-4">8</div>
+        <div className="max-w-4xl mx-auto relative z-10 text-center w-full">
+          <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
+            A quién servimos
+          </span>
+          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+            Sectores con<br />operaciones{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
+              multisede.
             </span>
-            <h1 className="text-5xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[0.95] mb-6">
-              Sectores con<br />operaciones{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-                multisede.
-              </span>
-            </h1>
-            <p className="text-white/50 text-xl leading-relaxed max-w-lg font-medium">
-              No trabajamos con todo tipo de cliente. Solo con empresas que tienen decenas o cientos de suministros y necesidad real de control energético.
-            </p>
-          </div>
-
-          {/* Stats grid */}
-          <div className="hidden lg:grid grid-cols-2 gap-3">
-            <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-6 flex flex-col justify-between">
-              <p className="text-7xl font-black text-white tracking-tighter leading-none">+12</p>
-              <div className="mt-4">
-                <p className="text-brand-green font-bold text-sm">años operando</p>
-                <p className="text-white/30 text-xs mt-0.5">Activos desde 2012</p>
+          </h1>
+          <p className="text-white/45 text-xl leading-relaxed max-w-2xl mx-auto font-medium mb-10">
+            No trabajamos con todo tipo de cliente. Solo con empresas que tienen decenas o cientos de suministros y necesidad real de control energético.
+          </p>
+          <div className="flex items-center justify-center gap-8 flex-wrap">
+            {[{ num: '+12', label: 'años operando' }, { num: '8', label: 'territorios' }, { num: '5', label: 'sectores activos' }].map((s) => (
+              <div key={s.num} className="text-center">
+                <p className="text-3xl font-black text-brand-green tracking-tighter">{s.num}</p>
+                <p className="text-white/35 text-xs font-medium mt-0.5">{s.label}</p>
               </div>
-            </div>
-            <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-6 flex flex-col justify-between">
-              <p className="text-7xl font-black text-white tracking-tighter leading-none">8</p>
-              <div className="mt-4">
-                <p className="text-brand-green font-bold text-sm">territorios</p>
-                <p className="text-white/30 text-xs mt-0.5">ES · PT · IT · AD</p>
-              </div>
-            </div>
-            <div className="col-span-2 bg-brand-green/8 border border-brand-green/20 rounded-2xl p-5">
-              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">Sectores activos</p>
-              <div className="flex flex-wrap gap-2">
-                {SECTORS.map((s) => (
-                  <span key={s.name} className="text-xs bg-white/[0.05] border border-white/[0.08] text-white/55 px-3 py-1.5 rounded-full font-medium">
-                    {s.name}
-                  </span>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
