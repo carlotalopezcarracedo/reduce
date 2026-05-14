@@ -53,7 +53,16 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
   }, [logos]);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden select-none" style={{ height: REEL_H }}>
+    <div
+      ref={containerRef}
+      className="relative select-none"
+      style={{
+        height: REEL_H,
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)',
+        overflow: 'hidden',
+      }}
+    >
       {logos.map((logo) => (
         <div
           key={logo.name}
@@ -74,13 +83,6 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
           />
         </div>
       ))}
-
-      <div
-        className="absolute inset-0 pointer-events-none z-20"
-        style={{
-          background: `linear-gradient(to bottom, ${bgColor} 0%, transparent 30%, transparent 70%, ${bgColor} 100%)`,
-        }}
-      />
     </div>
   );
 }
