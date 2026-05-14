@@ -22,16 +22,16 @@ export function Home() {
         <meta property="og:url" content="https://reduce.es/" />
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
+      <section className="relative min-h-[78vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
-        <div className="absolute top-0 right-0 w-[900px] h-[900px] bg-brand-green/15 rounded-full blur-[160px] translate-x-1/2 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[500px] bg-brand-green/10 rounded-full blur-[140px] -translate-x-1/4 translate-y-1/3 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 70% 80% at 75% 50%, rgba(163,230,53,0.13) 0%, transparent 65%)'}} />
+        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 50% 60% at 10% 80%, rgba(163,230,53,0.08) 0%, transparent 60%)'}} />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <div className="max-w-[740px]">
+        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1fr_340px] gap-12 xl:gap-20 items-center">
 
-            {/* Badge */}
+          {/* ── Left ── */}
+          <div>
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-green/25 bg-brand-green/[0.07] text-brand-green text-xs font-bold tracking-wide mb-8">
               <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
@@ -40,52 +40,88 @@ export function Home() {
               Estructura independiente · Operando desde 2012
             </div>
 
-            {/* Headline */}
-            <h1 className="text-[2.8rem] sm:text-[4rem] lg:text-[5.2rem] font-black text-white tracking-tighter leading-[0.92] mb-6">
-              Control, auditoría<br />y operativa energética{' '}
+            <h1 className="text-[2.6rem] sm:text-[3.6rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.9] mb-6">
+              La energía multisede,{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-                para retail multisede.
+                bajo control total.
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-white/50 text-lg leading-relaxed max-w-lg font-medium mb-10">
-              No vendemos energía. La auditamos, la operamos y la hacemos trazable. Desde 2012.
+            <p className="text-white/50 text-lg leading-relaxed max-w-md font-medium mb-10">
+              Auditamos, operamos y hacemos trazable la energía de empresas retail con decenas o cientos de suministros. Sin vender ni un kWh.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-14">
-              <Button
-                to="/contacto"
-                size="lg"
-                arrow
-                className="shadow-[0_0_35px_rgba(163,230,53,0.35)] hover:shadow-[0_0_55px_rgba(163,230,53,0.55)] hover:scale-[1.02]"
-              >
+            <div className="flex flex-wrap gap-3 mb-12">
+              <Button to="/contacto" size="lg" arrow className="shadow-[0_0_35px_rgba(163,230,53,0.35)] hover:shadow-[0_0_55px_rgba(163,230,53,0.55)] hover:scale-[1.02]">
                 Analizar mi situación
               </Button>
               <Button to="/modelo" variant="outline-light" size="lg">
-                El modelo de las 5 capas
-                <ChevronRight className="w-4 h-4" />
+                El modelo de las 5 capas <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
 
-            {/* Stats row */}
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-8 border-t border-white/[0.07]">
+            <div className="flex flex-wrap gap-x-7 gap-y-2 items-center pt-7 border-t border-white/[0.07]">
               {[
-                { num: '+12', label: 'años operando' },
+                { num: '+12', label: 'años' },
                 { num: '8', label: 'territorios' },
                 { num: '5', label: 'capas de gestión' },
-                { num: '100%', label: 'independencia comercial' },
-              ].map((s, i) => (
-                <div key={s.num} className="flex items-baseline gap-2">
-                  {i > 0 && <span className="text-white/10 mr-0 hidden sm:inline">·</span>}
-                  <span className="text-brand-green font-black text-2xl tracking-tighter">{s.num}</span>
-                  <span className="text-white/35 text-sm font-medium">{s.label}</span>
+                { num: '100%', label: 'independencia' },
+              ].map((s) => (
+                <div key={s.num} className="flex items-baseline gap-1.5">
+                  <span className="text-brand-green font-black text-xl tracking-tighter">{s.num}</span>
+                  <span className="text-white/30 text-sm">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Right: dashboard mockup ── */}
+          <div className="hidden lg:flex flex-col rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5),0_0_40px_rgba(163,230,53,0.06)]" style={{background: 'rgba(255,255,255,0.04)'}}>
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.07]" style={{background: 'rgba(255,255,255,0.02)'}}>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-brand-green shadow-[0_0_8px_rgba(163,230,53,0.9)]" />
+                <span className="text-white/40 text-[11px] font-bold tracking-widest uppercase">Auditoría activa</span>
+              </div>
+              <span className="text-white/15 text-xs font-semibold">REDUCE</span>
+            </div>
+
+            {/* Main metric */}
+            <div className="px-6 pt-5 pb-4 border-b border-white/[0.07]">
+              <p className="text-white/25 text-[10px] uppercase tracking-widest mb-2">Suministros bajo control</p>
+              <div className="flex items-end gap-2 mb-1">
+                <span className="text-[2.8rem] font-black text-white tracking-tighter leading-none">247</span>
+                <span className="text-brand-green font-bold text-sm mb-1.5">CUPS</span>
+              </div>
+              <p className="text-white/20 text-xs">ES · PT · IT · AD</p>
+            </div>
+
+            {/* Audit checks */}
+            <div className="px-6 py-4 space-y-0 flex-1">
+              {[
+                { label: 'Contratos indexados', ok: true },
+                { label: 'Control de facturación', ok: true },
+                { label: 'Perfilado y REE', ok: false },
+                { label: 'Energía reactiva', ok: true },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center justify-between py-3 border-b border-white/[0.05] last:border-0">
+                  <div className="flex items-center gap-2.5">
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.ok ? 'bg-brand-green' : 'bg-amber-400'}`} />
+                    <span className="text-white/55 text-sm">{item.label}</span>
+                  </div>
+                  <span className={`text-xs font-black ${item.ok ? 'text-brand-green' : 'text-amber-400'}`}>
+                    {item.ok ? '✓' : '⚠'}
+                  </span>
                 </div>
               ))}
             </div>
 
+            {/* Footer */}
+            <div className="px-6 py-3.5 border-t border-brand-green/20" style={{background: 'rgba(163,230,53,0.06)'}}>
+              <p className="text-brand-green/80 text-xs font-bold">Próxima revisión en 7 días</p>
+            </div>
           </div>
+
         </div>
       </section>
 
