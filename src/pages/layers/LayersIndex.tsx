@@ -61,22 +61,36 @@ export function LayersIndex() {
               <div
                 key={layer.id}
                 onClick={() => setActiveId(layer.id)}
-                className={`cursor-pointer rounded-[1.75rem] overflow-hidden transition-all duration-300 ${
+                className={`cursor-pointer rounded-[1.75rem] overflow-hidden transition-all duration-300 relative ${
                   isActive
-                    ? 'bg-brand-dark shadow-[0_20px_60px_rgba(12,26,46,0.3)]'
+                    ? 'bg-brand-dark shadow-[0_24px_80px_rgba(12,26,46,0.4)]'
                     : 'bg-white border border-border hover:border-brand-dark/30 hover:shadow-md'
                 }`}
               >
-                {/* Header row — always visible */}
+                {/* Active: green accent line on top */}
+                {isActive && (
+                  <div className="h-[3px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent" />
+                )}
+
+                {/* Active: large decorative background letter */}
+                {isActive && (
+                  <div className="absolute right-8 bottom-0 text-[14rem] font-black text-white/[0.04] select-none pointer-events-none leading-none tracking-tighter translate-y-4">
+                    {layer.id}
+                  </div>
+                )}
+
+                {/* Header row */}
                 <div className="flex items-center gap-5 px-8 py-6">
-                  <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl transition-all duration-300 ${
-                    isActive ? 'bg-brand-green text-brand-dark' : 'bg-brand-light border border-border text-brand-dark'
+                  <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center font-black text-2xl transition-all duration-300 ${
+                    isActive
+                      ? 'bg-brand-green text-brand-dark shadow-[0_0_24px_rgba(163,230,53,0.45)]'
+                      : 'bg-brand-light border border-border text-brand-dark'
                   }`}>
                     {layer.id}
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5">
+                    <div className="flex items-center gap-2 mb-1">
                       <span className={`text-xs font-bold uppercase tracking-widest ${isActive ? 'text-white/30' : 'text-muted'}`}>
                         Capa {layer.id}
                       </span>
@@ -119,34 +133,42 @@ export function LayersIndex() {
 
                 {/* Expanded content */}
                 {isActive && (
-                  <div className="px-8 pb-8 border-t border-white/8">
-                    <div className="grid md:grid-cols-2 gap-8 pt-6">
-                      <div className="space-y-4">
-                        <p className="text-brand-green font-semibold italic text-lg leading-snug">
-                          "{layer.tagline}"
-                        </p>
+                  <div className="px-8 pb-10 border-t border-white/[0.07] relative z-10">
+                    <div className="grid md:grid-cols-[1fr_1.1fr] gap-10 pt-8">
+
+                      {/* Left: tagline + description + CTA */}
+                      <div className="space-y-5">
+                        <div className="border-l-[3px] border-brand-green pl-5">
+                          <p className="text-brand-green font-bold italic text-xl leading-snug">
+                            "{layer.tagline}"
+                          </p>
+                        </div>
                         <p className="text-white/50 text-sm leading-relaxed">{layer.intro}</p>
                         {layer.honestNote && (
                           <p className="text-white/25 text-xs italic border-l-2 border-white/10 pl-3">{layer.honestNote}</p>
                         )}
-                      </div>
-                      <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-white/25">Áreas de trabajo</p>
-                        <div className="flex flex-wrap gap-2">
-                          {layer.topics.map((t) => (
-                            <span key={t} className="text-xs bg-white/8 border border-white/12 text-white/60 px-3 py-1.5 rounded-full">
-                              {t}
-                            </span>
-                          ))}
-                        </div>
                         <Link
                           to={`/modelo/${layer.slug}`}
                           onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:gap-3 transition-all mt-2"
+                          className="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:gap-3 transition-all"
                         >
                           Ver capa completa <ArrowRight className="w-4 h-4" />
                         </Link>
                       </div>
+
+                      {/* Right: topics as mini-cards grid */}
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-white/25 mb-4">Áreas de trabajo</p>
+                        <div className="grid grid-cols-2 gap-2">
+                          {layer.topics.map((t) => (
+                            <div key={t} className="flex items-start gap-2.5 bg-white/[0.06] border border-white/[0.08] rounded-xl px-3.5 py-3">
+                              <span className="w-1.5 h-1.5 rounded-full bg-brand-green flex-shrink-0 mt-1" />
+                              <span className="text-white/65 text-xs font-medium leading-snug">{t}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 )}
