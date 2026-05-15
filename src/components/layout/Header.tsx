@@ -7,6 +7,7 @@ const NAV = [
   { label: 'Productos', to: '/productos' },
   { label: 'Tecnología', to: '/tecnologia' },
   { label: 'Sectores', to: '/sectores' },
+  { label: 'Casos reales', to: '/casos/apertura-multisede' },
   { label: 'Contacto', to: '/contacto' },
 ];
 
