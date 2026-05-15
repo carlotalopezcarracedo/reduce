@@ -9,6 +9,7 @@ import { ProductTemplate } from './pages/products/ProductTemplate';
 import { Technology } from './pages/Technology';
 import { Sectors } from './pages/Sectors';
 import { Contact } from './pages/Contact';
+import { CaseAperturaMultisede } from './pages/cases/CaseAperturaMultisede';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'tecnologia', element: <Technology /> },
       { path: 'sectores', element: <Sectors /> },
       { path: 'contacto', element: <Contact /> },
+      { path: 'casos/apertura-multisede', element: <CaseAperturaMultisede /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
