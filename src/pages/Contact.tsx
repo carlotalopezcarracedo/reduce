@@ -1,6 +1,7 @@
 import { CheckCircle2, Mail, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { FormField, SelectField, TextareaField } from '../components/ui/FormField';
 import { CONTACT_INFO } from '../data/content';
@@ -186,7 +187,7 @@ export function Contact() {
                     </Button>
                     <p className="text-xs text-center text-muted mt-3">
                       Datos tratados conforme a nuestra{' '}
-                      <a href="#" className="underline hover:text-brand-dark">política de privacidad</a>.
+                      <Link to="/privacidad" className="underline hover:text-brand-dark">política de privacidad</Link>.
                     </p>
                   </div>
                 </form>

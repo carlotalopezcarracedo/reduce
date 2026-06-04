@@ -1,6 +1,7 @@
 import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/Button';
 import { FormField, SelectField, TextareaField } from '../../components/ui/FormField';
 import { FileUpload } from '../../components/ui/FileUpload';
@@ -47,7 +48,6 @@ export function ProductDestripa() {
             <p className="text-brand-green text-xl font-semibold italic mb-6">"{product.tagline}"</p>
             <p className="text-white/55 text-lg leading-relaxed font-medium">{product.description}</p>
             <Button
-              to="#formulario"
               href="#formulario"
               size="lg"
               arrow
@@ -188,7 +188,7 @@ export function ProductDestripa() {
                 </Button>
                 <p className="text-xs text-center text-white/30">
                   Datos tratados conforme a nuestra{' '}
-                  <a href="#" className="underline hover:text-white/60">política de privacidad</a>.
+                  <Link to="/privacidad" className="underline hover:text-white/60">política de privacidad</Link>.
                 </p>
               </form>
             )}
