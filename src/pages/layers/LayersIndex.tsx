@@ -19,7 +19,7 @@ export function LayersIndex() {
         <meta property="og:url" content="https://reduce.es/modelo" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
@@ -28,7 +28,7 @@ export function LayersIndex() {
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             Metodología
           </span>
-          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-6 lg:mb-8">
             El modelo<br />de las{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
               5 capas.
@@ -41,7 +41,7 @@ export function LayersIndex() {
       </section>
 
       {/* Statement */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] pt-24 pb-14 px-6 bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)]">
+      <section className="relative z-10 -mt-10 rounded-[3rem] py-12 px-6 bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)]">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-2xl lg:text-3xl font-bold text-brand-dark leading-snug">
             La energía no se gestiona solo comprando mejor. Se controla, se audita, se opera y se hace trazable.
@@ -53,7 +53,7 @@ export function LayersIndex() {
       </section>
 
       {/* Layer accordion */}
-      <section className="relative z-0 -mt-12 pt-36 pb-24 px-6 bg-brand-light">
+      <section className="relative z-0 -mt-12 pt-28 lg:pt-36 pb-16 lg:pb-24 px-6 bg-brand-light">
         <div className="max-w-4xl mx-auto space-y-2">
           {LAYERS.map((layer) => {
             const isActive = layer.id === activeId;
@@ -133,8 +133,8 @@ export function LayersIndex() {
 
                 {/* Expanded content */}
                 {isActive && (
-                  <div className="px-8 pb-10 border-t border-white/[0.07] relative z-10">
-                    <div className="grid md:grid-cols-[1fr_1.1fr] gap-10 pt-8">
+                  <div className="px-5 sm:px-8 pb-8 sm:pb-10 border-t border-white/[0.07] relative z-10">
+                    <div className="grid md:grid-cols-[1fr_1.1fr] gap-8 md:gap-10 pt-6 sm:pt-8">
 
                       {/* Left: tagline + description + CTA */}
                       <div className="space-y-5">

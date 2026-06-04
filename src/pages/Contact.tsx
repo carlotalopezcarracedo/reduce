@@ -34,7 +34,7 @@ export function Contact() {
         <meta property="og:url" content="https://reduce.es/contacto" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
@@ -43,7 +43,7 @@ export function Contact() {
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             Contacto
           </span>
-          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-6 lg:mb-8">
             Hablemos de tu{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
               situación.
@@ -57,11 +57,11 @@ export function Contact() {
 
       {/* Main content: dark left + form right */}
       <section className="relative z-10 -mt-10 rounded-t-[3rem] bg-brand-light py-0 px-0 shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
-        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
-          <div className="bg-white rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.06)] border border-border overflow-hidden flex flex-col lg:flex-row">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-12 sm:pb-16">
+          <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.06)] border border-border overflow-hidden flex flex-col lg:flex-row">
 
             {/* Left dark panel */}
-            <div className="lg:w-5/12 bg-brand-dark text-white p-12 lg:p-14 relative overflow-hidden flex flex-col justify-between">
+            <div className="lg:w-5/12 bg-brand-dark text-white p-8 sm:p-12 lg:p-14 relative overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-green/15 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-green/5 rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
@@ -133,7 +133,7 @@ export function Contact() {
             </div>
 
             {/* Right form */}
-            <div className="lg:w-7/12 p-12 lg:p-14 bg-white">
+            <div className="lg:w-7/12 p-8 sm:p-12 lg:p-14 bg-white">
               <h3 className="text-2xl font-black text-brand-dark tracking-tight mb-2">
                 Formulario de solicitud
               </h3>

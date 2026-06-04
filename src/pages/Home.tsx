@@ -381,10 +381,10 @@ export function Home() {
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/8 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+          <div className="flex flex-col lg:flex-row justify-between items-end mb-10 lg:mb-16 gap-6 lg:gap-8">
             <div>
               <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Pilar 2 · Operativa multipaís</span>
-              <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tighter leading-[1.05]">
+              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white tracking-tighter leading-[1.05]">
                 Ocho territorios.{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
                   Una sola interlocución.

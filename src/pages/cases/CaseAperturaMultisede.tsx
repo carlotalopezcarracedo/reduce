@@ -133,14 +133,14 @@ export function CaseAperturaMultisede() {
       </Helmet>
 
       {/* ── HERO ── */}
-      <section className="bg-brand-dark min-h-[65vh] flex items-center py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <div style={{width: 900, height: 900, borderRadius: '50%', background: 'conic-gradient(from 0deg, transparent 0deg, rgba(163,230,53,0.15) 60deg, transparent 120deg, transparent 220deg, rgba(163,230,53,0.07) 280deg, transparent 340deg)', filter: 'blur(80px)', animation: 'orb-rotate 20s linear infinite'}} />
-        </div>
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-green/12 rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto relative z-10 w-full">
-          <div className="flex flex-wrap items-center gap-3 mb-8">
+        <div className="max-w-4xl mx-auto relative z-10 text-center w-full">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-green/30 bg-brand-green/8 text-brand-green text-xs font-black tracking-widest uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
               Caso Real
@@ -161,7 +161,7 @@ export function CaseAperturaMultisede() {
             {' '}multisede en campaña crítica.
           </h1>
 
-          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl">
+          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
               { label: 'Cliente', value: 'Gran cadena retail nacional' },
               { label: 'Ubicación', value: 'Flagship store · Madrid' },
@@ -177,7 +177,7 @@ export function CaseAperturaMultisede() {
       </section>
 
       {/* ── RIESGO ── */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)] px-8 lg:px-16 pt-16 pb-16">
+      <section className="relative z-10 -mt-10 rounded-[3rem] bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)] px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
           <div>
             <span className="text-brand-green font-bold tracking-widest uppercase text-xs mb-4 block">El contexto</span>
@@ -206,7 +206,7 @@ export function CaseAperturaMultisede() {
       </section>
 
       {/* ── TIMELINE ── */}
-      <section className="relative z-0 -mt-12 pt-36 pb-24 px-6 bg-brand-light">
+      <section className="relative z-0 -mt-12 pt-28 lg:pt-36 pb-16 lg:pb-24 px-6 bg-brand-light">
         <div className="max-w-4xl mx-auto">
           <div className="mb-14">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Cronología de la intervención</span>
@@ -263,7 +263,7 @@ export function CaseAperturaMultisede() {
       </section>
 
       {/* ── ACTORES ── */}
-      <section className="py-24 px-6 bg-brand-dark relative overflow-hidden">
+      <section className="py-16 lg:py-24 px-6 bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(163,230,53,0.06) 0%, transparent 70%)'}} />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-2xl mb-14">
@@ -305,7 +305,7 @@ export function CaseAperturaMultisede() {
       </section>
 
       {/* ── CAPAS DE INTERVENCIÓN ── */}
-      <section className="py-24 px-6 bg-white border-y border-border">
+      <section className="py-16 lg:py-24 px-6 bg-white border-y border-border">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-12">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Capas de intervención</span>
@@ -328,7 +328,7 @@ export function CaseAperturaMultisede() {
       </section>
 
       {/* ── RESULTADOS ── */}
-      <section className="py-28 px-6 bg-brand-dark relative overflow-hidden">
+      <section className="py-16 lg:py-28 px-6 bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(163,230,53,0.08) 0%, transparent 65%)'}} />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">

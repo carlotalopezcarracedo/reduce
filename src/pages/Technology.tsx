@@ -50,7 +50,7 @@ export function Technology() {
         <meta property="og:url" content="https://reduce.es/tecnologia" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
@@ -59,7 +59,7 @@ export function Technology() {
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             Infraestructura técnica
           </span>
-          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-6 lg:mb-8">
             Tecnología y{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
               trazabilidad.
@@ -86,9 +86,9 @@ export function Technology() {
       </section>
 
       {/* Pillars */}
-      <section className="relative z-0 -mt-12 pt-36 pb-24 px-6 bg-brand-light">
+      <section className="relative z-0 -mt-12 pt-28 lg:pt-36 pb-16 lg:pb-24 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mb-14">
+          <div className="max-w-2xl mb-10 lg:mb-14">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Pilares técnicos</span>
             <h2 className="text-3xl lg:text-4xl font-black text-brand-dark tracking-tighter">
               Infraestructura construida para el control energético multisede.
@@ -98,7 +98,7 @@ export function Technology() {
             {PILLARS.map(({ icon: Icon, title, body }, i) => (
               <div
                 key={title}
-                className={`rounded-[2rem] p-10 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${
+                className={`rounded-[2rem] p-6 sm:p-10 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${
                   i === 0
                     ? 'bg-brand-dark hover:shadow-2xl'
                     : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
@@ -123,7 +123,7 @@ export function Technology() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-24 px-6 bg-white border-y border-border">
+      <section className="py-16 lg:py-24 px-6 bg-white border-y border-border">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-12">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Capacidades</span>
@@ -150,7 +150,7 @@ export function Technology() {
       </section>
 
       {/* Positioning */}
-      <section className="py-28 px-6 bg-brand-dark relative overflow-hidden">
+      <section className="py-16 lg:py-28 px-6 bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(163,230,53,0.06)_0%,transparent_70%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tighter mb-6 leading-tight">

@@ -17,7 +17,7 @@ export function Sectors() {
         <meta property="og:url" content="https://reduce.es/sectores" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
@@ -26,7 +26,7 @@ export function Sectors() {
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             A quién servimos
           </span>
-          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-6 lg:mb-8">
             Sectores con<br />operaciones{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
               multisede.
@@ -47,7 +47,7 @@ export function Sectors() {
       </section>
 
       {/* Statement */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] pt-24 pb-14 px-6 bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)]">
+      <section className="relative z-10 -mt-10 rounded-[3rem] py-12 px-6 bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)]">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-2xl lg:text-3xl font-bold text-brand-dark leading-snug">
             El problema no es el precio de la energía. Es controlar, auditar y operar cientos de suministros sin perder el hilo.
@@ -56,7 +56,7 @@ export function Sectors() {
       </section>
 
       {/* Sectors grid */}
-      <section className="relative z-0 -mt-12 pt-36 pb-24 px-6 bg-brand-light">
+      <section className="relative z-0 -mt-12 pt-28 lg:pt-36 pb-16 lg:pb-24 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-14">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Sectores</span>
@@ -68,7 +68,7 @@ export function Sectors() {
           <div className="grid lg:grid-cols-3 gap-5">
 
             {/* Featured — col-span-2, split interior */}
-            <div className="lg:col-span-2 rounded-[2rem] p-10 bg-brand-dark relative overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] flex flex-col gap-6">
+            <div className="lg:col-span-2 rounded-[2rem] p-6 sm:p-10 bg-brand-dark relative overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] flex flex-col gap-6">
               <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-brand-green/12 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-brand-green/6 rounded-full blur-[60px] pointer-events-none" />
               <div className="flex items-start justify-between gap-4 relative z-10">
@@ -127,7 +127,7 @@ export function Sectors() {
       </section>
 
       {/* Clients */}
-      <section className="py-24 px-6 bg-brand-dark relative overflow-hidden">
+      <section className="py-16 lg:py-24 px-6 bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(163,230,53,0.07)_0%,transparent_60%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -147,7 +147,7 @@ export function Sectors() {
       </section>
 
       {/* Fit check */}
-      <section className="py-24 px-6 bg-brand-light">
+      <section className="py-16 lg:py-24 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-12">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">¿Encajamos?</span>

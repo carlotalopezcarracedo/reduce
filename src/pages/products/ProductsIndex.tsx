@@ -16,7 +16,7 @@ export function ProductsIndex() {
         <meta property="og:url" content="https://reduce.es/productos" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[62vh] flex items-center py-24 px-6 relative overflow-hidden">
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
@@ -25,7 +25,7 @@ export function ProductsIndex() {
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             Lo que hacemos
           </span>
-          <h1 className="text-6xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.88] mb-6 lg:mb-8">
             Cuatro formas{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
               de intervenir.
@@ -38,13 +38,13 @@ export function ProductsIndex() {
       </section>
 
       {/* Products */}
-      <section className="relative z-10 -mt-10 rounded-t-[3rem] pt-[8.5rem] pb-24 px-6 bg-brand-light shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
+      <section className="relative z-10 -mt-10 rounded-t-[3rem] pt-28 lg:pt-[8.5rem] pb-16 lg:pb-24 px-6 bg-brand-light shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-5">
           {PRODUCTS.map((p, i) => (
             <Link
               key={p.slug}
               to={`/productos/${p.slug}`}
-              className={`group rounded-[2rem] p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
+              className={`group rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
                 p.star
                   ? 'bg-brand-dark shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)]'
                   : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
