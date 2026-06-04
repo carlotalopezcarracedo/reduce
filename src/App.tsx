@@ -10,6 +10,10 @@ import { Technology } from './pages/Technology';
 import { Sectors } from './pages/Sectors';
 import { Contact } from './pages/Contact';
 import { CaseAperturaMultisede } from './pages/cases/CaseAperturaMultisede';
+import { AvisoLegal } from './pages/legal/AvisoLegal';
+import { PoliticaPrivacidad } from './pages/legal/PoliticaPrivacidad';
+import { PoliticaCookies } from './pages/legal/PoliticaCookies';
+import { Accesibilidad } from './pages/legal/Accesibilidad';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 
@@ -28,6 +32,10 @@ const router = createBrowserRouter([
       { path: 'sectores', element: <Sectors /> },
       { path: 'contacto', element: <Contact /> },
       { path: 'casos/apertura-multisede', element: <CaseAperturaMultisede /> },
+      { path: 'aviso-legal', element: <AvisoLegal /> },
+      { path: 'privacidad', element: <PoliticaPrivacidad /> },
+      { path: 'cookies', element: <PoliticaCookies /> },
+      { path: 'accesibilidad', element: <Accesibilidad /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },

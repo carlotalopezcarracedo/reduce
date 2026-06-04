@@ -166,7 +166,7 @@ export function Home() {
       </section>
 
       {/* ── POSICIONAMIENTO ───────────────────────────────────────────────── */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] pt-16 pb-16 px-8 lg:px-16 bg-white shadow-[0_0_60px_rgba(0,0,0,0.25)]">
+      <section className="relative z-10 -mt-10 rounded-[3rem] py-10 sm:py-14 px-6 sm:px-8 lg:px-16 bg-white shadow-[0_0_60px_rgba(0,0,0,0.25)]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: statement */}
           <div>
@@ -192,11 +192,11 @@ export function Home() {
       </section>
 
       {/* ── MODELO 5 CAPAS ────────────────────────────────────────────────── */}
-      <section className="py-32 px-6 bg-brand-dark">
+      <section className="py-16 lg:py-32 px-6 bg-brand-dark">
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
-          <div className="flex flex-col md:flex-row gap-10 items-end mb-14">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-end mb-10 lg:mb-14">
             <div className="flex-1">
               <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Modelo de trabajo</span>
               <h2 className="text-4xl lg:text-6xl font-black tracking-tighter text-white leading-[1.05]">
@@ -259,11 +259,11 @@ export function Home() {
             {/* Right: detail card */}
             <div
               key={activeId}
-              className="lg:col-span-3 bg-white rounded-[2rem] p-12 relative overflow-hidden flex flex-col"
-              style={{ animation: 'layer-fadein 0.35s ease-out', minHeight: 480 }}
+              className="lg:col-span-3 bg-white rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col"
+              style={{ animation: 'layer-fadein 0.35s ease-out', minHeight: 400 }}
             >
               {/* Giant decorative letter */}
-              <span className="absolute -right-4 -bottom-8 text-[260px] font-black text-slate-100 leading-none select-none pointer-events-none">
+              <span className="absolute -right-4 -bottom-8 text-[120px] sm:text-[180px] lg:text-[260px] font-black text-slate-100 leading-none select-none pointer-events-none">
                 {active.id}
               </span>
 
@@ -314,9 +314,9 @@ export function Home() {
       </section>
 
       {/* ── PRODUCTOS ─────────────────────────────────────────────────────── */}
-      <section className="py-32 px-6 bg-brand-light relative overflow-hidden">
+      <section className="py-16 lg:py-32 px-6 bg-brand-light relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 lg:mb-16">
             <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Productos</span>
             <h2 className="text-4xl lg:text-5xl font-black text-brand-dark tracking-tighter mb-4">
               Cuatro formas de intervenir.
@@ -331,7 +331,7 @@ export function Home() {
               <Link
                 key={p.slug}
                 to={`/productos/${p.slug}`}
-                className={`group rounded-[2rem] p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
+                className={`group rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
                   p.star
                     ? 'bg-brand-green shadow-[0_20px_60px_rgba(163,230,53,0.25)] hover:shadow-[0_30px_80px_rgba(163,230,53,0.4)]'
                     : 'bg-white border border-border shadow-sm hover:shadow-xl hover:border-brand-dark/15'
@@ -377,7 +377,7 @@ export function Home() {
       </section>
 
       {/* ── RETAIL MULTIPAÍS ──────────────────────────────────────────────── */}
-      <section className="py-32 px-6 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+      <section className="py-16 lg:py-32 px-6 bg-brand-dark border-t border-white/5 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/8 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -397,22 +397,33 @@ export function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-            {TERRITORIES.map((t, i) => (
-              <div
-                key={t}
-                className={`rounded-[2rem] px-6 py-5 flex flex-col justify-between h-[110px] hover:-translate-y-1 transition-all duration-300 border ${
-                  (i + Math.floor(i / 4)) % 2 === 0
-                    ? 'bg-brand-green border-brand-green text-brand-dark shadow-[0_10px_30px_rgba(163,230,53,0.2)]'
-                    : 'glass-dark border-white/10 text-white hover:border-white/25'
-                }`}
-              >
-                <span className={`w-1.5 h-1.5 rounded-full ${(i + Math.floor(i / 4)) % 2 === 0 ? 'bg-brand-dark/40' : 'bg-brand-green'}`} />
-                <p className="font-bold text-sm leading-snug">{t}</p>
-              </div>
-            ))}
+            {TERRITORIES.map((t, i) => {
+              // Mobile (2-col): alternate per row → green if (floor(i/2)+i) % 2 === 0 → {0,3,4,7}
+              // Desktop (4-col): checkerboard   → green if (floor(i/4)+i) % 2 === 0 → {0,2,5,7}
+              const mg = (Math.floor(i / 2) + i) % 2 === 0;
+              const dg = (Math.floor(i / 4) + i) % 2 === 0;
+              const greenCls = 'bg-brand-green border-brand-green text-brand-dark shadow-[0_10px_30px_rgba(163,230,53,0.2)]';
+              const darkCls  = 'bg-white/[0.04] backdrop-blur-md border-white/10 text-white hover:border-white/25';
+              const cardCls  = mg === dg
+                ? (mg ? greenCls : darkCls)
+                : mg
+                  ? `${greenCls} md:bg-white/[0.04] md:backdrop-blur-md md:border-white/10 md:text-white md:shadow-none`
+                  : `${darkCls} md:bg-brand-green md:border-brand-green md:text-brand-dark md:shadow-[0_10px_30px_rgba(163,230,53,0.2)]`;
+              const dotCls   = mg === dg
+                ? (mg ? 'bg-brand-dark/40' : 'bg-brand-green')
+                : mg
+                  ? 'bg-brand-dark/40 md:bg-brand-green'
+                  : 'bg-brand-green md:bg-brand-dark/40';
+              return (
+                <div key={t} className={`rounded-[2rem] px-6 py-5 flex flex-col justify-between h-[110px] hover:-translate-y-1 transition-all duration-300 border ${cardCls}`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${dotCls}`} />
+                  <p className="font-bold text-sm leading-snug">{t}</p>
+                </div>
+              );
+            })}
           </div>
 
-          <div className="glass-dark border border-white/10 rounded-[2rem] p-10 flex flex-col md:flex-row items-start md:items-center gap-8">
+          <div className="glass-dark border border-white/10 rounded-[2rem] p-6 sm:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8">
             <p className="text-white/60 italic text-lg font-medium flex-1 leading-relaxed">
               "No abrir una tienda en fecha por un problema de energía no es un retraso: es lucro cesante, alquiler pagado en vano y plantilla sin operar."
             </p>
@@ -424,7 +435,7 @@ export function Home() {
       </section>
 
       {/* ── TRACK RECORD ──────────────────────────────────────────────────── */}
-      <section className="py-32 px-6 bg-brand-light">
+      <section className="py-16 lg:py-32 px-6 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>

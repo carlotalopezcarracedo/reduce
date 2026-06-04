@@ -153,15 +153,15 @@ export function CaseAperturaMultisede() {
             </span>
           </div>
 
-          <h1 className="text-[2.5rem] sm:text-[3.5rem] lg:text-[5rem] font-black text-white tracking-tighter leading-[0.9] mb-8">
+          <h1 className="text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem] font-black text-white tracking-tighter leading-[0.92] mb-8">
             Gestión integral de{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
               apertura energética
             </span>
-            <br />multisede en campaña crítica.
+            {' '}multisede en campaña crítica.
           </h1>
 
-          <div className="grid sm:grid-cols-3 gap-4 max-w-2xl">
+          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl">
             {[
               { label: 'Cliente', value: 'Gran cadena retail nacional' },
               { label: 'Ubicación', value: 'Flagship store · Madrid' },

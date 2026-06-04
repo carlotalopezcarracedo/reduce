@@ -87,11 +87,16 @@ export function Footer() {
           <p className="text-white/30 text-xs">
             © {new Date().getFullYear()} REDUCE Soluciones de Ahorro Energético. Todos los derechos reservados.
           </p>
-          <div className="flex gap-6">
-            {['Aviso legal', 'Privacidad', 'Cookies'].map((l) => (
-              <a key={l} href="#" className="text-white/30 text-xs hover:text-white/60 transition-colors">
-                {l}
-              </a>
+          <div className="flex flex-wrap gap-6">
+            {[
+              { label: 'Aviso legal', to: '/aviso-legal' },
+              { label: 'Privacidad', to: '/privacidad' },
+              { label: 'Cookies', to: '/cookies' },
+              { label: 'Accesibilidad', to: '/accesibilidad' },
+            ].map((l) => (
+              <Link key={l.to} to={l.to} className="text-white/30 text-xs hover:text-white/60 transition-colors">
+                {l.label}
+              </Link>
             ))}
           </div>
         </div>
