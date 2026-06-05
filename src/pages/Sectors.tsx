@@ -17,11 +17,11 @@ export function Sectors() {
         <meta property="og:url" content="https://reduce.es/sectores" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-green/12 rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden grain-dark">
+        {/* Cross-hatch pattern — distinct from other pages */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '60px 60px'}} />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-green/16 rounded-full blur-[130px] translate-y-1/2 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-brand-green/10 rounded-full blur-[100px] translate-x-1/4 -translate-y-1/4 pointer-events-none" />
         <div className="max-w-4xl mx-auto relative z-10 text-center w-full">
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             A quién servimos
@@ -67,26 +67,31 @@ export function Sectors() {
           {/* Bento: row 1 = featured (2/3) + card (1/3) · row 2 = 3 equal */}
           <div className="grid lg:grid-cols-3 gap-5">
 
-            {/* Featured — col-span-2, split interior */}
-            <div className="lg:col-span-2 rounded-[2rem] p-6 sm:p-10 bg-brand-dark relative overflow-hidden lift shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] flex flex-col gap-6">
-              <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-brand-green/12 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-brand-green/6 rounded-full blur-[60px] pointer-events-none" />
+            {/* Featured — col-span-2, dramatic dark treatment */}
+            <div className="lg:col-span-2 rounded-[2rem] p-8 lg:p-12 bg-brand-dark relative overflow-hidden lift hover:shadow-[0_30px_80px_rgba(12,26,46,0.5)] flex flex-col gap-8">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent rounded-t-[2rem]" />
+              <div className="absolute right-0 top-0 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-green/5 rounded-full blur-[80px] pointer-events-none" />
+
+              {/* Header */}
               <div className="flex items-start justify-between gap-4 relative z-10">
-                <h3 className="text-2xl font-black tracking-tight text-white">{SECTORS[0].name}</h3>
+                <h3 className="text-2xl lg:text-3xl font-black tracking-tight text-white leading-tight">{SECTORS[0].name}</h3>
                 {SECTORS[0].ref && (
-                  <span className="text-xs text-white/25 bg-white/8 border border-white/10 rounded-full px-3 py-1 flex-shrink-0 mt-1">
+                  <span className="text-[11px] text-white/20 bg-white/[0.05] border border-white/[0.08] rounded-full px-3 py-1.5 flex-shrink-0 font-medium">
                     {SECTORS[0].ref}
                   </span>
                 )}
               </div>
-              <div className="grid sm:grid-cols-2 gap-6 relative z-10 flex-1">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-2 text-white/35">El problema</p>
-                  <p className="text-sm leading-relaxed text-white/55">{SECTORS[0].problem}</p>
+
+              {/* Problem / Value split */}
+              <div className="grid sm:grid-cols-2 gap-0 relative z-10 flex-1">
+                <div className="pr-6 sm:border-r border-white/[0.08]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] mb-3 text-white/25">El problema</p>
+                  <p className="text-sm leading-relaxed text-white/50">{SECTORS[0].problem}</p>
                 </div>
-                <div className="pt-6 sm:pt-0 sm:pl-6 sm:border-l border-white/10">
-                  <p className="text-xs font-bold uppercase tracking-widest mb-2 text-brand-green/70">Qué aportamos</p>
-                  <p className="text-sm font-semibold leading-relaxed text-white/85">{SECTORS[0].value}</p>
+                <div className="pt-6 sm:pt-0 sm:pl-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] mb-3 text-brand-green/60">Qué aportamos</p>
+                  <p className="text-sm font-semibold leading-relaxed text-white/80">{SECTORS[0].value}</p>
                 </div>
               </div>
             </div>

@@ -50,11 +50,11 @@ export function Technology() {
         <meta property="og:url" content="https://reduce.es/tecnologia" />
       </Helmet>
       {/* Hero */}
-      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-green/12 rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+      <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden grain-dark">
+        {/* Diagonal line grid — distinct from other pages */}
+        <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage: 'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)', backgroundSize: '24px 24px'}} />
+        <div className="absolute top-0 left-1/4 w-[700px] h-[500px] bg-brand-green/18 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
         <div className="max-w-4xl mx-auto relative z-10 text-center w-full">
           <span className="inline-flex items-center gap-2 text-brand-green font-bold tracking-widest uppercase text-xs mb-8 border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/8">
             Infraestructura técnica
@@ -94,30 +94,38 @@ export function Technology() {
               Infraestructura construida para el control energético multisede.
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-5">
-            {PILLARS.map(({ icon: Icon, title, body }, i) => (
-              <div
-                key={title}
-                className={`rounded-[2rem] p-6 sm:p-10 relative overflow-hidden group lift ${
-                  i === 0
-                    ? 'bg-brand-dark hover:shadow-2xl'
-                    : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
-                }`}
-              >
-                {i === 0 && (
-                  <div className="absolute right-0 top-0 w-[200px] h-[200px] bg-brand-green/10 rounded-full blur-[60px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                )}
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-7 relative z-10 ${
-                  i === 0 ? 'bg-brand-green' : 'bg-brand-dark group-hover:bg-brand-green transition-colors'
-                }`}>
-                  <Icon className={`w-5 h-5 ${i === 0 ? 'text-brand-dark' : 'text-brand-green group-hover:text-brand-dark transition-colors'}`} />
+          <div className="space-y-5">
+
+            {/* First pillar — full width horizontal */}
+            {(() => { const { icon: Icon, title, body } = PILLARS[0]; return (
+              <div className="rounded-[2rem] p-8 lg:p-12 bg-brand-dark relative overflow-hidden group lift hover:shadow-[0_30px_80px_rgba(12,26,46,0.5)]">
+                <div className="absolute right-0 top-0 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent rounded-t-[2rem]" />
+                <div className="relative z-10 grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-14 items-center">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-green flex items-center justify-center flex-shrink-0 shadow-[0_0_30px_rgba(163,230,53,0.4)]">
+                    <Icon className="w-7 h-7 text-brand-dark" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl lg:text-3xl font-black text-white tracking-tight mb-3">{title}</h3>
+                    <p className="text-white/55 leading-relaxed max-w-2xl">{body}</p>
+                  </div>
                 </div>
-                <h3 className={`text-xl font-black tracking-tight mb-3 relative z-10 ${i === 0 ? 'text-white' : 'text-brand-dark'}`}>
-                  {title}
-                </h3>
-                <p className={`text-sm leading-relaxed relative z-10 ${i === 0 ? 'text-white/55' : 'text-muted'}`}>{body}</p>
               </div>
-            ))}
+            ); })()}
+
+            {/* Other pillars — 3-col */}
+            <div className="grid md:grid-cols-3 gap-5">
+              {PILLARS.slice(1).map(({ icon: Icon, title, body }) => (
+                <div key={title} className="rounded-[2rem] p-7 bg-white border border-border group lift hover:border-brand-dark/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)]">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-dark flex items-center justify-center mb-6 group-hover:bg-brand-green transition-[background-color] duration-200">
+                    <Icon className="w-5 h-5 text-brand-green group-hover:text-brand-dark transition-colors" />
+                  </div>
+                  <h3 className="text-lg font-black text-brand-dark tracking-tight mb-2">{title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{body}</p>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>

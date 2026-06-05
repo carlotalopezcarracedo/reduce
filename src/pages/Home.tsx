@@ -191,7 +191,7 @@ export function Home() {
       </section>
 
       {/* ── MODELO 5 CAPAS ────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-32 px-6 bg-brand-dark">
+      <section className="py-16 lg:py-32 px-6 bg-brand-dark grain-dark">
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
@@ -261,6 +261,8 @@ export function Home() {
               className="lg:col-span-3 bg-gradient-to-br from-white to-slate-50/70 rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
               style={{ animation: 'layer-fadein 0.28s cubic-bezier(0.23,1,0.32,1) both', minHeight: 400 }}
             >
+              {/* Accent strip at top */}
+              <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent rounded-full" />
               {/* Giant decorative letter */}
               <span className="absolute -right-4 -bottom-8 text-[120px] sm:text-[180px] lg:text-[260px] font-black text-slate-100 leading-none select-none pointer-events-none">
                 {active.id}
@@ -325,52 +327,78 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {PRODUCTS.map((p, i) => (
+          <div className="space-y-5">
+
+            {/* Star product — full width, horizontal layout */}
+            {PRODUCTS.filter((p) => p.star).map((p) => (
               <Link
                 key={p.slug}
                 to={`/productos/${p.slug}`}
-                className={`group lift rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 relative overflow-hidden ${
-                  p.star
-                    ? 'bg-brand-green shadow-[0_20px_60px_rgba(163,230,53,0.25)] hover:shadow-[0_30px_80px_rgba(163,230,53,0.4)]'
-                    : 'bg-white border border-border shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)] hover:border-brand-dark/20'
-                }`}
+                className="group lift block rounded-[2rem] p-8 lg:p-12 bg-brand-green shadow-[0_20px_60px_rgba(163,230,53,0.25)] hover:shadow-[0_30px_80px_rgba(163,230,53,0.4)] relative overflow-hidden"
               >
-                {/* Oversized background number */}
-                <div className={`absolute -right-3 -bottom-6 text-[160px] font-black select-none pointer-events-none leading-none ${
-                  p.star ? 'text-brand-dark/[0.07]' : 'text-brand-dark/[0.04]'
-                }`}>
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-
-                <div className="relative z-10">
-                  {p.star ? (
-                    <span className="inline-flex items-center gap-1.5 bg-brand-dark text-brand-green text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                <div className="absolute -right-8 -bottom-10 text-[240px] font-black select-none pointer-events-none leading-none text-brand-dark/[0.07]">01</div>
+                <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-brand-dark/6 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none" />
+                <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-start">
+                  <div className="flex flex-col gap-5">
+                    <span className="inline-flex items-center gap-1.5 bg-brand-dark text-brand-green text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full w-fit">
                       Producto estrella
                     </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 bg-brand-green/15 text-brand-green text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-brand-green/25">
-                      Producto
-                    </span>
+                    <div>
+                      <h3 className="text-3xl lg:text-4xl font-black tracking-tight mb-3 leading-tight text-brand-dark">
+                        {p.name}
+                      </h3>
+                      <p className="text-brand-dark/65 text-base leading-relaxed max-w-xl">
+                        {p.description.slice(0, 150)}…
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-bold text-brand-dark group-hover:gap-3 transition-[gap] duration-200">
+                      {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                  {p.problems && (
+                    <div className="hidden lg:grid grid-cols-1 gap-2 min-w-[280px]">
+                      {p.problems.slice(0, 4).map((prob) => (
+                        <div key={prob} className="bg-brand-dark/[0.08] rounded-xl px-4 py-3 text-xs font-semibold text-brand-dark/70 leading-snug">
+                          {prob}
+                        </div>
+                      ))}
+                    </div>
                   )}
-                </div>
-
-                <div className="relative z-10 flex-1">
-                  <h3 className={`text-2xl font-black tracking-tight mb-2 leading-snug ${p.star ? 'text-brand-dark' : 'text-brand-dark'}`}>
-                    {p.name}
-                  </h3>
-                  <p className={`text-sm leading-relaxed ${p.star ? 'text-brand-dark/65' : 'text-muted'}`}>
-                    {p.description.slice(0, 110)}…
-                  </p>
-                </div>
-
-                <div className={`flex items-center gap-2 text-sm font-bold relative z-10 mt-auto transition-[color,gap] duration-200 ${
-                  p.star ? 'text-brand-dark' : 'text-brand-green group-hover:gap-3'
-                }`}>
-                  {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
+
+            {/* Other products — 3-col row */}
+            <div className="grid sm:grid-cols-3 gap-5">
+              {PRODUCTS.filter((p) => !p.star).map((p, i) => (
+                <Link
+                  key={p.slug}
+                  to={`/productos/${p.slug}`}
+                  className="group lift rounded-[2rem] p-6 sm:p-8 flex flex-col gap-5 bg-white border border-border shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)] hover:border-brand-dark/20 relative overflow-hidden"
+                >
+                  <div className="absolute -right-3 -bottom-5 text-[130px] font-black select-none pointer-events-none leading-none text-brand-dark/[0.04]">
+                    {String(i + 2).padStart(2, '0')}
+                  </div>
+                  <div className="relative z-10">
+                    <span className="inline-flex items-center gap-1.5 bg-brand-green/12 text-brand-green text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-brand-green/20">
+                      Producto
+                    </span>
+                  </div>
+                  <div className="relative z-10 flex-1">
+                    <h3 className="text-xl font-black tracking-tight mb-2 leading-snug text-brand-dark">
+                      {p.name}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted line-clamp-3">
+                      {p.description.slice(0, 100)}…
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-brand-green relative z-10 mt-auto group-hover:gap-3 transition-[gap] duration-200">
+                    {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
@@ -469,10 +497,12 @@ export function Home() {
       </section>
 
       {/* ── STATEMENT ─────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(163,230,53,0.08) 0%, transparent 70%)'}} />
+      <section className="py-28 lg:py-36 px-6 bg-brand-dark grain-dark relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(163,230,53,0.1) 0%, transparent 65%)'}} />
+        {/* Horizontal line accents */}
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-brand-green/15 to-transparent pointer-events-none" />
         <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <p className="text-[2.2rem] sm:text-[3rem] lg:text-[4rem] font-black text-white tracking-tighter leading-[1.05]">
+          <p className="text-[2.4rem] sm:text-[3.2rem] lg:text-[4.5rem] font-black text-white tracking-tighter leading-[1.0]">
             No vendemos energía.{' '}
             <span
               className="text-transparent bg-clip-text"
@@ -485,6 +515,11 @@ export function Home() {
               La auditamos y la operamos.
             </span>
           </p>
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <div className="h-px w-16 bg-brand-green/30" />
+            <span className="text-white/20 text-xs font-bold tracking-[0.25em] uppercase">Operando desde 2012</span>
+            <div className="h-px w-16 bg-brand-green/30" />
+          </div>
         </div>
       </section>
 
