@@ -132,28 +132,62 @@ export function Sectors() {
       </section>
 
       {/* Clients */}
-      <section className="py-20 lg:py-32 px-6 bg-brand-dark grain-dark relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(163,230,53,0.09) 0%, transparent 55%)'}} />
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Centered heading */}
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-brand-green/60 font-semibold tracking-[0.2em] uppercase text-[11px] mb-5 block">Clientes</span>
-            <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tighter leading-tight mb-4">
+      <section className="py-20 lg:py-28 px-6 bg-brand-dark grain-dark relative overflow-hidden">
+        {/* Gradient favoring the right side where reel lives */}
+        <div className="absolute inset-0 pointer-events-none" style={{background: [
+          'radial-gradient(ellipse 55% 80% at 85% 50%, rgba(163,230,53,0.10) 0%, transparent 58%)',
+          'radial-gradient(ellipse 30% 40% at 10% 20%, rgba(163,230,53,0.05) 0%, transparent 52%)',
+        ].join(', ')}} />
+
+        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center">
+
+          {/* Left: editorial */}
+          <div>
+            <div className="w-8 h-[3px] bg-brand-green rounded-full mb-8" />
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-white tracking-tighter leading-[1.0] mb-6">
               Grandes clientes retail que confían en REDUCE.
             </h2>
-            <p className="text-white/35 text-base leading-relaxed">
+            <p className="text-white/45 text-base lg:text-lg leading-relaxed mb-5 font-medium">
               Llevamos desde 2012 gestionando la energía de estructuras multisede. Estos clientes han confiado en nosotros año tras año.
             </p>
+            <p className="text-white/20 text-sm italic">
+              Logos sujetos a autorización expresa de cada cliente.
+            </p>
+
+            {/* Stats row */}
+            <div className="flex items-stretch gap-0 mt-12 pt-10 border-t border-white/[0.07]">
+              <div className="pr-8">
+                <p className="text-[3.5rem] font-black text-brand-green tracking-tighter leading-none">+12</p>
+                <p className="text-white/25 text-[11px] font-semibold uppercase tracking-[0.18em] mt-2">años</p>
+              </div>
+              <div className="w-px bg-white/[0.08] mx-0" />
+              <div className="pl-8">
+                <p className="text-[3.5rem] font-black text-white tracking-tighter leading-none">6</p>
+                <p className="text-white/25 text-[11px] font-semibold uppercase tracking-[0.18em] mt-2">clientes referencia</p>
+              </div>
+            </div>
           </div>
 
-          {/* Logo reel in a premium container */}
-          <div className="max-w-lg mx-auto rounded-[2rem] overflow-hidden border border-white/[0.07] shadow-[0_0_80px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.06)]" style={{background: 'rgba(255,255,255,0.03)'}}>
-            <LogoReel logos={CLIENTS} bgColor="rgba(12,26,46,0)" />
+          {/* Right: glass card with header + reel */}
+          <div className="relative">
+            {/* Green glow behind the card */}
+            <div className="absolute inset-x-8 inset-y-4 bg-brand-green/[0.08] rounded-[2rem] blur-[50px] pointer-events-none" />
+            <div className="relative rounded-[2rem] overflow-hidden border border-white/[0.09] shadow-[0_0_80px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]"
+              style={{background: 'rgba(255,255,255,0.04)'}}>
+              {/* Card header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]"
+                style={{background: 'rgba(255,255,255,0.02)'}}>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green shadow-[0_0_8px_rgba(163,230,53,0.8)]" />
+                  <span className="text-white/30 text-[10px] font-bold tracking-[0.2em] uppercase">Clientes activos</span>
+                </div>
+                <span className="text-white/15 text-[10px] font-bold tracking-widest">REDUCE</span>
+              </div>
+              {/* The reel */}
+              <LogoReel logos={CLIENTS} bgColor="#0d1b30" />
+            </div>
           </div>
 
-          <p className="text-center text-white/20 text-xs mt-6 italic">
-            Logos sujetos a autorización expresa de cada cliente.
-          </p>
         </div>
       </section>
 
