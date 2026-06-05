@@ -93,7 +93,7 @@ export function ProductTemplate() {
               {product.includes.map((item, i) => (
                 <div
                   key={item}
-                  className={`flex items-start gap-4 rounded-2xl px-5 py-4 hover:-translate-y-0.5 transition-all ${
+                  className={`flex items-start gap-4 rounded-2xl px-5 py-4 hover:-translate-y-0.5 transition-[transform,box-shadow,border-color] duration-200 ${
                     i === 0
                       ? 'bg-brand-dark border border-brand-dark'
                       : 'bg-brand-light border border-border hover:border-brand-dark hover:shadow-md'

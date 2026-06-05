@@ -60,7 +60,7 @@ export function Home() {
           {/* ── Left ── */}
           <div>
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-green/25 bg-brand-green/[0.07] text-brand-green text-xs font-bold tracking-wide mb-8"
-              style={{animation: 'fade-up 0.5s ease both', animationDelay: '0.1s'}}>
+              style={{animation: 'fade-up 0.5s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.1s'}}>
               <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-green" />
@@ -69,7 +69,7 @@ export function Home() {
             </div>
 
             <h1 className="text-[2.6rem] sm:text-[3.6rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.9] mb-6"
-              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.25s'}}>
+              style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.2s'}}>
               La energía multisede,{' '}
               <span
                 className="text-transparent bg-clip-text"
@@ -84,12 +84,12 @@ export function Home() {
             </h1>
 
             <p className="text-white/50 text-lg leading-relaxed max-w-md font-medium mb-10"
-              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.4s'}}>
+              style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.35s'}}>
               Auditamos, operamos y hacemos trazable la energía de empresas retail con decenas o cientos de suministros. Sin vender ni un kWh.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-12"
-              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.55s'}}>
+              style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.48s'}}>
               <Button to="/contacto" size="lg" arrow className="shadow-[0_0_35px_rgba(163,230,53,0.35)] hover:shadow-[0_0_55px_rgba(163,230,53,0.55)] hover:scale-[1.02]">
                 Analizar mi situación
               </Button>
@@ -99,7 +99,7 @@ export function Home() {
             </div>
 
             <div className="flex flex-wrap gap-x-7 gap-y-2 items-center pt-7 border-t border-white/[0.07]"
-              style={{animation: 'fade-up 0.6s ease both', animationDelay: '0.7s'}}>
+              style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.62s'}}>
               {[
                 { num: `+${counts.years}`, label: 'años' },
                 { num: String(counts.terr), label: 'territorios' },
@@ -223,7 +223,7 @@ export function Home() {
                   <button
                     key={layer.id}
                     onClick={() => setActiveId(layer.id)}
-                    className={`group w-full flex items-center gap-5 px-7 py-5 rounded-[1.5rem] text-left transition-all duration-300 cursor-pointer ${
+                    className={`group w-full flex items-center gap-5 px-7 py-5 rounded-[1.5rem] text-left transition-[transform,background-color,box-shadow,border-color] duration-200 cursor-pointer ${
                       isActive
                         ? 'bg-brand-green shadow-[0_8px_40px_rgba(163,230,53,0.3)]'
                         : 'bg-white/[0.04] border border-white/10 hover:bg-white/[0.07] hover:border-white/20'
@@ -246,7 +246,7 @@ export function Home() {
                         {layer.title}
                       </p>
                     </div>
-                    <ArrowRight className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
+                    <ArrowRight className={`w-4 h-4 flex-shrink-0 transition-[transform,opacity,color] duration-200 ${
                       isActive
                         ? 'text-brand-dark'
                         : 'text-white/20 -translate-x-1 group-hover:translate-x-0 group-hover:text-white/50'
@@ -260,7 +260,7 @@ export function Home() {
             <div
               key={activeId}
               className="lg:col-span-3 bg-white rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col"
-              style={{ animation: 'layer-fadein 0.35s ease-out', minHeight: 400 }}
+              style={{ animation: 'layer-fadein 0.28s cubic-bezier(0.23,1,0.32,1) both', minHeight: 400 }}
             >
               {/* Giant decorative letter */}
               <span className="absolute -right-4 -bottom-8 text-[120px] sm:text-[180px] lg:text-[260px] font-black text-slate-100 leading-none select-none pointer-events-none">
@@ -296,7 +296,7 @@ export function Home() {
                 <div className="mt-auto flex items-center gap-4">
                   <Link
                     to={`/modelo/${active.slug}`}
-                    className="inline-flex items-center gap-2 bg-brand-dark text-white font-bold px-6 py-3 rounded-full text-sm hover:bg-brand-green hover:text-brand-dark transition-all duration-300"
+                    className="inline-flex items-center gap-2 bg-brand-dark text-white font-bold px-6 py-3 rounded-full text-sm hover:bg-brand-green hover:text-brand-dark transition-[background-color,color] duration-200 active:scale-[0.97]"
                   >
                     Ver capa {active.id} en detalle <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -331,7 +331,7 @@ export function Home() {
               <Link
                 key={p.slug}
                 to={`/productos/${p.slug}`}
-                className={`group rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
+                className={`group lift rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 relative overflow-hidden ${
                   p.star
                     ? 'bg-brand-green shadow-[0_20px_60px_rgba(163,230,53,0.25)] hover:shadow-[0_30px_80px_rgba(163,230,53,0.4)]'
                     : 'bg-white border border-border shadow-sm hover:shadow-xl hover:border-brand-dark/15'
@@ -365,7 +365,7 @@ export function Home() {
                   </p>
                 </div>
 
-                <div className={`flex items-center gap-2 text-sm font-bold relative z-10 mt-auto transition-all ${
+                <div className={`flex items-center gap-2 text-sm font-bold relative z-10 mt-auto transition-[color,gap] duration-200 ${
                   p.star ? 'text-brand-dark' : 'text-brand-green group-hover:gap-3'
                 }`}>
                   {p.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -415,7 +415,8 @@ export function Home() {
                   ? 'bg-brand-dark/40 md:bg-brand-green'
                   : 'bg-brand-green md:bg-brand-dark/40';
               return (
-                <div key={t} className={`rounded-[2rem] px-6 py-5 flex flex-col justify-between h-[110px] hover:-translate-y-1 transition-all duration-300 border ${cardCls}`}>
+                <div key={t} className={`stagger lift rounded-[2rem] px-6 py-5 flex flex-col justify-between h-[110px] border ${cardCls}`}
+                  style={{ animationDelay: `${i * 55}ms` }}>
                   <span className={`w-1.5 h-1.5 rounded-full ${dotCls}`} />
                   <p className="font-bold text-sm leading-snug">{t}</p>
                 </div>

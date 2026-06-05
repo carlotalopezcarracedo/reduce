@@ -42,7 +42,7 @@ export function Button({
   onClick,
   disabled,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center transition-all ${variants[variant]} ${sizes[size]} ${className} ${disabled ? 'opacity-50 pointer-events-none' : ''}`;
+  const classes = `inline-flex items-center justify-center transition-[transform,box-shadow,opacity,filter] duration-150 active:scale-[0.97] ${variants[variant]} ${sizes[size]} ${className} ${disabled ? 'opacity-50 pointer-events-none' : ''}`;
   const inner = (
     <>
       {children}

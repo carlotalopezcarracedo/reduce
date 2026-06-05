@@ -230,7 +230,7 @@ export function CaseAperturaMultisede() {
                     </div>
 
                     {/* Card */}
-                    <div className="flex-1 bg-white border border-border rounded-2xl px-6 py-5 hover:shadow-md hover:-translate-y-0.5 transition-all">
+                    <div className="flex-1 bg-white border border-border rounded-2xl px-6 py-5 hover:shadow-md hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200">
                       <div className="flex items-start justify-between gap-4 mb-3">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
@@ -370,7 +370,7 @@ export function CaseAperturaMultisede() {
           <Link to="/sectores" className="text-white/40 hover:text-white text-sm font-semibold transition-colors flex items-center gap-2">
             ← Volver a sectores
           </Link>
-          <Link to="/contacto" className="inline-flex items-center gap-2 bg-brand-green text-brand-dark text-sm font-black px-6 py-3 rounded-full hover:brightness-105 transition-all shadow-[0_0_20px_rgba(163,230,53,0.3)]">
+          <Link to="/contacto" className="inline-flex items-center gap-2 bg-brand-green text-brand-dark text-sm font-black px-6 py-3 rounded-full hover:brightness-105 transition-[filter,transform] duration-150 active:scale-[0.97] shadow-[0_0_20px_rgba(163,230,53,0.3)]">
             Analizar mi situación <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

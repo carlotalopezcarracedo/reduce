@@ -61,7 +61,7 @@ export function LayersIndex() {
               <div
                 key={layer.id}
                 onClick={() => setActiveId(layer.id)}
-                className={`cursor-pointer rounded-[1.75rem] overflow-hidden transition-all duration-300 relative ${
+                className={`cursor-pointer rounded-[1.75rem] overflow-hidden transition-[background-color,box-shadow,border-color] duration-200 relative ${
                   isActive
                     ? 'bg-brand-dark shadow-[0_24px_80px_rgba(12,26,46,0.4)]'
                     : 'bg-white border border-border hover:border-brand-dark/30 hover:shadow-md'
@@ -81,7 +81,7 @@ export function LayersIndex() {
 
                 {/* Header row */}
                 <div className="flex items-center gap-5 px-8 py-6">
-                  <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center font-black text-2xl transition-all duration-300 ${
+                  <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center font-black text-2xl transition-[background-color,box-shadow,color] duration-200 ${
                     isActive
                       ? 'bg-brand-green text-brand-dark shadow-[0_0_24px_rgba(163,230,53,0.45)]'
                       : 'bg-brand-light border border-border text-brand-dark'
@@ -150,7 +150,7 @@ export function LayersIndex() {
                         <Link
                           to={`/modelo/${layer.slug}`}
                           onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:gap-3 transition-all"
+                          className="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:gap-3 transition-[gap,opacity] duration-200"
                         >
                           Ver capa completa <ArrowRight className="w-4 h-4" />
                         </Link>

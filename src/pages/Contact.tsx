@@ -17,11 +17,30 @@ const MOTIVOS = [
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch('https://formspree.io/f/TU_ID_FORMSPREE', {
+        method: 'POST',
+        body: new FormData(e.currentTarget),
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -180,11 +199,18 @@ export function Contact() {
                     <Button
                       type="submit"
                       size="lg"
-                      arrow
+                      arrow={!loading}
+                      disabled={loading}
                       className="w-full justify-center shadow-[0_0_30px_rgba(163,230,53,0.2)] hover:shadow-[0_0_40px_rgba(163,230,53,0.35)]"
                     >
-                      Enviar solicitud
+                      {loading ? 'Enviando…' : 'Enviar solicitud'}
                     </Button>
+                    {error && (
+                      <p className="text-xs text-center text-red-500 mt-3 font-semibold">
+                        Error al enviar. Por favor inténtalo de nuevo o escríbenos a{' '}
+                        <a href="mailto:info@reducenergia.es" className="underline">info@reducenergia.es</a>.
+                      </p>
+                    )}
                     <p className="text-xs text-center text-muted mt-3">
                       Datos tratados conforme a nuestra{' '}
                       <Link to="/privacidad" className="underline hover:text-brand-dark">política de privacidad</Link>.

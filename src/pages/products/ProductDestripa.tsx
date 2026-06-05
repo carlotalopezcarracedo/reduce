@@ -17,11 +17,30 @@ const COMERCIALIZADORAS = [
 
 export function ProductDestripa() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch('https://formspree.io/f/TU_ID_FORMSPREE', {
+        method: 'POST',
+        body: new FormData(e.currentTarget),
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -104,7 +123,7 @@ export function ProductDestripa() {
               {product.problems.map((prob, i) => (
                 <div
                   key={prob}
-                  className={`rounded-2xl p-6 flex items-start gap-4 hover:-translate-y-0.5 transition-all ${
+                  className={`rounded-2xl p-6 flex items-start gap-4 hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 ${
                     i === 0
                       ? 'bg-brand-dark border border-brand-dark shadow-lg'
                       : 'bg-white border border-border hover:border-brand-dark hover:shadow-md'
@@ -183,9 +202,15 @@ export function ProductDestripa() {
                   <FileUpload accept=".pdf,.xls,.xlsx,.csv,.doc,.docx" multiple />
                   <p className="text-xs text-white/30 mt-2">PDF, Excel, Word. Máximo 20 MB por archivo.</p>
                 </div>
-                <Button type="submit" size="lg" arrow className="w-full justify-center shadow-[0_0_25px_rgba(163,230,53,0.25)]">
-                  Enviar solicitud de análisis
+                <Button type="submit" size="lg" arrow={!loading} disabled={loading} className="w-full justify-center shadow-[0_0_25px_rgba(163,230,53,0.25)]">
+                  {loading ? 'Enviando…' : 'Enviar solicitud de análisis'}
                 </Button>
+                {error && (
+                  <p className="text-xs text-center text-red-400 mt-2 font-semibold">
+                    Error al enviar. Escríbenos directamente a{' '}
+                    <a href="mailto:info@reducenergia.es" className="underline">info@reducenergia.es</a>.
+                  </p>
+                )}
                 <p className="text-xs text-center text-white/30">
                   Datos tratados conforme a nuestra{' '}
                   <Link to="/privacidad" className="underline hover:text-white/60">política de privacidad</Link>.

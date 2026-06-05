@@ -44,7 +44,7 @@ export function ProductsIndex() {
             <Link
               key={p.slug}
               to={`/productos/${p.slug}`}
-              className={`group rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
+              className={`group lift rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 relative overflow-hidden ${
                 p.star
                   ? 'bg-brand-dark shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)]'
                   : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
@@ -67,7 +67,7 @@ export function ProductsIndex() {
                     Producto {String(i).padStart(2, '0')}
                   </span>
                 )}
-                <ArrowRight className={`w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all ${p.star ? 'text-brand-green' : 'text-brand-dark'}`} />
+                <ArrowRight className={`w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[transform,opacity] duration-200 ${p.star ? 'text-brand-green' : 'text-brand-dark'}`} />
               </div>
 
               <div className="relative z-10">

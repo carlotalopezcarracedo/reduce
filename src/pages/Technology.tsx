@@ -98,7 +98,7 @@ export function Technology() {
             {PILLARS.map(({ icon: Icon, title, body }, i) => (
               <div
                 key={title}
-                className={`rounded-[2rem] p-6 sm:p-10 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${
+                className={`rounded-[2rem] p-6 sm:p-10 relative overflow-hidden group lift ${
                   i === 0
                     ? 'bg-brand-dark hover:shadow-2xl'
                     : 'bg-white border border-border hover:border-brand-dark hover:shadow-xl'
@@ -135,7 +135,7 @@ export function Technology() {
             {CAPABILITIES.map((cap, i) => (
               <div
                 key={cap}
-                className={`flex items-start gap-4 rounded-2xl px-5 py-4 hover:-translate-y-0.5 transition-all ${
+                className={`flex items-start gap-4 rounded-2xl px-5 py-4 hover:-translate-y-0.5 transition-[transform,box-shadow,border-color] duration-200 ${
                   i % 5 === 0
                     ? 'bg-brand-dark border border-brand-dark'
                     : 'bg-brand-light border border-border hover:border-brand-dark hover:shadow-md'

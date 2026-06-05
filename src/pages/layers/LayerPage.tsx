@@ -91,7 +91,7 @@ export function LayerPage() {
             {layer.topics.map((topic, i) => (
               <div
                 key={topic}
-                className={`rounded-2xl px-5 py-4 text-sm font-semibold transition-all hover:-translate-y-0.5 ${
+                className={`rounded-2xl px-5 py-4 text-sm font-semibold transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 ${
                   i === 0
                     ? 'bg-brand-dark text-brand-green border border-brand-dark'
                     : 'bg-white border border-border text-brand-dark hover:border-brand-dark hover:shadow-md'
@@ -114,7 +114,7 @@ export function LayerPage() {
               <Link
                 key={l.id}
                 to={`/modelo/${l.slug}`}
-                className="glass-dark border border-white/10 rounded-2xl px-5 py-5 hover:border-white/25 hover:-translate-y-0.5 transition-all group flex items-center gap-4"
+                className="glass-dark border border-white/10 rounded-2xl px-5 py-5 hover:border-white/25 hover:-translate-y-0.5 transition-[transform,border-color] duration-200 group flex items-center gap-4"
               >
                 <span className="w-10 h-10 rounded-xl bg-brand-green/10 border border-brand-green/20 text-brand-green flex items-center justify-center text-sm font-black flex-shrink-0 group-hover:bg-brand-green group-hover:text-brand-dark transition-colors">
                   {l.id}

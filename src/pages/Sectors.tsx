@@ -68,7 +68,7 @@ export function Sectors() {
           <div className="grid lg:grid-cols-3 gap-5">
 
             {/* Featured — col-span-2, split interior */}
-            <div className="lg:col-span-2 rounded-[2rem] p-6 sm:p-10 bg-brand-dark relative overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] flex flex-col gap-6">
+            <div className="lg:col-span-2 rounded-[2rem] p-6 sm:p-10 bg-brand-dark relative overflow-hidden lift shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)] flex flex-col gap-6">
               <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-brand-green/12 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-brand-green/6 rounded-full blur-[60px] pointer-events-none" />
               <div className="flex items-start justify-between gap-4 relative z-10">
@@ -92,7 +92,7 @@ export function Sectors() {
             </div>
 
             {/* Row 1, card 2 */}
-            <div className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col gap-5">
+            <div className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl lift flex flex-col gap-5">
               <h3 className="text-xl font-black tracking-tight text-brand-dark">{SECTORS[1].name}</h3>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-muted/60">El problema</p>
@@ -106,7 +106,7 @@ export function Sectors() {
 
             {/* Row 2 — 3 equal cards */}
             {SECTORS.slice(2).map((sector) => (
-              <div key={sector.name} className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col gap-5">
+              <div key={sector.name} className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl lift flex flex-col gap-5">
                 <h3 className="text-xl font-black tracking-tight text-brand-dark">{sector.name}</h3>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-muted/60">El problema</p>
@@ -166,7 +166,7 @@ export function Sectors() {
             ].map((item, i) => (
               <div
                 key={item}
-                className={`flex items-start gap-4 rounded-2xl px-6 py-5 hover:-translate-y-0.5 transition-all ${
+                className={`flex items-start gap-4 rounded-2xl px-6 py-5 hover:-translate-y-0.5 transition-[transform,box-shadow,border-color] duration-200 ${
                   i === 0
                     ? 'bg-brand-dark border border-brand-dark shadow-lg'
                     : 'bg-white border border-border hover:border-brand-dark hover:shadow-md'
@@ -179,7 +179,7 @@ export function Sectors() {
           </div>
           <Link
             to="/contacto"
-            className="inline-flex items-center gap-2 bg-brand-dark text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-brand-mid hover:shadow-lg transition-all"
+            className="inline-flex items-center gap-2 bg-brand-dark text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-brand-mid hover:shadow-lg transition-[background-color,box-shadow] duration-200 active:scale-[0.97]"
           >
             Hablar de mi caso <ArrowRight className="w-4 h-4" />
           </Link>
