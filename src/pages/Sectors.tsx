@@ -132,22 +132,28 @@ export function Sectors() {
       </section>
 
       {/* Clients */}
-      <section className="py-16 lg:py-24 px-6 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(163,230,53,0.07)_0%,transparent_60%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Clientes</span>
-            <h2 className="text-4xl font-black text-white tracking-tighter mb-4 leading-tight">
+      <section className="py-20 lg:py-32 px-6 bg-brand-dark grain-dark relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(163,230,53,0.09) 0%, transparent 55%)'}} />
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Centered heading */}
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-brand-green/60 font-semibold tracking-[0.2em] uppercase text-[11px] mb-5 block">Clientes</span>
+            <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tighter leading-tight mb-4">
               Grandes clientes retail que confían en REDUCE.
             </h2>
-            <p className="text-white/50 text-lg leading-relaxed mb-3 font-medium">
+            <p className="text-white/35 text-base leading-relaxed">
               Llevamos desde 2012 gestionando la energía de estructuras multisede. Estos clientes han confiado en nosotros año tras año.
             </p>
-            <p className="text-white/30 text-sm italic">
-              Logos sujetos a autorización expresa de cada cliente.
-            </p>
           </div>
-          <LogoReel logos={CLIENTS} bgColor="#0c1a2e" />
+
+          {/* Logo reel in a premium container */}
+          <div className="max-w-lg mx-auto rounded-[2rem] overflow-hidden border border-white/[0.07] shadow-[0_0_80px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.06)]" style={{background: 'rgba(255,255,255,0.03)'}}>
+            <LogoReel logos={CLIENTS} bgColor="rgba(12,26,46,0)" />
+          </div>
+
+          <p className="text-center text-white/20 text-xs mt-6 italic">
+            Logos sujetos a autorización expresa de cada cliente.
+          </p>
         </div>
       </section>
 

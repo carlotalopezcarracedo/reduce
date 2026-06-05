@@ -37,25 +37,17 @@ export function Home() {
         <meta property="og:url" content="https://reduce.es/" />
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[78vh] flex items-center py-20 px-6 bg-brand-dark overflow-hidden">
-        {/* Dot grid — static, subtle */}
-        <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '44px 44px'}} />
+      <section className="relative min-h-[90vh] flex items-center py-20 lg:py-0 px-6 bg-brand-dark overflow-hidden">
+        {/* Gradient mesh — multi-point, no rotation, more premium than spinning orb */}
+        <div className="absolute inset-0 pointer-events-none" style={{background: [
+          'radial-gradient(ellipse 70% 60% at 8% 80%, rgba(163,230,53,0.24) 0%, transparent 58%)',
+          'radial-gradient(ellipse 50% 65% at 92% 10%, rgba(163,230,53,0.10) 0%, transparent 52%)',
+          'radial-gradient(ellipse 35% 30% at 55% 100%, rgba(163,230,53,0.06) 0%, transparent 55%)',
+        ].join(', ')}} />
+        {/* Bottom edge fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none" />
 
-        {/* Rotating conic orb — the main visual effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <div style={{
-            width: 1000, height: 1000, borderRadius: '50%',
-            background: 'conic-gradient(from 0deg, transparent 0deg, rgba(163,230,53,0.22) 60deg, transparent 120deg, transparent 200deg, rgba(163,230,53,0.1) 260deg, transparent 320deg)',
-            filter: 'blur(70px)',
-            animation: 'orb-rotate 18s linear infinite',
-          }} />
-        </div>
-
-        {/* Static ambient fill glows */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none bg-brand-green/10 blur-[140px] translate-x-1/3 -translate-y-1/4" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none bg-brand-green/8 blur-[120px] -translate-x-1/4 translate-y-1/4" />
-
-        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1fr_340px] gap-12 xl:gap-20 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[55fr_45fr] gap-10 xl:gap-16 items-center lg:py-24">
 
           {/* ── Left ── */}
           <div>
@@ -68,7 +60,7 @@ export function Home() {
               Estructura independiente · Operando desde 2012
             </div>
 
-            <h1 className="text-[2.6rem] sm:text-[3.6rem] lg:text-[4.8rem] font-black text-white tracking-tighter leading-[0.9] mb-6"
+            <h1 className="text-[2.6rem] sm:text-[3.8rem] lg:text-[5.5rem] xl:text-[6.5rem] font-black text-white tracking-tighter leading-[0.87] mb-8"
               style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.2s'}}>
               La energía multisede,{' '}
               <span
@@ -115,50 +107,68 @@ export function Home() {
           </div>
 
           {/* ── Right: dashboard mockup ── */}
-          <div className="hidden lg:flex flex-col rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5),0_0_40px_rgba(163,230,53,0.08),inset_0_1px_0_rgba(255,255,255,0.07)]"
-            style={{background: 'rgba(255,255,255,0.04)', animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.5s'}}>
-            {/* Header */}
+          <div className="hidden lg:flex flex-col rounded-[2rem] overflow-hidden border border-white/[0.09] min-h-[480px] shadow-[0_0_120px_rgba(0,0,0,0.6),0_0_60px_rgba(163,230,53,0.08),inset_0_1px_0_rgba(255,255,255,0.08)]"
+            style={{background: 'rgba(255,255,255,0.035)', animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.5s'}}>
+            {/* Header bar */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.07]" style={{background: 'rgba(255,255,255,0.02)'}}>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-brand-green shadow-[0_0_8px_rgba(163,230,53,0.9)]" />
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-brand-green shadow-[0_0_10px_rgba(163,230,53,1)]" />
                 <span className="text-white/40 text-[11px] font-bold tracking-widest uppercase">Auditoría activa</span>
               </div>
-              <span className="text-white/15 text-xs font-semibold">REDUCE</span>
+              <span className="text-white/15 text-[10px] font-bold tracking-widest">REDUCE</span>
             </div>
 
-            {/* Main metric */}
-            <div className="px-6 pt-5 pb-4 border-b border-white/[0.07]">
-              <p className="text-white/25 text-[10px] uppercase tracking-widest mb-2">Suministros bajo control</p>
-              <div className="flex items-end gap-2 mb-1">
-                <span className="text-[2.8rem] font-black text-white tracking-tighter leading-none">247</span>
-                <span className="text-brand-green font-bold text-sm mb-1.5">CUPS</span>
+            {/* Main metric + sparkline */}
+            <div className="px-6 pt-6 pb-5 border-b border-white/[0.07]">
+              <p className="text-white/25 text-[10px] uppercase tracking-[0.18em] mb-3">Suministros bajo control</p>
+              <div className="flex items-end justify-between">
+                <div>
+                  <div className="flex items-end gap-2">
+                    <span className="text-[3.5rem] font-black text-white tracking-tighter leading-none">247</span>
+                    <span className="text-brand-green font-bold text-base mb-1.5">CUPS</span>
+                  </div>
+                  <p className="text-white/20 text-xs mt-1 tracking-widest">ES · PT · IT · AD</p>
+                </div>
+                {/* Sparkline bars — decorative */}
+                <div className="flex items-end gap-[3px] pb-1">
+                  {[40, 55, 45, 70, 60, 80, 65, 85, 75, 92].map((h, i) => (
+                    <div key={i} className="w-[5px] rounded-t-[2px] transition-all"
+                      style={{
+                        height: `${h * 0.45}px`,
+                        background: i === 9 ? '#a3e635' : `rgba(163,230,53,${0.12 + i * 0.03})`,
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
-              <p className="text-white/20 text-xs">ES · PT · IT · AD</p>
             </div>
 
             {/* Audit checks */}
-            <div className="px-6 py-4 space-y-0 flex-1">
+            <div className="px-6 py-2 flex-1">
               {[
                 { label: 'Contratos indexados', ok: true },
                 { label: 'Control de facturación', ok: true },
                 { label: 'Perfilado y REE', ok: false },
                 { label: 'Energía reactiva', ok: true },
               ].map((item) => (
-                <div key={item.label} className="flex items-center justify-between py-3 border-b border-white/[0.05] last:border-0">
-                  <div className="flex items-center gap-2.5">
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.ok ? 'bg-brand-green' : 'bg-amber-400'}`} />
+                <div key={item.label} className="flex items-center justify-between py-3.5 border-b border-white/[0.05] last:border-0">
+                  <div className="flex items-center gap-3">
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.ok ? 'bg-brand-green shadow-[0_0_6px_rgba(163,230,53,0.7)]' : 'bg-amber-400'}`} />
                     <span className="text-white/55 text-sm">{item.label}</span>
                   </div>
-                  <span className={`text-xs font-black ${item.ok ? 'text-brand-green' : 'text-amber-400'}`}>
-                    {item.ok ? '✓' : '⚠'}
+                  <span className={`text-[11px] font-black tracking-wide ${item.ok ? 'text-brand-green' : 'text-amber-400'}`}>
+                    {item.ok ? 'OK' : 'REV'}
                   </span>
                 </div>
               ))}
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-3.5 border-t border-brand-green/20" style={{background: 'rgba(163,230,53,0.06)'}}>
-              <p className="text-brand-green/80 text-xs font-bold">Próxima revisión en 7 días</p>
+            <div className="px-6 py-4 border-t border-brand-green/15 flex items-center justify-between" style={{background: 'rgba(163,230,53,0.05)'}}>
+              <p className="text-brand-green/70 text-xs font-semibold">Próxima revisión en 7 días</p>
+              <div className="flex gap-1">
+                {[1,2,3].map(i => <div key={i} className="w-1 h-1 rounded-full bg-brand-green/40" />)}
+              </div>
             </div>
           </div>
 
@@ -166,24 +176,25 @@ export function Home() {
       </section>
 
       {/* ── POSICIONAMIENTO ───────────────────────────────────────────────── */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] py-10 sm:py-14 px-6 sm:px-8 lg:px-16 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.14)]">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: statement */}
-          <div className="border-l-[3px] border-brand-green pl-8 py-1">
-            <p className="text-[1.7rem] lg:text-[2.2rem] font-black text-brand-dark leading-[1.1] tracking-tight">
+      <section className="relative z-10 -mt-10 rounded-[3rem] py-12 sm:py-16 px-6 sm:px-10 lg:px-16 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.14)]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
+          {/* Left: statement — big editorial */}
+          <div>
+            <div className="w-8 h-[3px] bg-brand-green rounded-full mb-8" />
+            <p className="text-[1.9rem] lg:text-[2.4rem] font-black text-brand-dark leading-[1.08] tracking-tight">
               Somos la capa técnica independiente entre la energía y la operación del cliente.
             </p>
           </div>
-          {/* Right: 3 puntos */}
-          <div className="space-y-4">
+          {/* Right: 3 puntos — as numbered list with more weight */}
+          <div className="space-y-0 divide-y divide-border">
             {[
               'No vendemos energía: somos independientes de cualquier comercializadora.',
               'Controlamos, auditamos y hacemos trazable la energía de estructuras multisede.',
               'Infraestructura técnica propia para reproducir y validar cada factura.',
             ].map((item, i) => (
-              <div key={i} className="flex gap-4 items-start">
-                <span className="text-brand-green font-black text-sm flex-shrink-0 mt-0.5 w-6">0{i + 1}</span>
-                <p className="text-muted text-sm leading-relaxed">{item}</p>
+              <div key={i} className="flex gap-5 items-start py-5">
+                <span className="text-brand-green font-black text-base flex-shrink-0 mt-0.5 w-6 leading-none">0{i + 1}</span>
+                <p className="text-brand-dark/65 text-[15px] leading-relaxed font-medium">{item}</p>
               </div>
             ))}
           </div>
@@ -191,7 +202,7 @@ export function Home() {
       </section>
 
       {/* ── MODELO 5 CAPAS ────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-32 px-6 bg-brand-dark grain-dark">
+      <section className="py-16 lg:py-32 px-6 grain-dark" style={{background: 'linear-gradient(160deg, #0c1a2e 0%, #152741 50%, #0c1a2e 100%)'}}>
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
@@ -404,7 +415,7 @@ export function Home() {
       </section>
 
       {/* ── RETAIL MULTIPAÍS ──────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-32 px-6 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+      <section className="py-16 lg:py-32 px-6 bg-brand-mid relative overflow-hidden grain-dark">
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-green/8 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -442,7 +453,7 @@ export function Home() {
                   ? 'bg-brand-dark/40 md:bg-brand-green'
                   : 'bg-brand-green md:bg-brand-dark/40';
               return (
-                <div key={t} className={`stagger lift rounded-[2rem] px-6 py-5 flex flex-col justify-between h-[110px] border ${cardCls}`}
+                <div key={t} className={`stagger lift rounded-[2rem] px-6 py-6 flex flex-col justify-between h-[140px] border ${cardCls}`}
                   style={{ animationDelay: `${i * 55}ms` }}>
                   <span className={`w-1.5 h-1.5 rounded-full ${dotCls}`} />
                   <p className="font-bold text-sm leading-snug">{t}</p>
@@ -463,35 +474,45 @@ export function Home() {
       </section>
 
       {/* ── TRACK RECORD ──────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-32 px-6 bg-brand-light">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-16 lg:py-32 px-6 bg-white relative overflow-hidden">
+        {/* Decorative large number behind content */}
+        <div className="absolute -left-8 top-1/2 -translate-y-1/2 text-[22rem] font-black text-brand-dark/[0.03] select-none pointer-events-none leading-none tracking-tighter hidden lg:block">
+          12
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
             <div>
-              <span className="text-muted/60 font-semibold tracking-widest uppercase text-xs mb-4 block">Pilar 1 · Track record</span>
+              <span className="text-muted/50 font-semibold tracking-[0.2em] uppercase text-[11px] mb-8 block">Pilar 1 · Track record</span>
               <h2 className="text-4xl lg:text-5xl font-black text-brand-dark tracking-tighter leading-tight mb-6">
                 Desde 2012 operando,{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-600">
                   sin pivotes.
                 </span>
               </h2>
-              <p className="text-muted text-lg leading-relaxed mb-4">
+              <p className="text-muted text-base leading-relaxed mb-3">
                 No somos un proyecto nuevo: somos la opción consolidada en control energético multisede.
               </p>
-              <p className="text-muted text-sm leading-relaxed italic">
+              <p className="text-muted/70 text-sm leading-relaxed italic border-l-2 border-brand-green/30 pl-4">
                 "Llevamos desde 2012 haciendo esto. No es un pivote, no es una moda: es nuestra única especialidad."
               </p>
-              <div className="flex items-stretch gap-0 mt-10 divide-x divide-brand-dark/10">
-                <div className="pr-10">
-                  <p className="text-6xl font-black text-brand-dark tracking-tighter leading-none">+12</p>
-                  <p className="text-muted text-xs font-bold uppercase tracking-widest mt-2">años operando</p>
+
+              {/* Large typographic stats */}
+              <div className="flex items-end gap-0 mt-12 border-t border-brand-dark/8 pt-10">
+                <div className="pr-10 border-r border-brand-dark/10">
+                  <p className="text-[5.5rem] lg:text-[7rem] font-black text-brand-dark tracking-tighter leading-[0.85]">+12</p>
+                  <p className="text-muted text-xs font-bold uppercase tracking-[0.18em] mt-2">años operando</p>
                 </div>
                 <div className="pl-10">
-                  <p className="text-6xl font-black text-brand-dark tracking-tighter leading-none">8</p>
-                  <p className="text-muted text-xs font-bold uppercase tracking-widest mt-2">territorios</p>
+                  <p className="text-[5.5rem] lg:text-[7rem] font-black text-brand-dark tracking-tighter leading-[0.85]">8</p>
+                  <p className="text-muted text-xs font-bold uppercase tracking-[0.18em] mt-2">territorios</p>
                 </div>
               </div>
             </div>
-            <LogoReel logos={CLIENTS} bgColor="#f8fafc" />
+
+            {/* Logo reel — elevated container */}
+            <div className="rounded-[2rem] overflow-hidden bg-white border border-border shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+              <LogoReel logos={CLIENTS} bgColor="#ffffff" />
+            </div>
           </div>
         </div>
       </section>

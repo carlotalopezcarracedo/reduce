@@ -131,26 +131,30 @@ export function Technology() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-16 lg:py-24 px-6 bg-white border-y border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mb-12">
-            <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Capacidades</span>
-            <h2 className="text-3xl lg:text-4xl font-black text-brand-dark tracking-tighter">
-              Qué hacemos técnicamente.
-            </h2>
+      <section className="py-16 lg:py-24 px-6 bg-brand-dark grain-dark relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(ellipse 60% 70% at 75% 30%, rgba(163,230,53,0.07) 0%, transparent 55%)'}} />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-20 mb-12">
+            <div className="flex-1">
+              <span className="text-brand-green/70 font-semibold tracking-[0.2em] uppercase text-[11px] mb-4 block">Capacidades</span>
+              <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter">
+                Qué hacemos técnicamente.
+              </h2>
+            </div>
+            <p className="text-white/30 text-sm max-w-xs leading-relaxed">10 capacidades técnicas activas en proyectos reales de control energético multisede.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {CAPABILITIES.map((cap, i) => (
               <div
                 key={cap}
-                className={`flex items-start gap-4 rounded-2xl px-5 py-4 hover:-translate-y-0.5 transition-[transform,box-shadow,border-color] duration-200 ${
-                  i % 5 === 0
-                    ? 'bg-brand-dark border border-brand-dark'
-                    : 'bg-brand-light border border-border hover:border-brand-dark hover:shadow-md'
+                className={`flex items-start gap-3 rounded-xl px-5 py-4 border transition-[background-color,border-color] duration-200 cursor-default ${
+                  i % 3 === 0
+                    ? 'bg-brand-green/[0.09] border-brand-green/[0.18] hover:bg-brand-green/[0.15] hover:border-brand-green/[0.30]'
+                    : 'bg-white/[0.03] border-white/[0.07] hover:bg-white/[0.07] hover:border-white/[0.14]'
                 }`}
               >
-                <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${i % 5 === 0 ? 'text-brand-green' : 'text-brand-green'}`} />
-                <p className={`text-sm font-semibold ${i % 5 === 0 ? 'text-white' : 'text-brand-dark'}`}>{cap}</p>
+                <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-brand-green" />
+                <p className={`text-sm font-medium leading-snug ${i % 3 === 0 ? 'text-white/85' : 'text-white/55'}`}>{cap}</p>
               </div>
             ))}
           </div>
