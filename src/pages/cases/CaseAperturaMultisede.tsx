@@ -177,7 +177,7 @@ export function CaseAperturaMultisede() {
       </section>
 
       {/* ── RIESGO ── */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)] px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
+      <section className="relative z-10 -mt-10 rounded-[3rem] bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.12)] px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
           <div>
             <span className="text-brand-green font-bold tracking-widest uppercase text-xs mb-4 block">El contexto</span>

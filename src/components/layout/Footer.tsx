@@ -17,7 +17,7 @@ const SECTION_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="bg-brand-dark text-white border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 

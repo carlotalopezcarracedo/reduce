@@ -115,8 +115,8 @@ export function Home() {
           </div>
 
           {/* ── Right: dashboard mockup ── */}
-          <div className="hidden lg:flex flex-col rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5),0_0_40px_rgba(163,230,53,0.08)]"
-            style={{background: 'rgba(255,255,255,0.04)', animation: 'fade-up 0.7s ease both', animationDelay: '0.5s'}}>
+          <div className="hidden lg:flex flex-col rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5),0_0_40px_rgba(163,230,53,0.08),inset_0_1px_0_rgba(255,255,255,0.07)]"
+            style={{background: 'rgba(255,255,255,0.04)', animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.5s'}}>
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.07]" style={{background: 'rgba(255,255,255,0.02)'}}>
               <div className="flex items-center gap-2">
@@ -166,14 +166,13 @@ export function Home() {
       </section>
 
       {/* ── POSICIONAMIENTO ───────────────────────────────────────────────── */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] py-10 sm:py-14 px-6 sm:px-8 lg:px-16 bg-white shadow-[0_0_60px_rgba(0,0,0,0.25)]">
+      <section className="relative z-10 -mt-10 rounded-[3rem] py-10 sm:py-14 px-6 sm:px-8 lg:px-16 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.14)]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: statement */}
-          <div>
+          <div className="border-l-[3px] border-brand-green pl-8 py-1">
             <p className="text-[1.7rem] lg:text-[2.2rem] font-black text-brand-dark leading-[1.1] tracking-tight">
               Somos la capa técnica independiente entre la energía y la operación del cliente.
             </p>
-            <div className="mt-6 h-1 w-12 bg-brand-green rounded-full" />
           </div>
           {/* Right: 3 puntos */}
           <div className="space-y-4">
@@ -259,7 +258,7 @@ export function Home() {
             {/* Right: detail card */}
             <div
               key={activeId}
-              className="lg:col-span-3 bg-white rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col"
+              className="lg:col-span-3 bg-gradient-to-br from-white to-slate-50/70 rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
               style={{ animation: 'layer-fadein 0.28s cubic-bezier(0.23,1,0.32,1) both', minHeight: 400 }}
             >
               {/* Giant decorative letter */}
@@ -334,7 +333,7 @@ export function Home() {
                 className={`group lift rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 relative overflow-hidden ${
                   p.star
                     ? 'bg-brand-green shadow-[0_20px_60px_rgba(163,230,53,0.25)] hover:shadow-[0_30px_80px_rgba(163,230,53,0.4)]'
-                    : 'bg-white border border-border shadow-sm hover:shadow-xl hover:border-brand-dark/15'
+                    : 'bg-white border border-border shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)] hover:border-brand-dark/20'
                 }`}
               >
                 {/* Oversized background number */}
@@ -383,7 +382,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row justify-between items-end mb-10 lg:mb-16 gap-6 lg:gap-8">
             <div>
-              <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Pilar 2 · Operativa multipaís</span>
+              <span className="text-white/30 font-semibold tracking-widest uppercase text-xs mb-4 block">Pilar 2 · Operativa multipaís</span>
               <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white tracking-tighter leading-[1.05]">
                 Ocho territorios.{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
@@ -440,7 +439,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Pilar 1 · Track record</span>
+              <span className="text-muted/60 font-semibold tracking-widest uppercase text-xs mb-4 block">Pilar 1 · Track record</span>
               <h2 className="text-4xl lg:text-5xl font-black text-brand-dark tracking-tighter leading-tight mb-6">
                 Desde 2012 operando,{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-600">
@@ -453,14 +452,14 @@ export function Home() {
               <p className="text-muted text-sm leading-relaxed italic">
                 "Llevamos desde 2012 haciendo esto. No es un pivote, no es una moda: es nuestra única especialidad."
               </p>
-              <div className="flex gap-12 mt-10">
-                <div>
-                  <p className="text-6xl font-black text-brand-dark tracking-tighter">+12</p>
-                  <p className="text-muted text-xs font-bold uppercase tracking-widest mt-1">años operando</p>
+              <div className="flex items-stretch gap-0 mt-10 divide-x divide-brand-dark/10">
+                <div className="pr-10">
+                  <p className="text-6xl font-black text-brand-dark tracking-tighter leading-none">+12</p>
+                  <p className="text-muted text-xs font-bold uppercase tracking-widest mt-2">años operando</p>
                 </div>
-                <div>
-                  <p className="text-6xl font-black text-brand-dark tracking-tighter">8</p>
-                  <p className="text-muted text-xs font-bold uppercase tracking-widest mt-1">territorios</p>
+                <div className="pl-10">
+                  <p className="text-6xl font-black text-brand-dark tracking-tighter leading-none">8</p>
+                  <p className="text-muted text-xs font-bold uppercase tracking-widest mt-2">territorios</p>
                 </div>
               </div>
             </div>

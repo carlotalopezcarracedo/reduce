@@ -20,11 +20,11 @@ const DEFAULT_ITEMS: CTAItem[] = [
 
 export function CTABand({ title = '¿Por dónde empezamos?', items = DEFAULT_ITEMS }: CTABandProps) {
   return (
-    <section className="py-16 lg:py-24 px-6 bg-brand-dark relative overflow-hidden">
+    <section className="py-16 lg:py-24 px-6 bg-brand-dark relative overflow-hidden border-t border-white/[0.06]">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(163,230,53,0.07)_0%,transparent_65%)] pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <p className="text-white/35 text-xs font-bold uppercase tracking-widest mb-6">{title}</p>
-        <div className="flex flex-wrap gap-4">
+        <p className="text-white/25 text-[11px] font-semibold uppercase tracking-[0.2em] mb-5">{title}</p>
+        <div className="flex flex-wrap gap-3">
           {items.map((item) =>
             item.primary ? (
               <Button

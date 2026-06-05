@@ -47,7 +47,7 @@ export function Sectors() {
       </section>
 
       {/* Statement */}
-      <section className="relative z-10 -mt-10 rounded-[3rem] py-12 px-6 bg-white shadow-[0_0_60px_rgba(0,0,0,0.22)]">
+      <section className="relative z-10 -mt-10 rounded-[3rem] py-12 px-6 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.12)]">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-2xl lg:text-3xl font-bold text-brand-dark leading-snug">
             El problema no es el precio de la energía. Es controlar, auditar y operar cientos de suministros sin perder el hilo.
@@ -92,7 +92,7 @@ export function Sectors() {
             </div>
 
             {/* Row 1, card 2 */}
-            <div className="rounded-[2rem] p-8 bg-white border border-border hover:border-brand-dark hover:shadow-xl lift flex flex-col gap-5">
+            <div className="rounded-[2rem] p-8 bg-white border border-border shadow-[0_1px_4px_rgba(0,0,0,0.04)] hover:border-brand-dark/40 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] lift flex flex-col gap-5">
               <h3 className="text-xl font-black tracking-tight text-brand-dark">{SECTORS[1].name}</h3>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest mb-1.5 text-muted/60">El problema</p>

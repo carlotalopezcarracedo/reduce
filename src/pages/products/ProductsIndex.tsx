@@ -38,7 +38,7 @@ export function ProductsIndex() {
       </section>
 
       {/* Products */}
-      <section className="relative z-10 -mt-10 rounded-t-[3rem] pt-28 lg:pt-[8.5rem] pb-16 lg:pb-24 px-6 bg-brand-light shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
+      <section className="relative z-10 -mt-10 rounded-t-[3rem] pt-28 lg:pt-[8.5rem] pb-16 lg:pb-24 px-6 bg-brand-light shadow-[0_-2px_6px_rgba(0,0,0,0.04),0_-16px_48px_rgba(0,0,0,0.12)]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-5">
           {PRODUCTS.map((p, i) => (
             <Link

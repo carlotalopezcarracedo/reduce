@@ -18,7 +18,7 @@ export function Header() {
     <header className="sticky top-0 z-50 px-4 py-2">
       {/* Pill container */}
       <div className="max-w-7xl mx-auto">
-        <div className="bg-brand-dark rounded-full px-6 h-[60px] flex items-center justify-between gap-6 shadow-[0_8px_40px_rgba(0,0,0,0.45)] border border-white/[0.07]">
+        <div className="bg-brand-dark rounded-full px-6 h-[60px] flex items-center justify-between gap-6 shadow-[0_8px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.07)] border border-white/[0.08]">
 
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">

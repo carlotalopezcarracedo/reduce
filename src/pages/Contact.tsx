@@ -76,9 +76,9 @@ export function Contact() {
       </section>
 
       {/* Main content: dark left + form right */}
-      <section className="relative z-10 -mt-10 rounded-t-[3rem] bg-brand-light py-0 px-0 shadow-[0_-2px_40px_rgba(0,0,0,0.18)]">
+      <section className="relative z-10 -mt-10 rounded-t-[3rem] bg-brand-light py-0 px-0 shadow-[0_-2px_6px_rgba(0,0,0,0.04),0_-16px_48px_rgba(0,0,0,0.12)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-12 sm:pb-16">
-          <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.06)] border border-border overflow-hidden flex flex-col lg:flex-row">
+          <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_4px_8px_rgba(0,0,0,0.04),0_24px_80px_rgba(0,0,0,0.08)] border border-border/60 overflow-hidden flex flex-col lg:flex-row">
 
             {/* Left dark panel */}
             <div className="lg:w-5/12 bg-brand-dark text-white p-8 sm:p-12 lg:p-14 relative overflow-hidden flex flex-col justify-between">
