@@ -4,7 +4,7 @@ import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { CTABand } from '../components/ui/CTABand';
-import { LogoReel } from '../components/ui/LogoReel';
+import { LogoMarquee, LogoReel } from '../components/ui/LogoReel';
 import { LAYERS, PRODUCTS, CLIENTS, TERRITORIES, KEY_MESSAGES } from '../data/content';
 
 export function Home() {
@@ -173,6 +173,11 @@ export function Home() {
           </div>
 
         </div>
+      </section>
+
+      {/* CLIENT LOGOS */}
+      <section className="relative z-0 bg-brand-dark px-0 pb-14 pt-0 sm:pb-16">
+        <LogoMarquee logos={CLIENTS} />
       </section>
 
       {/* ── POSICIONAMIENTO ───────────────────────────────────────────────── */}

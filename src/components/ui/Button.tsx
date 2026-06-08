@@ -1,11 +1,13 @@
 import { ArrowRight } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'outline-light';
 type Size = 'sm' | 'md' | 'lg';
 
 interface ButtonProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  key?: string;
   variant?: Variant;
   size?: Size;
   to?: string;

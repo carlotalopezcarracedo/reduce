@@ -68,6 +68,16 @@ body {
   50%       { background-position: 100% 50%; }
 }
 
+/* Client logo strip */
+@keyframes logo-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logo-marquee-track {
+  animation: logo-marquee 34s linear infinite;
+}
+
 /* ── Hover lift — only on true pointer devices ───────────────────── */
 /* Touch screens fire :hover on tap; gate transforms so they only    */
 /* apply when there's a real cursor.                                  */
@@ -90,6 +100,7 @@ body {
   .lift  { transition: opacity 150ms ease, box-shadow 150ms ease; }
   .lift:hover { transform: none; }
   .stagger { animation: none; opacity: 1; }
+  .logo-marquee-track { animation: none; }
   [style*="animation"] { animation-duration: 0.01ms !important; }
 }
 

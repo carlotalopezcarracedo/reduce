@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react';
+
 interface SectionLabelProps {
-  children: React.ReactNode;
+  children: ReactNode;
   light?: boolean;
   className?: string;
 }

@@ -1,11 +1,12 @@
 import { Helmet } from 'react-helmet-async';
+import type { ReactNode } from 'react';
 
 interface Props {
   title: string;
   subtitle: string;
   metaDesc: string;
   updated: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function LegalPage({ title, subtitle, metaDesc, updated, children }: Props) {
@@ -39,7 +40,7 @@ export function LegalPage({ title, subtitle, metaDesc, updated, children }: Prop
   );
 }
 
-export function LegalSection({ title, children }: { title: string; children: React.ReactNode }) {
+export function LegalSection({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div>
       <h2 className="text-base font-black text-brand-dark tracking-tight mb-3">{title}</h2>

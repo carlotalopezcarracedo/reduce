@@ -162,7 +162,7 @@ export function Sectors() {
               </div>
               <div className="w-px bg-white/[0.08] mx-0" />
               <div className="pl-8">
-                <p className="text-[3.5rem] font-black text-white tracking-tighter leading-none">6</p>
+                <p className="text-[3.5rem] font-black text-white tracking-tighter leading-none">{CLIENTS.length}</p>
                 <p className="text-white/25 text-[11px] font-semibold uppercase tracking-[0.18em] mt-2">clientes referencia</p>
               </div>
             </div>

@@ -11,10 +11,14 @@ export const CONTACT_INFO = {
 export const CLIENTS = [
   { name: 'Primor', logo: '/primor.png' },
   { name: 'Perfumerías Arenal', logo: '/arenal.png' },
-  { name: 'ISGA', logo: '/isga.png' },
   { name: 'Digamel', logo: '/digamel.png' },
-  { name: 'Hierros Diego', logo: '/hierros-diego.png' },
   { name: 'Inasus', logo: '/inasus.png' },
+  { name: 'Bico Xeado', logo: '/bico_xeado.png' },
+  { name: 'Cash Galicia', logo: '/cash_galicia.png' },
+  { name: 'Cernaval', logo: '/cernaval.png' },
+  { name: 'Ópticas Contalén', logo: '/opticas_contalen.png' },
+  { name: 'STL', logo: '/stl.png' },
+  { name: 'Yatecomere', logo: '/yatecomere.png' },
 ];
 
 // ─── Territories ─────────────────────────────────────────────────────────────

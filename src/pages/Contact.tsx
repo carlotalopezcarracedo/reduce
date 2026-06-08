@@ -1,5 +1,5 @@
 import { CheckCircle2, Mail, Phone, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
@@ -20,7 +20,7 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError(false);

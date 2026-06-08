@@ -1,5 +1,5 @@
 import { CheckCircle2, XCircle, ChevronLeft, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Button } from '../../components/ui/Button';
@@ -16,7 +16,7 @@ export function ProductTemplate() {
     return <Navigate to="/productos" replace />;
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitted(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });

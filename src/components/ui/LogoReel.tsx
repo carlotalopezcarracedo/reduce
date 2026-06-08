@@ -16,7 +16,7 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
     const el = containerRef.current;
     if (!el) return;
 
-    const items = Array.from(el.querySelectorAll<HTMLElement>('[data-item]'));
+    const items: HTMLElement[] = Array.from(el.querySelectorAll<HTMLElement>('[data-item]'));
     const total = logos.length * ITEM_H;
     const center = REEL_H / 2;
     const maxDist = ITEM_H * 2.2;
@@ -57,6 +57,7 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
       ref={containerRef}
       className="relative select-none"
       style={{
+        backgroundColor: bgColor,
         height: REEL_H,
         maskImage: 'linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)',
@@ -83,6 +84,38 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
           />
         </div>
       ))}
+    </div>
+  );
+}
+
+export function LogoMarquee({ logos, bgColor = '#ffffff' }: { logos: Logo[]; bgColor?: string }) {
+  const loopLogos = [...logos, ...logos];
+
+  return (
+    <div
+      className="relative overflow-hidden border-y border-brand-dark/8"
+      style={{
+        backgroundColor: bgColor,
+        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+      }}
+      aria-label="Clientes de referencia"
+    >
+      <div className="logo-marquee-track flex w-max items-center gap-8 py-5 sm:gap-10 sm:py-6">
+        {loopLogos.map((logo, i) => (
+          <div
+            key={`${logo.name}-${i}`}
+            className="flex h-16 w-[150px] shrink-0 items-center justify-center sm:h-20 sm:w-[190px]"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}${logo.logo.replace(/^\//, '')}`}
+              alt={logo.name}
+              draggable={false}
+              className="max-h-12 max-w-[140px] object-contain grayscale opacity-70 sm:max-h-14 sm:max-w-[175px]"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
