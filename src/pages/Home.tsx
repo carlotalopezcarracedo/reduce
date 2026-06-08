@@ -176,7 +176,7 @@ export function Home() {
       </section>
 
       {/* CLIENT LOGOS */}
-      <section className="relative z-0 bg-brand-green px-0 pb-16 pt-0 sm:pb-20 lg:pb-24">
+      <section className="relative z-0 bg-brand-green px-0 pb-10 pt-0 sm:pb-12 lg:pb-14">
         <LogoMarquee logos={CLIENTS} />
       </section>
 

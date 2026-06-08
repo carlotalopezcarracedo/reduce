@@ -93,23 +93,23 @@ export function LogoMarquee({ logos, bgColor = '#a3e635' }: { logos: Logo[]; bgC
 
   return (
     <div
-      className="relative overflow-hidden border-y border-brand-dark/10"
+      className="relative overflow-hidden"
       style={{
         backgroundColor: bgColor,
       }}
       aria-label="Clientes de referencia"
     >
-      <div className="logo-marquee-track flex w-max items-center gap-8 py-5 sm:gap-10 sm:py-6">
+      <div className="logo-marquee-track flex w-max items-center gap-8 py-3 sm:gap-10 sm:py-4">
         {loopLogos.map((logo, i) => (
           <div
             key={`${logo.name}-${i}`}
-            className="flex h-16 w-[150px] shrink-0 items-center justify-center sm:h-20 sm:w-[190px]"
+            className="flex h-12 w-[150px] shrink-0 items-center justify-center sm:h-14 sm:w-[190px]"
           >
             <img
               src={`${import.meta.env.BASE_URL}${logo.logo.replace(/^\//, '')}`}
               alt={logo.name}
               draggable={false}
-              className="max-h-12 max-w-[140px] object-contain brightness-0 opacity-75 sm:max-h-14 sm:max-w-[175px]"
+              className="max-h-9 max-w-[140px] object-contain brightness-0 opacity-75 sm:max-h-10 sm:max-w-[175px]"
             />
           </div>
         ))}
