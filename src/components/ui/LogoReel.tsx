@@ -88,16 +88,14 @@ export function LogoReel({ logos, bgColor = 'white' }: { logos: Logo[]; bgColor?
   );
 }
 
-export function LogoMarquee({ logos, bgColor = '#ffffff' }: { logos: Logo[]; bgColor?: string }) {
+export function LogoMarquee({ logos, bgColor = '#a3e635' }: { logos: Logo[]; bgColor?: string }) {
   const loopLogos = [...logos, ...logos];
 
   return (
     <div
-      className="relative overflow-hidden border-y border-brand-dark/8"
+      className="relative overflow-hidden border-y border-brand-dark/10"
       style={{
         backgroundColor: bgColor,
-        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
       }}
       aria-label="Clientes de referencia"
     >
@@ -111,7 +109,7 @@ export function LogoMarquee({ logos, bgColor = '#ffffff' }: { logos: Logo[]; bgC
               src={`${import.meta.env.BASE_URL}${logo.logo.replace(/^\//, '')}`}
               alt={logo.name}
               draggable={false}
-              className="max-h-12 max-w-[140px] object-contain grayscale opacity-70 sm:max-h-14 sm:max-w-[175px]"
+              className="max-h-12 max-w-[140px] object-contain grayscale opacity-70 mix-blend-multiply contrast-125 sm:max-h-14 sm:max-w-[175px]"
             />
           </div>
         ))}
