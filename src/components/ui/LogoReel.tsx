@@ -109,7 +109,7 @@ export function LogoMarquee({ logos, bgColor = '#a3e635' }: { logos: Logo[]; bgC
               src={`${import.meta.env.BASE_URL}${logo.logo.replace(/^\//, '')}`}
               alt={logo.name}
               draggable={false}
-              className="max-h-12 max-w-[140px] object-contain grayscale opacity-70 mix-blend-multiply contrast-125 sm:max-h-14 sm:max-w-[175px]"
+              className="max-h-12 max-w-[140px] object-contain brightness-0 opacity-75 sm:max-h-14 sm:max-w-[175px]"
             />
           </div>
         ))}
