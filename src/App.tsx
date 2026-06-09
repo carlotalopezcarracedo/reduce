@@ -10,6 +10,7 @@ import { Technology } from './pages/Technology';
 import { Sectors } from './pages/Sectors';
 import { Contact } from './pages/Contact';
 import { CaseAperturaMultisede } from './pages/cases/CaseAperturaMultisede';
+import { Equipo } from './pages/Equipo';
 import { AvisoLegal } from './pages/legal/AvisoLegal';
 import { PoliticaPrivacidad } from './pages/legal/PoliticaPrivacidad';
 import { PoliticaCookies } from './pages/legal/PoliticaCookies';
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: 'productos/:slug', element: <ProductTemplate /> },
       { path: 'tecnologia', element: <Technology /> },
       { path: 'sectores', element: <Sectors /> },
+      { path: 'equipo', element: <Equipo /> },
       { path: 'contacto', element: <Contact /> },
       { path: 'casos/apertura-multisede', element: <CaseAperturaMultisede /> },
       { path: 'aviso-legal', element: <AvisoLegal /> },
