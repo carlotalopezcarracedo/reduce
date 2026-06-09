@@ -77,8 +77,8 @@ export function Equipo() {
             <span className="text-white/30">Resultados</span>{' '}reales.
           </h1>
           <p className="text-white/45 text-xl leading-relaxed max-w-2xl font-medium">
-            Perfil técnico senior, sin vínculo comercial con ninguna comercializadora.
-            Operando con el mismo equipo desde 2012.
+            Más de una década de trayectoria, con incorporaciones en tecnología y marketing
+            que refuerzan cada capa del servicio. Sin vínculo comercial con ninguna comercializadora.
           </p>
         </div>
       </section>
@@ -195,7 +195,7 @@ export function Equipo() {
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="w-8 h-[3px] bg-brand-green rounded-full mx-auto mb-8" />
           <p className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-[1.1]">
-            Operando desde 2012 con el mismo equipo. Sin rotación. Sin subcontratas.
+            Desde 2012, creciendo donde el mercado lo exige. Experiencia acumulada y talento nuevo para mantenerse a la vanguardia.
           </p>
         </div>
       </section>
