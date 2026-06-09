@@ -68,6 +68,12 @@ body {
   50%       { background-position: 100% 50%; }
 }
 
+/* Team billboard progress bar fill */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
 /* Client logo strip */
 @keyframes logo-marquee {
   from { transform: translateX(0); }
