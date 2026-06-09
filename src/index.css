@@ -74,6 +74,12 @@ body {
   to   { width: 100%; }
 }
 
+/* Team network: card gentle float */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-9px);  }
+}
+
 /* Client logo strip */
 @keyframes logo-marquee {
   from { transform: translateX(0); }
