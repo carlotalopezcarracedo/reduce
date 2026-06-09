@@ -24,7 +24,32 @@ export function Home() {
       if (step >= total) clearInterval(id);
     }, 30);
     return () => clearInterval(id);
-  }, []);;
+  }, []);
+
+  // Dashboard live state
+  const [dashCups, setDashCups] = useState(0);
+  const [sparkBars, setSparkBars] = useState([40, 55, 45, 70, 60, 80, 65, 85, 75, 92]);
+  const [revPulse, setRevPulse] = useState(false);
+
+  useEffect(() => {
+    let step = 0;
+    const total = 55;
+    const id = setInterval(() => {
+      step++;
+      const e = 1 - Math.pow(1 - step / total, 3);
+      setDashCups(Math.round(247 * e));
+      if (step >= total) clearInterval(id);
+    }, 22);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSparkBars(prev => [...prev.slice(1), Math.floor(Math.random() * 50) + 42]);
+      setRevPulse(p => !p);
+    }, 1800);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <>
@@ -124,18 +149,19 @@ export function Home() {
               <div className="flex items-end justify-between">
                 <div>
                   <div className="flex items-end gap-2">
-                    <span className="text-[3.5rem] font-black text-white tracking-tighter leading-none">247</span>
+                    <span className="text-[3.5rem] font-black text-white tracking-tighter leading-none tabular-nums">{dashCups}</span>
                     <span className="text-brand-green font-bold text-base mb-1.5">CUPS</span>
                   </div>
                   <p className="text-white/20 text-xs mt-1 tracking-widest">ES · PT · IT · AD</p>
                 </div>
-                {/* Sparkline bars — decorative */}
+                {/* Sparkline bars — live */}
                 <div className="flex items-end gap-[3px] pb-1">
-                  {[40, 55, 45, 70, 60, 80, 65, 85, 75, 92].map((h, i) => (
-                    <div key={i} className="w-[5px] rounded-t-[2px] transition-all"
+                  {sparkBars.map((h, i) => (
+                    <div key={i} className="w-[5px] rounded-t-[2px]"
                       style={{
                         height: `${h * 0.45}px`,
-                        background: i === 9 ? '#a3e635' : `rgba(163,230,53,${0.12 + i * 0.03})`,
+                        background: i === sparkBars.length - 1 ? '#a3e635' : `rgba(163,230,53,${0.10 + i * 0.03})`,
+                        transition: 'height 600ms cubic-bezier(0.23,1,0.32,1), background 600ms ease',
                       }}
                     />
                   ))}
@@ -150,13 +176,14 @@ export function Home() {
                 { label: 'Control de facturación', ok: true },
                 { label: 'Perfilado y REE', ok: false },
                 { label: 'Energía reactiva', ok: true },
-              ].map((item) => (
+              ].map((item, idx) => (
                 <div key={item.label} className="flex items-center justify-between py-3.5 border-b border-white/[0.05] last:border-0">
                   <div className="flex items-center gap-3">
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.ok ? 'bg-brand-green shadow-[0_0_6px_rgba(163,230,53,0.7)]' : 'bg-amber-400'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.ok ? 'bg-brand-green' : 'bg-amber-400'}`}
+                      style={item.ok ? { animation: `status-pulse 2.4s ease-in-out ${idx * 0.5}s infinite` } : {}} />
                     <span className="text-white/55 text-sm">{item.label}</span>
                   </div>
-                  <span className={`text-[11px] font-black tracking-wide ${item.ok ? 'text-brand-green' : 'text-amber-400'}`}>
+                  <span className={`text-[11px] font-black tracking-wide transition-opacity duration-500 ${item.ok ? 'text-brand-green' : `text-amber-400 ${revPulse ? 'opacity-100' : 'opacity-40'}`}`}>
                     {item.ok ? 'OK' : 'REV'}
                   </span>
                 </div>
@@ -166,8 +193,11 @@ export function Home() {
             {/* Footer */}
             <div className="px-6 py-4 border-t border-brand-green/15 flex items-center justify-between" style={{background: 'rgba(163,230,53,0.05)'}}>
               <p className="text-brand-green/70 text-xs font-semibold">Próxima revisión en 7 días</p>
-              <div className="flex gap-1">
-                {[1,2,3].map(i => <div key={i} className="w-1 h-1 rounded-full bg-brand-green/40" />)}
+              <div className="flex gap-1 items-center">
+                {[0, 1, 2].map(i => (
+                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-green/60"
+                    style={{ animation: `dot-fade 1.4s ease-in-out ${i * 0.22}s infinite` }} />
+                ))}
               </div>
             </div>
           </div>
