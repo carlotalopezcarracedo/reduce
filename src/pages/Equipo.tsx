@@ -1,54 +1,64 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CTABand } from '../components/ui/CTABand';
 
-const DIRECTOR = {
-  name: 'Bruno Rodríguez',
-  role: 'Dirección del proyecto',
-  years: '+25',
-  yearsLabel: 'años en el sector',
-  bio: 'Ingeniero experto en energía, con más de 25 años de experiencia en redes de gas, instalaciones diversas y análisis de mercados energéticos. Supervisión sénior del servicio y relación principal con clientes.',
-};
-
-const NODES = [
+const TEAM = [
+  {
+    num: '01',
+    name: 'Bruno Rodríguez',
+    initial: 'B',
+    role: 'Dirección del proyecto',
+    years: '+25',
+    yearsLabel: 'años en el sector energético',
+    bio: 'Ingeniero experto en energía, con más de 25 años de experiencia en redes de gas, instalaciones diversas y análisis de mercados energéticos. Supervisión sénior del servicio y relación principal con clientes.',
+    tag: 'Director',
+  },
   {
     num: '02',
     name: 'Manuel Castro',
+    initial: 'M',
     role: 'Plataforma y control energético',
-    tag: 'Control',
     years: '11',
-    yearsLabel: 'años',
-    bio: 'Ingeniero de Minas, esp. Energía. Lidera el control de facturación, contratos y reporting financiero.',
+    yearsLabel: 'años en gestión energética',
+    bio: 'Ingeniero de Minas, especialidad Energía. Lidera el control de facturación, contratos y reporting financiero para estructuras multisede. Con 11 años de experiencia en control presupuestario y compra técnica de energía.',
+    tag: 'Control',
   },
   {
     num: '03',
     name: 'Jordi Amodeo',
+    initial: 'J',
     role: 'Operativa de altas',
-    tag: 'Operativa',
     years: '6',
-    yearsLabel: 'años',
-    bio: 'Licenciado en Empresariales. Tramitación de altas, ampliaciones y expedientes en ES, PT, AD e IT.',
+    yearsLabel: 'años en suministros retail',
+    bio: 'Licenciado en Empresariales. Responsable de la tramitación de altas, ampliaciones y expedientes en España, Portugal, Andorra e Italia. Especialista en suministros de retail de alta complejidad.',
+    tag: 'Operativa',
   },
   {
     num: '04',
     name: 'Pedro Maceira',
+    initial: 'P',
     role: 'Desarrollo y tecnología',
-    tag: 'Tecnología',
     years: null,
     yearsLabel: null,
-    bio: 'Ingeniero informático. Desarrollo y mantenimiento de la plataforma propia, integración con Datadis.',
+    bio: 'Ingeniero informático. Responsable del desarrollo y mantenimiento de la plataforma propia: ingesta de datos, base de datos, integración con Datadis y entornos de gestión y reporting.',
+    tag: 'Tecnología',
   },
   {
     num: '05',
     name: 'Carlota López Carracedo',
+    initial: 'C',
     role: 'Marketing y desarrollo web',
-    tag: 'Marketing',
     years: null,
     yearsLabel: null,
-    bio: 'Responsable de la estrategia de comunicación, identidad de marca y desarrollo web.',
+    bio: 'Responsable de la estrategia de comunicación, identidad de marca y desarrollo web. Impulsa la presencia digital de REDUCE y la coherencia de marca en todos los canales.',
+    tag: 'Marketing',
   },
 ];
 
 export function Equipo() {
+  const [active, setActive] = useState(0);
+  const person = TEAM[active];
+
   return (
     <>
       <Helmet>
@@ -83,113 +93,136 @@ export function Equipo() {
         </div>
       </section>
 
-      {/* ── ORG TREE ─────────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 lg:py-24 px-6 relative overflow-hidden">
+      {/* ── INTERACTIVE SPLIT PANEL ───────────────────────────────────────── */}
+      <section className="bg-white">
+        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row" style={{ minHeight: '640px' }}>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+          {/* ── LEFT: clickable name list ────────────────────────────────── */}
+          <div className="lg:w-[44%] bg-brand-dark flex flex-col px-8 lg:px-14 py-14 lg:py-20">
+            <p className="text-white/20 text-[10px] font-bold uppercase tracking-[0.32em] mb-12">
+              El equipo · {TEAM.length} personas
+            </p>
 
-          {/* Section label */}
-          <div className="flex items-center gap-4 mb-16">
-            <div className="w-8 h-[2px] bg-brand-dark/20 rounded-full" />
-            <span className="text-brand-dark/25 text-[10px] font-bold uppercase tracking-[0.3em]">Estructura del equipo — 5 personas</span>
+            <div className="flex flex-col flex-1 justify-center gap-0 divide-y divide-white/[0.05]">
+              {TEAM.map((p, i) => (
+                <button
+                  key={p.name}
+                  onClick={() => setActive(i)}
+                  className={`group text-left py-5 lg:py-6 flex items-center gap-5 relative
+                              transition-[padding,color] duration-300 outline-none
+                              ${active === i ? 'pl-5' : 'pl-0 hover:pl-2'}`}
+                >
+                  {/* Active left bar */}
+                  <div className={`absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-brand-green
+                                  transition-[opacity,transform] duration-300
+                                  ${active === i ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} />
+
+                  {/* Number */}
+                  <span className={`text-[11px] font-bold tabular-nums flex-shrink-0 w-5 transition-colors duration-300
+                                    ${active === i ? 'text-brand-green/70' : 'text-white/20 group-hover:text-white/35'}`}>
+                    {p.num}
+                  </span>
+
+                  {/* Name + role */}
+                  <div className="min-w-0 flex-1">
+                    <p className={`font-black tracking-tighter leading-tight transition-colors duration-300
+                                   text-xl sm:text-2xl lg:text-[1.6rem]
+                                   ${active === i ? 'text-white' : 'text-white/45 group-hover:text-white/75'}`}>
+                      {p.name}
+                    </p>
+                    <p className={`text-[10px] font-bold uppercase tracking-[0.18em] mt-1 transition-colors duration-300
+                                   ${active === i ? 'text-brand-green/60' : 'text-white/15 group-hover:text-white/25'}`}>
+                      {p.role}
+                    </p>
+                  </div>
+
+                  {/* Arrow indicator */}
+                  <div className={`flex-shrink-0 transition-[opacity,transform] duration-300
+                                   ${active === i ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#a3e635" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Footer note */}
+            <p className="text-white/12 text-[10px] font-bold tracking-widest uppercase mt-12 hidden lg:block">
+              REDUCE · 2026
+            </p>
           </div>
 
-          {/* ── DIRECTOR ROOT NODE ─────────────────────────────────────── */}
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-[580px] rounded-[2rem] p-8 lg:p-10 bg-brand-dark
-                            border-2 border-brand-green/40
-                            shadow-[0_20px_60px_rgba(12,26,46,0.18),0_0_0_1px_rgba(163,230,53,0.06)]">
+          {/* ── RIGHT: animated detail panel ─────────────────────────────── */}
+          <div className="lg:flex-1 relative overflow-hidden bg-brand-light flex items-center px-8 lg:px-16 py-14 lg:py-20">
 
-              {/* Corner label */}
-              <span className="absolute top-4 right-5 text-[10px] font-bold tracking-[0.25em] text-white/15 uppercase">01</span>
+            {/* Giant ghost initial — repositions per person */}
+            <span
+              key={`initial-${active}`}
+              className="absolute right-0 bottom-0 font-black leading-none select-none pointer-events-none text-brand-dark/[0.055]"
+              style={{
+                fontSize: 'clamp(10rem, 28vw, 22rem)',
+                lineHeight: 1,
+                transform: 'translate(12%, 10%)',
+                animation: 'fade-up 0.5s cubic-bezier(0.23,1,0.32,1) both',
+              }}
+            >
+              {person.initial}
+            </span>
 
-              {/* Green pulse dot */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="relative flex h-2 w-2 flex-shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-50" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
-                </span>
-                <span className="text-brand-green text-[10px] font-bold uppercase tracking-[0.25em]">
-                  {DIRECTOR.role}
-                </span>
-              </div>
+            {/* Subtle green glow accent */}
+            <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-brand-green/6 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-              <div className="grid sm:grid-cols-[1fr_auto] gap-6 items-end">
-                <div>
-                  <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-tight mb-4">
-                    {DIRECTOR.name}
-                  </h2>
-                  <p className="text-white/40 text-sm leading-relaxed">{DIRECTOR.bio}</p>
+            {/* Content — key forces re-animation on selection change */}
+            <div key={active} className="relative z-10 w-full max-w-lg"
+              style={{ animation: 'fade-up 0.45s cubic-bezier(0.23,1,0.32,1) both' }}>
+
+              {/* Role badge */}
+              <span className="inline-flex items-center gap-2 text-brand-green text-[10px] font-bold uppercase tracking-[0.22em] border border-brand-green/30 rounded-full px-4 py-1.5 bg-brand-green/[0.07] mb-8">
+                <span className="w-1 h-1 rounded-full bg-brand-green" />
+                {person.role}
+              </span>
+
+              {/* Name */}
+              <h2 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-black text-brand-dark tracking-tighter leading-[0.92] mb-6">
+                {person.name}
+              </h2>
+
+              {/* Bio */}
+              <p className="text-muted text-base lg:text-[1.05rem] leading-relaxed mb-10 max-w-md">
+                {person.bio}
+              </p>
+
+              {/* Stat or tag */}
+              {person.years ? (
+                <div className="flex items-baseline gap-3 pt-8 border-t border-brand-dark/[0.08]">
+                  <span className="text-[4rem] lg:text-[5rem] font-black text-brand-dark tracking-tighter leading-none">{person.years}</span>
+                  <span className="text-muted text-sm font-medium">{person.yearsLabel}</span>
                 </div>
-                <div className="flex-shrink-0 sm:text-right">
-                  <p className="text-[3.5rem] font-black text-brand-green tracking-tighter leading-none">{DIRECTOR.years}</p>
-                  <p className="text-white/20 text-[10px] mt-1 tracking-wide">{DIRECTOR.yearsLabel}</p>
+              ) : (
+                <div className="pt-8 border-t border-brand-dark/[0.08]">
+                  <span className="inline-flex items-center gap-2 bg-brand-dark text-brand-green text-[10px] font-black uppercase tracking-[0.22em] px-4 py-2 rounded-full">
+                    {person.tag}
+                  </span>
                 </div>
-              </div>
+              )}
+
             </div>
           </div>
 
-          {/* ── CONNECTOR + NODES (desktop) ────────────────────────────── */}
-          {/*
-            Flex-1 approach: each column is flex-1, so the dot at the center
-            of each item is GUARANTEED to align with its half-lines.
-            Left-half line is transparent for col-0; right-half for col-3.
-          */}
+        </div>
 
-          {/* Vertical from root to horizontal junction */}
-          <div className="hidden lg:flex justify-center">
-            <div className="w-px h-8 bg-brand-green/30" />
-          </div>
-
-          {/* Flex row: connector + cards combined */}
-          <div className="hidden lg:flex">
-            {NODES.map((node, i) => (
-              <div key={node.name} className="flex-1 flex flex-col items-center min-w-0">
-                {/* Horizontal half-lines + center dot (forms the branch bar) */}
-                <div className="w-full flex items-center" style={{ height: '1px' }}>
-                  <div className={`flex-1 h-px ${i === 0 ? 'bg-transparent' : 'bg-brand-green/30'}`} />
-                  <div className="w-3 h-3 rounded-full border-2 border-brand-green/60 bg-white flex-shrink-0
-                                  shadow-[0_0_8px_rgba(163,230,53,0.35)]" />
-                  <div className={`flex-1 h-px ${i === NODES.length - 1 ? 'bg-transparent' : 'bg-brand-green/30'}`} />
-                </div>
-                {/* Vertical drop from dot to card */}
-                <div className="w-px bg-brand-green/30" style={{ height: '1.5rem' }} />
-                {/* Card — px creates visual gap between siblings */}
-                <div className="w-full px-2.5">
-                  <DesktopNode node={node} />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ── MOBILE: vertical spine ─────────────────────────────────── */}
-          <div className="lg:hidden flex flex-col items-center">
-            <div className="w-px h-8 bg-brand-green/30" />
-          </div>
-          <div className="lg:hidden relative pl-6 ml-4 border-l-2 border-brand-green/20 space-y-5">
-            {NODES.map((node) => (
-              <div key={node.name} className="relative">
-                <div className="absolute -left-[1.65rem] top-4 w-3 h-3 rounded-full border-2 border-brand-green/50 bg-white shadow-[0_0_6px_rgba(163,230,53,0.3)]" />
-                <div className="rounded-[1.5rem] border border-border bg-brand-light p-6">
-                  <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.22em] block mb-2">{node.role}</span>
-                  <h3 className="text-lg font-black text-brand-dark tracking-tighter mb-2">{node.name}</h3>
-                  <p className="text-muted text-xs leading-relaxed">{node.bio}</p>
-                  {node.years && (
-                    <div className="mt-3 pt-3 border-t border-border flex items-baseline gap-1.5">
-                      <span className="text-xl font-black text-brand-dark tracking-tighter">{node.years}</span>
-                      <span className="text-muted/60 text-[10px]">{node.yearsLabel}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
+        {/* Mobile: dot selector */}
+        <div className="lg:hidden flex justify-center gap-2 py-5 bg-brand-dark">
+          {TEAM.map((_, i) => (
+            <button key={i} onClick={() => setActive(i)}
+              className={`rounded-full transition-all duration-300 ${i === active ? 'w-6 h-2 bg-brand-green' : 'w-2 h-2 bg-white/20 hover:bg-white/40'}`} />
+          ))}
         </div>
       </section>
 
       {/* ── CLOSING STATEMENT ────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 px-6 bg-brand-dark border-t border-white/[0.05] grain-dark relative overflow-hidden">
+      <section className="py-20 lg:py-28 px-6 bg-brand-dark grain-dark relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(163,230,53,0.07) 0%, transparent 70%)' }} />
         <div className="max-w-3xl mx-auto text-center relative z-10">
@@ -209,43 +242,5 @@ export function Equipo() {
         ]}
       />
     </>
-  );
-}
-
-function DesktopNode({ node }: { node: typeof NODES[0] }) {
-  return (
-    <div className="relative flex flex-col rounded-[1.5rem] border border-border bg-white p-6 group
-                    shadow-[0_1px_4px_rgba(0,0,0,0.04)]
-                    transition-[border-color,box-shadow,transform] duration-300
-                    hover:border-brand-dark/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1">
-
-      {/* Num */}
-      <span className="text-brand-dark/15 text-[9px] font-bold tracking-[0.3em] mb-3">{node.num}</span>
-
-      {/* Role */}
-      <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.2em] mb-3 leading-tight">
-        {node.role}
-      </span>
-
-      {/* Name */}
-      <h3 className="text-base lg:text-lg font-black text-brand-dark tracking-tighter leading-tight mb-3 flex-1">
-        {node.name}
-      </h3>
-
-      {/* Bio */}
-      <p className="text-muted text-xs leading-relaxed mb-4">{node.bio}</p>
-
-      {/* Years */}
-      {node.years ? (
-        <div className="pt-3 border-t border-border flex items-baseline gap-1.5">
-          <span className="text-2xl font-black text-brand-dark tracking-tighter group-hover:text-brand-green transition-colors duration-300">{node.years}</span>
-          <span className="text-muted/60 text-[10px]">{node.yearsLabel}</span>
-        </div>
-      ) : (
-        <div className="pt-3 border-t border-border">
-          <span className="text-brand-dark/20 text-[9px] tracking-widest">REDUCE · 2026</span>
-        </div>
-      )}
-    </div>
   );
 }
