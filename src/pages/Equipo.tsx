@@ -11,144 +11,49 @@ interface TeamMember {
   years: string | null;
   yearsLabel: string | null;
   bio: string;
-  pos: { left: string; top: string };
-  floatDur: string;
-  floatDelay: string;
+  animDelay: string;
 }
 
 /* ── Data ───────────────────────────────────────────────────────────────── */
+const BRUNO: TeamMember = {
+  name: 'Bruno Rodríguez', role: 'Dirección del proyecto', icon: Zap,
+  years: '+25', yearsLabel: 'años en el sector',
+  bio: 'Ingeniero experto en energía, con más de 25 años de experiencia en redes de gas, instalaciones diversas y análisis de mercados energéticos. Supervisión sénior y relación principal con clientes.',
+  animDelay: '0.1s',
+};
+
 const TEAM: TeamMember[] = [
-  {
-    name: 'Bruno Rodríguez', role: 'Dirección del proyecto', icon: Zap,
-    years: '+25', yearsLabel: 'años en el sector',
-    bio: 'Ingeniero experto en energía, con más de 25 años de experiencia en redes de gas, instalaciones diversas y análisis de mercados energéticos. Supervisión sénior y relación principal con clientes.',
-    pos: { left: '50%', top: '15%' }, floatDur: '4.5s', floatDelay: '0s',
-  },
   {
     name: 'Manuel Castro', role: 'Plataforma y control energético', icon: TrendingUp,
     years: '11', yearsLabel: 'años en gestión energética',
     bio: 'Ingeniero de Minas, esp. Energía. Lidera el control de facturación, contratos y reporting financiero. 11 años en control presupuestario y compra técnica.',
-    pos: { left: '12%', top: '56%' }, floatDur: '5s', floatDelay: '0.8s',
+    animDelay: '0.5s',
   },
   {
     name: 'Jordi Amodeo', role: 'Operativa de altas', icon: Network,
     years: '6', yearsLabel: 'años en suministros retail',
     bio: 'Licenciado en Empresariales. Tramitación de altas, ampliaciones y expedientes en España, Portugal, Andorra e Italia.',
-    pos: { left: '88%', top: '56%' }, floatDur: '4s', floatDelay: '1.2s',
+    animDelay: '0.65s',
   },
   {
     name: 'Pedro Maceira', role: 'Desarrollo y tecnología', icon: Code2,
     years: null, yearsLabel: null,
     bio: 'Ingeniero informático. Desarrollo y mantenimiento de la plataforma propia: ingesta de datos, integración con Datadis y entornos de gestión.',
-    pos: { left: '30%', top: '84%' }, floatDur: '5.5s', floatDelay: '0.4s',
+    animDelay: '0.8s',
   },
   {
     name: 'Carlota López Carracedo', role: 'Marketing y desarrollo web', icon: Globe,
     years: null, yearsLabel: null,
     bio: 'Responsable de comunicación, identidad de marca y desarrollo web. Impulsa la presencia digital de REDUCE.',
-    pos: { left: '70%', top: '84%' }, floatDur: '4.8s', floatDelay: '1.6s',
+    animDelay: '0.95s',
   },
 ];
 
-/* SVG positions (viewBox 0 0 100 100) matching TEAM pos percentages */
-const NODE_PTS = [
-  { cx: 50, cy: 15 },
-  { cx: 12, cy: 56 },
-  { cx: 88, cy: 56 },
-  { cx: 30, cy: 84 },
-  { cx: 70, cy: 84 },
-];
-
-const CONNECTIONS = [
-  { path: 'M 50 15 C 31 36 20 46 12 56', dur: '4s',   begin: '0s',   primary: true  },
-  { path: 'M 50 15 C 69 36 80 46 88 56', dur: '3.5s', begin: '0.7s', primary: true  },
-  { path: 'M 50 15 C 40 49 35 67 30 84', dur: '5s',   begin: '1.4s', primary: true  },
-  { path: 'M 50 15 C 60 49 65 67 70 84', dur: '4.5s', begin: '2.1s', primary: true  },
-  { path: 'M 12 56 C 17 70 23 77 30 84', dur: '3s',   begin: '0.5s', primary: false },
-  { path: 'M 88 56 C 83 70 77 77 70 84', dur: '3.5s', begin: '1s',   primary: false },
-];
-
-/* ── Node card ──────────────────────────────────────────────────────────── */
-function NodeCard({
-  person,
-  active,
-  onMouseEnter,
-  onMouseLeave,
-}: {
-  person: TeamMember;
-  active: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}) {
-  const Icon = person.icon;
-  return (
-    <div
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      style={{
-        transform: 'translate(-50%, -50%)',
-        width: active ? '272px' : '192px',
-        transition: 'width 500ms cubic-bezier(0.23,1,0.32,1), box-shadow 400ms ease, border-color 300ms ease',
-        willChange: 'width',
-      }}
-      className={`relative cursor-default select-none bg-white rounded-[1.75rem] px-5 py-5 border
-                  ${active
-          ? 'border-brand-green/45 shadow-[0_0_50px_rgba(163,230,53,0.16),0_8px_32px_rgba(0,0,0,0.09)]'
-          : 'border-[#e2e8f0] shadow-[0_2px_16px_rgba(0,0,0,0.07)] hover:border-brand-green/25 hover:shadow-[0_6px_24px_rgba(0,0,0,0.1)]'
-        }`}
-    >
-      {/* Inner glow when active */}
-      {active && (
-        <div className="absolute inset-0 rounded-[1.75rem] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(163,230,53,0.09) 0%, transparent 65%)' }} />
-      )}
-
-      {/* Icon + role row */}
-      <div className="flex items-center gap-2.5 mb-3">
-        <div className={`flex-shrink-0 flex items-center justify-center rounded-xl border
-                         transition-all duration-500
-                         ${active
-            ? 'w-10 h-10 bg-brand-green/12 border-brand-green/30'
-            : 'w-8 h-8 bg-brand-green/8 border-brand-green/18'
-          }`}>
-          <Icon className={`text-brand-green transition-all duration-500 ${active ? 'w-5 h-5' : 'w-4 h-4'}`} />
-        </div>
-        <span className="text-brand-green text-[8px] font-bold uppercase tracking-[0.22em] leading-tight">
-          {person.role}
-        </span>
-      </div>
-
-      {/* Name */}
-      <h3 className="font-black text-brand-dark tracking-tighter leading-tight text-[0.95rem]">
-        {person.name}
-      </h3>
-
-      {/* Expandable bio + stat */}
-      <div style={{
-        maxHeight: active ? '260px' : '0px',
-        opacity: active ? 1 : 0,
-        overflow: 'hidden',
-        transition: 'max-height 500ms cubic-bezier(0.23,1,0.32,1), opacity 380ms ease',
-      }}>
-        <p className="text-muted text-[11px] leading-relaxed mt-3 mb-3.5">{person.bio}</p>
-        <div className="pt-3 border-t border-[#e2e8f0]">
-          {person.years ? (
-            <div className="flex items-baseline gap-2">
-              <span className="text-[1.9rem] font-black text-brand-dark leading-none">{person.years}</span>
-              <span className="text-muted/60 text-[8px] uppercase tracking-widest">{person.yearsLabel}</span>
-            </div>
-          ) : (
-            <span className="text-muted/60 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ── Page ───────────────────────────────────────────────────────────────── */
 export function Equipo() {
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [active, setActive] = useState<number | null>(null);
+  const toggle = (i: number) => setActive(prev => prev === i ? null : i);
 
   return (
     <>
@@ -183,134 +88,132 @@ export function Equipo() {
         </div>
       </section>
 
-      {/* ── NETWORK ─────────────────────────────────────────────────────── */}
-      <section className="bg-white relative overflow-hidden">
+      {/* ── TEAM SECTION ─────────────────────────────────────────────────── */}
+      <section className="bg-white">
 
-        {/* Subtle dot texture */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.028]"
-          style={{ backgroundImage: 'radial-gradient(circle, #0c1a2e 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-
-        {/* Label strip */}
-        <div className="flex items-center justify-between px-8 py-3.5 border-b border-border relative z-10">
+        {/* Header strip */}
+        <div className="flex items-center justify-between px-6 lg:px-10 py-3.5 border-b border-border">
           <span className="text-brand-dark/25 text-[9px] font-bold uppercase tracking-[0.35em]">Estructura del equipo · 5 personas</span>
           <span className="text-brand-dark/20 text-[9px] font-bold tracking-widest">REDUCE · 2026</span>
         </div>
 
-        {/* ── Desktop network (lg+) ── */}
-        <div
-          className="hidden lg:block relative mx-auto"
-          style={{ height: '840px', maxWidth: '1200px', padding: '0 48px' }}
-        >
-          {/* Ambient green halo */}
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 55% 55% at 50% 40%, rgba(163,230,53,0.07) 0%, transparent 70%)' }} />
+        <div className="max-w-5xl mx-auto px-6 pt-12 pb-16 lg:pt-16 lg:pb-24">
 
-          {/* ── SVG layer: connections + particles ── */}
+          {/* ── Bruno: director card ── */}
+          <div
+            className="max-w-2xl mx-auto relative border border-border bg-white rounded-2xl p-7 lg:p-9 overflow-hidden"
+            style={{ animation: 'fade-up 500ms cubic-bezier(0.23,1,0.32,1) 0.1s both' }}
+          >
+            {/* Green accent stripe */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-green to-emerald-400" />
+
+            <div className="flex flex-wrap items-start gap-5 lg:gap-7">
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 border border-brand-green/22 flex items-center justify-center flex-shrink-0">
+                <Zap className="w-6 h-6 text-brand-green" />
+              </div>
+              {/* Text */}
+              <div className="flex-1 min-w-0">
+                <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.22em] block mb-1">{BRUNO.role}</span>
+                <h2 className="font-black text-brand-dark tracking-tighter text-2xl lg:text-[1.8rem] mb-3">{BRUNO.name}</h2>
+                <p className="text-muted text-sm leading-relaxed">{BRUNO.bio}</p>
+              </div>
+              {/* Stat */}
+              <div className="flex-shrink-0 text-right pl-5 border-l border-border hidden sm:block self-center">
+                <span className="text-[2.8rem] font-black text-brand-dark leading-none block">{BRUNO.years}</span>
+                <span className="text-muted/50 text-[8px] uppercase tracking-widest">{BRUNO.yearsLabel}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Tree connector SVG ── */}
+          {/* Lines align with 4-col grid centers at ~12.5%, 37.5%, 62.5%, 87.5% */}
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 100 100"
+            viewBox="0 0 1000 64"
             preserveAspectRatio="none"
+            className="w-full h-10 lg:h-14 block"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <defs>
-              <filter id="ptglow" x="-120%" y="-120%" width="340%" height="340%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="b" />
-                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
-
-            {/* Connection lines with flowing dash animation */}
-            {CONNECTIONS.map((c, i) => (
-              <g key={i}>
-                <path
-                  d={c.path}
-                  fill="none"
-                  stroke={c.primary ? 'rgba(12,26,46,0.1)' : 'rgba(12,26,46,0.06)'}
-                  strokeWidth="0.25"
-                  strokeDasharray="1.6 2.8"
-                  strokeLinecap="round"
-                >
-                  <animate attributeName="stroke-dashoffset" from="0" to="-9" dur={c.dur} repeatCount="indefinite" />
-                </path>
-                {/* Bright green particle traveling along the path */}
-                <circle r="0.85" fill="#a3e635" opacity="0.9" filter="url(#ptglow)">
-                  <animateMotion dur={c.dur} repeatCount="indefinite" begin={c.begin} path={c.path} />
-                </circle>
-              </g>
+            {/* Vertical stem from Bruno */}
+            <line x1="500" y1="0" x2="500" y2="32"
+              stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="0 200">
+              <animate attributeName="stroke-dasharray" from="0 200" to="200 0"
+                dur="0.35s" begin="0.4s" fill="freeze" />
+            </line>
+            {/* Horizontal bar */}
+            <line x1="125" y1="32" x2="875" y2="32"
+              stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="0 1000">
+              <animate attributeName="stroke-dasharray" from="0 1000" to="1000 0"
+                dur="0.45s" begin="0.75s" fill="freeze" />
+            </line>
+            {/* 4 drops */}
+            {[125, 375, 625, 875].map((x, i) => (
+              <line key={x} x1={x} y1="32" x2={x} y2="64"
+                stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="0 200">
+                <animate attributeName="stroke-dasharray" from="0 200" to="200 0"
+                  dur="0.25s" begin={`${1.2 + i * 0.08}s`} fill="freeze" />
+              </line>
             ))}
-
-            {/* Pulsing node rings at each card center */}
-            {NODE_PTS.map((pt, i) => (
-              <circle
-                key={i}
-                cx={pt.cx}
-                cy={pt.cy}
-                r="3"
-                fill="none"
-                stroke="rgba(163,230,53,0.55)"
-                strokeWidth="0.28"
-              >
-                <animate attributeName="r" values="2.2;4.2;2.2" dur={`${3.2 + i * 0.45}s`} repeatCount="indefinite" begin={`${i * 0.55}s`} />
-                <animate attributeName="opacity" values="0.35;0.75;0.35" dur={`${3.2 + i * 0.45}s`} repeatCount="indefinite" begin={`${i * 0.55}s`} />
+            {/* Green junction dots */}
+            <circle cx="500" cy="0" r="3.5" fill="#a3e635" opacity="0">
+              <animate attributeName="opacity" from="0" to="0.65" dur="0.2s" begin="0.4s" fill="freeze" />
+            </circle>
+            {[125, 375, 625, 875].map((x, i) => (
+              <circle key={x} cx={x} cy="32" r="2.8" fill="#a3e635" opacity="0">
+                <animate attributeName="opacity" from="0" to="0.5" dur="0.2s"
+                  begin={`${1.2 + i * 0.08}s`} fill="freeze" />
               </circle>
             ))}
           </svg>
 
-          {/* ── Cards ── */}
-          {TEAM.map((person, i) => (
-            <div
-              key={person.name}
-              style={{
-                position: 'absolute',
-                left: person.pos.left,
-                top: person.pos.top,
-                zIndex: hovered === i ? 20 : 5,
-              }}
-            >
-              {/* Float wrapper (no transform here — centering is in NodeCard) */}
-              <div style={{
-                animation: hovered === i
-                  ? 'none'
-                  : `float-y ${person.floatDur} ease-in-out ${person.floatDelay} infinite`,
-              }}>
-                <NodeCard
-                  person={person}
-                  active={hovered === i}
-                  onMouseEnter={() => setHovered(i)}
-                  onMouseLeave={() => setHovered(null)}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Mobile grid (< lg) ── */}
-        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 px-5 py-10 relative z-10">
-          {TEAM.map((person) => {
-            const Icon = person.icon;
-            return (
-              <div key={person.name} className="bg-white border border-[#e2e8f0] rounded-[1.5rem] p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-brand-green/10 border border-brand-green/20 flex items-center justify-center flex-shrink-0">
+          {/* ── 4-col grid ── */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {TEAM.map((person, i) => {
+              const Icon = person.icon;
+              const isActive = active === i;
+              return (
+                <div
+                  key={person.name}
+                  onClick={() => toggle(i)}
+                  style={{ animation: `fade-up 500ms cubic-bezier(0.23,1,0.32,1) ${person.animDelay} both` }}
+                  className={`relative border rounded-2xl p-5 lg:p-6 cursor-pointer select-none
+                              transition-all duration-300 ease-out
+                              ${isActive
+                      ? 'border-brand-green/40 bg-[#fafffe] shadow-[0_4px_20px_rgba(0,0,0,0.07)]'
+                      : 'border-border bg-white hover:border-brand-green/22 hover:shadow-[0_4px_14px_rgba(0,0,0,0.05)]'
+                    }`}
+                >
+                  {isActive && (
+                    <div className="absolute top-0 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r from-brand-green/50 to-emerald-400/50" />
+                  )}
+                  <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center mb-4">
                     <Icon className="w-4 h-4 text-brand-green" />
                   </div>
-                  <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.2em] leading-tight">{person.role}</span>
+                  <span className="text-brand-green text-[8px] font-bold uppercase tracking-[0.22em] block mb-1.5">{person.role}</span>
+                  <h3 className="font-black text-brand-dark tracking-tighter leading-tight text-[0.92rem]">{person.name}</h3>
+                  <div style={{
+                    maxHeight: isActive ? '260px' : '0px',
+                    opacity: isActive ? 1 : 0,
+                    overflow: 'hidden',
+                    transition: 'max-height 450ms cubic-bezier(0.23,1,0.32,1), opacity 320ms ease',
+                  }}>
+                    <p className="text-muted text-xs leading-relaxed mt-3 mb-4">{person.bio}</p>
+                    <div className="pt-3 border-t border-border">
+                      {person.years ? (
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-[1.7rem] font-black text-brand-dark leading-none">{person.years}</span>
+                          <span className="text-muted/55 text-[8px] uppercase tracking-widest">{person.yearsLabel}</span>
+                        </div>
+                      ) : (
+                        <span className="text-muted/55 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-black text-brand-dark tracking-tighter leading-tight text-base mb-2">{person.name}</h3>
-                <p className="text-muted text-xs leading-relaxed mb-4">{person.bio}</p>
-                {person.years ? (
-                  <div className="flex items-baseline gap-2 pt-3 border-t border-[#e2e8f0]">
-                    <span className="text-2xl font-black text-brand-dark">{person.years}</span>
-                    <span className="text-muted/50 text-[9px] uppercase tracking-widest">{person.yearsLabel}</span>
-                  </div>
-                ) : (
-                  <div className="pt-3 border-t border-[#e2e8f0]">
-                    <span className="text-muted/50 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
         </div>
       </section>
 
