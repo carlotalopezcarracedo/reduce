@@ -243,7 +243,7 @@ function DesktopNode({ node }: { node: typeof NODES[0] }) {
         </div>
       ) : (
         <div className="pt-3 border-t border-border">
-          <span className="text-brand-dark/20 text-[9px] tracking-widest">REDUCE · 2024</span>
+          <span className="text-brand-dark/20 text-[9px] tracking-widest">REDUCE · 2026</span>
         </div>
       )}
     </div>
