@@ -1,51 +1,47 @@
 import { Helmet } from 'react-helmet-async';
 import { CTABand } from '../components/ui/CTABand';
 
-const FEATURED = [
-  {
-    name: 'Bruno Rodríguez',
-    initial: 'B',
-    role: 'Dirección del proyecto',
-    years: '+25',
-    yearsLabel: 'años en el sector',
-    bio: 'Ingeniero experto en energía, con más de 25 años de experiencia en redes de gas, instalaciones diversas y análisis de mercados energéticos. Responsable de la relación con Druni y de la supervisión sénior del servicio.',
-    span2: true,
-  },
-  {
-    name: 'Carlota López Carracedo',
-    initial: 'C',
-    role: 'Marketing y desarrollo web',
-    years: null,
-    yearsLabel: null,
-    bio: 'Responsable de la estrategia de comunicación, identidad de marca y desarrollo web.',
-    span2: false,
-  },
-];
+const DIRECTOR = {
+  num: '01',
+  name: 'Bruno Rodríguez',
+  role: 'Dirección del proyecto',
+  years: '+25',
+  yearsLabel: 'años en el sector energético',
+  bio: 'Ingeniero experto en energía, con más de 25 años de experiencia en redes de gas, instalaciones diversas y análisis de mercados energéticos. Responsable de la relación con Druni y de la supervisión sénior del servicio.',
+};
 
-const TEAM = [
+const ROSTER = [
   {
+    num: '02',
     name: 'Manuel Castro',
-    initial: 'M',
     role: 'Plataforma y control energético',
     years: '11',
-    yearsLabel: 'años en gestión energética',
-    bio: 'Ingeniero de Minas, especialidad Energía. Con 11 años de experiencia en control presupuestario, compra técnica de energía y seguimiento de suministros. Lidera el control de facturación, contratos y reporting financiero.',
+    yearsLabel: 'años',
+    bio: 'Ingeniero de Minas, especialidad Energía. Con 11 años de experiencia en control presupuestario, compra técnica de energía y seguimiento de suministros energéticos. Lidera el control de facturación, contratos y reporting financiero.',
   },
   {
+    num: '03',
     name: 'Jordi Amodeo',
-    initial: 'J',
     role: 'Operativa de altas',
     years: '6',
-    yearsLabel: 'años en suministros retail',
+    yearsLabel: 'años',
     bio: 'Licenciado en Empresariales. Responsable de la tramitación de altas, ampliaciones y expedientes en España, Portugal, Andorra e Italia.',
   },
   {
+    num: '04',
     name: 'Pedro Maceira',
-    initial: 'P',
     role: 'Desarrollo y tecnología',
     years: null,
     yearsLabel: null,
     bio: 'Ingeniero informático. Responsable del desarrollo y mantenimiento de la plataforma propia: ingesta de datos, base de datos, integración con Datadis y entornos de gestión y reporting.',
+  },
+  {
+    num: '05',
+    name: 'Carlota López Carracedo',
+    role: 'Marketing y desarrollo web',
+    years: null,
+    yearsLabel: null,
+    bio: 'Responsable de la estrategia de comunicación, identidad de marca y desarrollo web.',
   },
 ];
 
@@ -61,12 +57,10 @@ export function Equipo() {
         <meta property="og:url" content="https://reduce.es/equipo" />
       </Helmet>
 
-      {/* Hero */}
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="bg-brand-dark min-h-[56vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden grain-dark">
-        {/* Dotted grid */}
         <div className="absolute inset-0 opacity-[0.035]"
           style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-        {/* Glow */}
         <div className="absolute bottom-0 left-1/4 w-[700px] h-[400px] bg-brand-green/14 rounded-full blur-[130px] translate-y-1/2 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-green/6 rounded-full blur-[100px] translate-x-1/4 -translate-y-1/4 pointer-events-none" />
 
@@ -76,133 +70,92 @@ export function Equipo() {
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-[7rem] font-black text-white tracking-tighter leading-[0.88] mb-8">
             Personas{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
-              reales.
-            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">reales.</span>
             <br />
             <span className="text-white/30">Resultados</span>{' '}reales.
           </h1>
           <p className="text-white/45 text-xl leading-relaxed max-w-2xl font-medium">
             Ingeniería energética, tecnología y operativa de suministros. Perfil técnico senior, sin vínculo comercial con ninguna comercializadora.
           </p>
-          {/* Team count chips */}
-          <div className="flex flex-wrap gap-3 mt-10">
-            {[
-              { n: '5', label: 'personas' },
-              { n: '4', label: 'disciplinas' },
-              { n: '+25', label: 'años acumulados de experiencia' },
-            ].map((s) => (
-              <div key={s.label} className="flex items-baseline gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.04]">
-                <span className="text-brand-green font-black text-base tracking-tighter">{s.n}</span>
-                <span className="text-white/35 text-xs">{s.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Statement pill */}
-      <section className="relative z-10 -mt-8 rounded-[3rem] py-10 px-8 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.12)] mx-4 lg:mx-auto max-w-4xl">
-        <p className="text-xl lg:text-2xl font-bold text-brand-dark leading-snug text-center">
-          Un equipo técnico independiente. Sin conflicto de interés con ninguna comercializadora.
-        </p>
-      </section>
+      {/* ── TEAM SECTION ─────────────────────────────────────────────────── */}
+      <section className="bg-white px-6 pt-0 pb-24">
+        <div className="max-w-7xl mx-auto">
 
-      {/* Team grid */}
-      <section className="relative z-0 -mt-10 pt-28 pb-20 px-6 bg-brand-light">
-        <div className="max-w-7xl mx-auto space-y-5">
+          {/* ── Director strip ─────────────────────────────────────────── */}
+          <div className="relative overflow-hidden bg-brand-dark rounded-b-[3rem] px-8 lg:px-16 pt-16 pb-14 mb-0">
+            {/* Top accent */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent" />
+            {/* Ghost number */}
+            <span className="absolute right-0 top-0 bottom-0 flex items-center text-[22rem] font-black text-white/[0.025] leading-none select-none pointer-events-none pr-6">01</span>
+            {/* Glow */}
+            <div className="absolute left-0 bottom-0 w-[600px] h-[300px] bg-brand-green/8 rounded-full blur-[100px] pointer-events-none" />
 
-          {/* Row 1: Featured (2/3) + Carlota (1/3) */}
-          <div className="grid lg:grid-cols-3 gap-5">
-
-            {/* Bruno — featured dark */}
-            <div className="lg:col-span-2 rounded-[2rem] bg-brand-dark relative overflow-hidden p-8 lg:p-12 lift hover:shadow-[0_30px_80px_rgba(12,26,46,0.5)] flex flex-col gap-8">
-              {/* Top accent */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent rounded-t-[2rem]" />
-              {/* Glows */}
-              <div className="absolute right-0 top-0 w-[400px] h-[400px] bg-brand-green/8 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-              {/* Giant decorative initial */}
-              <span className="absolute right-6 bottom-0 text-[16rem] font-black leading-none select-none pointer-events-none"
-                style={{ color: 'rgba(255,255,255,0.025)', lineHeight: 1 }}>B</span>
-
-              <div className="relative z-10 flex flex-col sm:flex-row gap-8 sm:gap-12 h-full">
-                {/* Left: role + name + bio */}
-                <div className="flex-1 flex flex-col gap-5">
-                  <span className="inline-flex items-center gap-2 text-brand-green text-[10px] font-bold uppercase tracking-[0.2em] border border-brand-green/25 rounded-full px-3 py-1.5 w-fit bg-brand-green/[0.06]">
-                    {FEATURED[0].role}
+            <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-20 items-center">
+              {/* Left: meta + name + bio */}
+              <div>
+                <div className="flex flex-wrap items-center gap-4 mb-6">
+                  <span className="text-white/20 text-xs font-bold tracking-[0.3em]">01</span>
+                  <span className="text-brand-green text-[10px] font-bold uppercase tracking-[0.22em] border border-brand-green/25 rounded-full px-3 py-1.5 bg-brand-green/[0.08]">
+                    {DIRECTOR.role}
                   </span>
-                  <div>
-                    <h2 className="text-2xl lg:text-3xl font-black text-white tracking-tighter leading-tight mb-4">
-                      {FEATURED[0].name}
-                    </h2>
-                    <p className="text-white/50 text-sm leading-relaxed">{FEATURED[0].bio}</p>
-                  </div>
                 </div>
-
-                {/* Right: big stat */}
-                <div className="sm:flex-shrink-0 sm:text-right flex sm:flex-col sm:justify-end sm:items-end">
-                  <div>
-                    <p className="text-[5rem] lg:text-[6rem] font-black text-brand-green tracking-tighter leading-none">{FEATURED[0].years}</p>
-                    <p className="text-white/25 text-xs mt-1 tracking-wide">{FEATURED[0].yearsLabel}</p>
-                  </div>
-                </div>
+                <h2 className="text-4xl sm:text-5xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[0.9] mb-8">
+                  {DIRECTOR.name}
+                </h2>
+                <p className="text-white/45 text-base leading-relaxed max-w-xl">{DIRECTOR.bio}</p>
               </div>
-            </div>
 
-            {/* Carlota — dark glass */}
-            <div className="rounded-[2rem] bg-brand-mid relative overflow-hidden p-8 lift hover:shadow-[0_20px_60px_rgba(12,26,46,0.4)] flex flex-col gap-6 border border-white/[0.06]">
-              {/* Different accent: subtle top line, dimmer */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent" />
-              <div className="absolute left-0 bottom-0 w-[250px] h-[250px] bg-brand-green/6 rounded-full blur-[80px] pointer-events-none" />
-              {/* Giant initial */}
-              <span className="absolute right-4 bottom-0 text-[12rem] font-black leading-none select-none pointer-events-none"
-                style={{ color: 'rgba(255,255,255,0.03)', lineHeight: 1 }}>C</span>
-
-              <div className="relative z-10 flex flex-col gap-5 flex-1">
-                <span className="inline-flex items-center gap-2 text-white/40 text-[10px] font-bold uppercase tracking-[0.2em] border border-white/[0.08] rounded-full px-3 py-1.5 w-fit">
-                  {FEATURED[1].role}
-                </span>
-                <div className="flex-1">
-                  <h2 className="text-xl lg:text-2xl font-black text-white tracking-tighter leading-tight mb-4">
-                    {FEATURED[1].name}
-                  </h2>
-                  <p className="text-white/40 text-sm leading-relaxed">{FEATURED[1].bio}</p>
-                </div>
-                {/* Small REDUCE tag at bottom */}
-                <div className="flex items-center gap-2 pt-4 border-t border-white/[0.06] mt-auto">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
-                  <span className="text-white/20 text-[10px] font-bold tracking-widest uppercase">REDUCE · 2024</span>
-                </div>
+              {/* Right: stat */}
+              <div className="lg:text-right">
+                <p className="text-[5.5rem] lg:text-[7rem] font-black text-brand-green tracking-tighter leading-none">{DIRECTOR.years}</p>
+                <p className="text-white/25 text-sm mt-2 tracking-wide">{DIRECTOR.yearsLabel}</p>
               </div>
             </div>
           </div>
 
-          {/* Row 2: Manuel + Jordi + Pedro */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {TEAM.map((person) => (
-              <div key={person.name}
-                className="rounded-[2rem] bg-white border border-border p-8 relative overflow-hidden lift hover:border-brand-dark/25 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] flex flex-col gap-5">
-                {/* Giant initial */}
-                <span className="absolute right-4 bottom-0 text-[10rem] font-black leading-none select-none pointer-events-none"
-                  style={{ color: 'rgba(12,26,46,0.04)', lineHeight: 1 }}>{person.initial}</span>
+          {/* ── Section label ──────────────────────────────────────────── */}
+          <div className="flex items-center gap-6 py-10 border-b border-border">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted/40 flex-shrink-0">El equipo</span>
+            <div className="flex-1 h-px bg-border" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted/40 flex-shrink-0">05 personas</span>
+          </div>
 
-                <div className="relative z-10 flex flex-col gap-4 flex-1">
-                  <span className="text-brand-green text-[10px] font-bold uppercase tracking-[0.2em]">
-                    {person.role}
-                  </span>
-                  <div className="flex-1">
-                    <h2 className="text-xl font-black text-brand-dark tracking-tighter leading-tight mb-3">
+          {/* ── Roster ─────────────────────────────────────────────────── */}
+          <div>
+            {ROSTER.map((person) => (
+              <div key={person.name}
+                className="grid grid-cols-[2.5rem_1fr] lg:grid-cols-[2.5rem_1fr_auto] gap-x-6 lg:gap-x-12 gap-y-0 py-9 border-b border-border group hover:bg-brand-dark/[0.02] transition-colors duration-200 -mx-6 px-6 lg:-mx-0 lg:px-0">
+
+                {/* Number */}
+                <span className="text-muted/25 text-xs font-bold tracking-[0.2em] tabular-nums pt-2 flex-shrink-0">{person.num}</span>
+
+                {/* Name + role + bio */}
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2 mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-black text-brand-dark tracking-tighter leading-none">
                       {person.name}
                     </h2>
-                    <p className="text-muted text-sm leading-relaxed">{person.bio}</p>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/50 flex-shrink-0">
+                      {person.role}
+                    </span>
                   </div>
-                  {person.years && (
-                    <div className="flex items-baseline gap-2 pt-4 border-t border-border mt-auto">
-                      <span className="text-3xl font-black text-brand-dark tracking-tighter">{person.years}</span>
-                      <span className="text-muted/70 text-xs">{person.yearsLabel}</span>
-                    </div>
-                  )}
+                  <p className="text-muted text-sm leading-relaxed max-w-2xl">{person.bio}</p>
                 </div>
+
+                {/* Years — desktop only */}
+                {person.years ? (
+                  <div className="hidden lg:flex flex-col items-end justify-start pt-1 flex-shrink-0">
+                    <p className="text-3xl font-black text-brand-dark/70 tracking-tighter leading-none group-hover:text-brand-green transition-colors duration-300">
+                      {person.years}
+                    </p>
+                    <p className="text-muted/40 text-[10px] mt-1 tracking-wide">{person.yearsLabel}</p>
+                  </div>
+                ) : (
+                  <div className="hidden lg:block" />
+                )}
               </div>
             ))}
           </div>
@@ -210,7 +163,7 @@ export function Equipo() {
         </div>
       </section>
 
-      {/* Closing statement */}
+      {/* ── Closing statement ────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 px-6 bg-brand-dark grain-dark relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(163,230,53,0.08) 0%, transparent 70%)' }} />
