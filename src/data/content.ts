@@ -104,7 +104,8 @@ export const LAYERS: Layer[] = [
     intro:
       'La energía no es la última pieza del plan de expansión: es la que decide si las demás sirven para algo. Una apertura retrasada por un expediente energético atascado no es un retraso menor. Es lucro cesante, alquiler pagado en vano y plantilla sin operar.',
     messages: [
-      'El problema real no es solo el precio de la energía.',
+      'Garantizamos apertura en tiempo. El 100%.',
+      'El mayor dolor del retail: la tienda preparada, el personal contratado, el género en almacén — y no poder abrir por la energía. Eso no ocurre con REDUCE.',
       'No abrir una tienda en fecha por un problema de energía no es un retraso: es lucro cesante, alquiler pagado en vano y plantilla sin operar.',
       'Damos de alta tiendas en España, Islas, Ceuta, Melilla, Portugal, Italia y Andorra. Ocho territorios. Una sola interlocución.',
     ],

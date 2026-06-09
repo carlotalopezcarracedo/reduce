@@ -178,6 +178,25 @@ export function CaseAperturaMultisede() {
 
       {/* ── RIESGO ── */}
       <section className="relative z-10 -mt-10 rounded-[3rem] bg-white shadow-[0_2px_4px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.12)] px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
+
+        {/* Guarantee callout */}
+        <div className="max-w-7xl mx-auto mb-14">
+          <div className="bg-brand-dark rounded-2xl px-7 py-7 flex flex-col sm:flex-row items-start sm:items-center gap-5 border border-brand-green/25 shadow-[0_4px_32px_rgba(12,26,46,0.2)]">
+            <div className="w-12 h-12 rounded-2xl bg-brand-green flex items-center justify-center flex-shrink-0 shadow-[0_0_24px_rgba(163,230,53,0.4)]">
+              <Shield className="w-6 h-6 text-brand-dark" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-brand-green font-black text-[9px] uppercase tracking-[0.28em] mb-1.5">Nuestra garantía</p>
+              <p className="text-white font-black text-xl lg:text-2xl tracking-tighter leading-tight">
+                Garantizamos apertura en tiempo. El 100%.
+              </p>
+              <p className="text-white/40 text-sm leading-relaxed mt-2 max-w-xl">
+                El mayor dolor del retailer: la tienda preparada, el personal contratado, el género en almacén — y no poder abrir por un expediente energético atascado. Eso no ocurre con REDUCE.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
           <div>
             <span className="text-brand-green font-bold tracking-widest uppercase text-xs mb-4 block">El contexto</span>
