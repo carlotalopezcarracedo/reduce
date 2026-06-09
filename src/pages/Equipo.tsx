@@ -109,7 +109,8 @@ export function Equipo() {
 
             <div className="flex flex-wrap items-start gap-5 lg:gap-7">
               {/* Icon */}
-              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 border border-brand-green/22 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 border border-brand-green/22 flex items-center justify-center flex-shrink-0"
+                style={{ animation: 'status-pulse 2.2s ease-in-out 0.5s infinite' }}>
                 <Zap className="w-6 h-6 text-brand-green" />
               </div>
               {/* Text */}
@@ -134,6 +135,13 @@ export function Equipo() {
             className="w-full h-10 lg:h-14 block"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <defs>
+              <filter id="node-glow" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="b" />
+                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+
             {/* Vertical stem from Bruno */}
             <line x1="500" y1="0" x2="500" y2="32"
               stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="0 200">
@@ -154,14 +162,44 @@ export function Equipo() {
                   dur="0.25s" begin={`${1.2 + i * 0.08}s`} fill="freeze" />
               </line>
             ))}
-            {/* Green junction dots */}
-            <circle cx="500" cy="0" r="3.5" fill="#a3e635" opacity="0">
-              <animate attributeName="opacity" from="0" to="0.65" dur="0.2s" begin="0.4s" fill="freeze" />
+
+            {/* ── Bruno top node ── */}
+            <circle cx="500" cy="0" r="3.5" fill="#a3e635" filter="url(#node-glow)" opacity="0">
+              <animate attributeName="opacity" from="0" to="0.8" dur="0.2s" begin="0.4s" fill="freeze" />
             </circle>
+            {/* Pulsing ring — Bruno */}
+            <circle cx="500" cy="0" r="4" fill="none" stroke="#a3e635" strokeWidth="0.6" opacity="0">
+              <animate attributeName="opacity" values="0;0.55;0" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+              <animate attributeName="r" values="3.5;8;3.5" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+
+            {/* ── Junction nodes (4 drops) ── */}
             {[125, 375, 625, 875].map((x, i) => (
-              <circle key={x} cx={x} cy="32" r="2.8" fill="#a3e635" opacity="0">
-                <animate attributeName="opacity" from="0" to="0.5" dur="0.2s"
-                  begin={`${1.2 + i * 0.08}s`} fill="freeze" />
+              <g key={x}>
+                {/* Solid dot */}
+                <circle cx={x} cy="32" r="2.8" fill="#a3e635" filter="url(#node-glow)" opacity="0">
+                  <animate attributeName="opacity" from="0" to="0.7" dur="0.2s"
+                    begin={`${1.2 + i * 0.08}s`} fill="freeze" />
+                </circle>
+                {/* Pulsing ring */}
+                <circle cx={x} cy="32" r="4" fill="none" stroke="#a3e635" strokeWidth="0.5" opacity="0">
+                  <animate attributeName="opacity" values="0;0.5;0"
+                    dur={`${2.6 + i * 0.25}s`} begin={`${1.5 + i * 0.15}s`} repeatCount="indefinite" />
+                  <animate attributeName="r" values="3;7;3"
+                    dur={`${2.6 + i * 0.25}s`} begin={`${1.5 + i * 0.15}s`} repeatCount="indefinite" />
+                </circle>
+              </g>
+            ))}
+
+            {/* ── Traveling particles (Bruno → each card) ── */}
+            {[
+              { path: 'M 500 0 L 500 32 L 125 32 L 125 64', dur: '3s',   begin: '1.8s' },
+              { path: 'M 500 0 L 500 32 L 375 32 L 375 64', dur: '1.8s', begin: '2.6s' },
+              { path: 'M 500 0 L 500 32 L 625 32 L 625 64', dur: '1.8s', begin: '3.4s' },
+              { path: 'M 500 0 L 500 32 L 875 32 L 875 64', dur: '3s',   begin: '2.2s' },
+            ].map((conn, i) => (
+              <circle key={i} r="2.2" fill="#a3e635" filter="url(#node-glow)" opacity="0.85">
+                <animateMotion dur={conn.dur} repeatCount="indefinite" begin={conn.begin} path={conn.path} />
               </circle>
             ))}
           </svg>
@@ -186,7 +224,8 @@ export function Equipo() {
                   {isActive && (
                     <div className="absolute top-0 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r from-brand-green/50 to-emerald-400/50" />
                   )}
-                  <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center mb-4"
+                    style={{ animation: `status-pulse ${2.8 + i * 0.3}s ease-in-out ${i * 0.55 + 2.2}s infinite` }}>
                     <Icon className="w-4 h-4 text-brand-green" />
                   </div>
                   <span className="text-brand-green text-[8px] font-bold uppercase tracking-[0.22em] block mb-1.5">{person.role}</span>
