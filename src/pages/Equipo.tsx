@@ -84,25 +84,21 @@ export function Equipo() {
       </section>
 
       {/* ── ORG TREE ─────────────────────────────────────────────────────── */}
-      <section className="bg-brand-dark py-16 lg:py-24 px-6 relative overflow-hidden">
-        {/* Subtle radial glow behind the tree */}
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(163,230,53,0.04) 0%, transparent 70%)' }} />
+      <section className="bg-white py-16 lg:py-24 px-6 relative overflow-hidden">
 
         <div className="max-w-6xl mx-auto relative z-10">
 
           {/* Section label */}
           <div className="flex items-center gap-4 mb-16">
-            <div className="w-8 h-[2px] bg-brand-green/40 rounded-full" />
-            <span className="text-white/20 text-[10px] font-bold uppercase tracking-[0.3em]">Estructura del equipo — 5 personas</span>
+            <div className="w-8 h-[2px] bg-brand-dark/20 rounded-full" />
+            <span className="text-brand-dark/25 text-[10px] font-bold uppercase tracking-[0.3em]">Estructura del equipo — 5 personas</span>
           </div>
 
           {/* ── DIRECTOR ROOT NODE ─────────────────────────────────────── */}
           <div className="flex justify-center">
-            <div className="relative w-full max-w-[580px] rounded-[2rem] p-8 lg:p-10
+            <div className="relative w-full max-w-[580px] rounded-[2rem] p-8 lg:p-10 bg-brand-dark
                             border-2 border-brand-green/40
-                            shadow-[0_0_80px_rgba(163,230,53,0.08),inset_0_1px_0_rgba(255,255,255,0.06)]"
-              style={{ background: 'rgba(163,230,53,0.04)' }}>
+                            shadow-[0_20px_60px_rgba(12,26,46,0.18),0_0_0_1px_rgba(163,230,53,0.06)]">
 
               {/* Corner label */}
               <span className="absolute top-4 right-5 text-[10px] font-bold tracking-[0.25em] text-white/15 uppercase">01</span>
@@ -133,54 +129,55 @@ export function Equipo() {
             </div>
           </div>
 
-          {/* ── CONNECTOR TREE — desktop ───────────────────────────────── */}
-          {/* Vertical from root going down */}
+          {/* ── CONNECTOR + NODES (desktop) ────────────────────────────── */}
+          {/*
+            Flex-1 approach: each column is flex-1, so the dot at the center
+            of each item is GUARANTEED to align with its half-lines.
+            Left-half line is transparent for col-0; right-half for col-3.
+          */}
+
+          {/* Vertical from root to horizontal junction */}
           <div className="hidden lg:flex justify-center">
-            <div className="w-px h-10 bg-brand-green/25" />
+            <div className="w-px h-8 bg-brand-green/30" />
           </div>
 
-          {/* Horizontal bar + drops — desktop */}
-          <div className="hidden lg:block relative" style={{ height: '2.5rem' }}>
-            {/* Horizontal bar spanning from child-1 center to child-4 center */}
-            {/* With 4 equal cols: centers at ~12.5%, 37.5%, 62.5%, 87.5% */}
-            <div className="absolute top-0 bg-brand-green/25"
-              style={{ left: '12.5%', right: '12.5%', height: '1px' }} />
-            {/* Drops to each child */}
-            {[12.5, 37.5, 62.5, 87.5].map((pct) => (
-              <div key={pct} className="absolute top-0 bottom-0 w-px bg-brand-green/25"
-                style={{ left: `${pct}%` }} />
+          {/* Flex row: connector + cards combined */}
+          <div className="hidden lg:flex">
+            {NODES.map((node, i) => (
+              <div key={node.name} className="flex-1 flex flex-col items-center min-w-0">
+                {/* Horizontal half-lines + center dot (forms the branch bar) */}
+                <div className="w-full flex items-center" style={{ height: '1px' }}>
+                  <div className={`flex-1 h-px ${i === 0 ? 'bg-transparent' : 'bg-brand-green/30'}`} />
+                  <div className="w-3 h-3 rounded-full border-2 border-brand-green/60 bg-white flex-shrink-0
+                                  shadow-[0_0_8px_rgba(163,230,53,0.35)]" />
+                  <div className={`flex-1 h-px ${i === NODES.length - 1 ? 'bg-transparent' : 'bg-brand-green/30'}`} />
+                </div>
+                {/* Vertical drop from dot to card */}
+                <div className="w-px bg-brand-green/30" style={{ height: '1.5rem' }} />
+                {/* Card — px creates visual gap between siblings */}
+                <div className="w-full px-2.5">
+                  <DesktopNode node={node} />
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Mobile connector: just a vertical line + dot */}
-          <div className="lg:hidden flex flex-col items-center gap-0 my-1">
-            <div className="w-px h-8 bg-brand-green/25" />
-            <div className="w-2 h-2 rounded-full bg-brand-green/40" />
+          {/* ── MOBILE: vertical spine ─────────────────────────────────── */}
+          <div className="lg:hidden flex flex-col items-center">
+            <div className="w-px h-8 bg-brand-green/30" />
           </div>
-
-          {/* ── CHILD NODES ────────────────────────────────────────────── */}
-          {/* Desktop: 4-col grid */}
-          <div className="hidden lg:grid grid-cols-4 gap-5">
-            {NODES.map((node) => (
-              <DesktopNode key={node.name} node={node} />
-            ))}
-          </div>
-
-          {/* Mobile: vertical spine list */}
-          <div className="lg:hidden relative pl-6 ml-4 border-l border-brand-green/20 space-y-6 mt-2">
+          <div className="lg:hidden relative pl-6 ml-4 border-l-2 border-brand-green/20 space-y-5">
             {NODES.map((node) => (
               <div key={node.name} className="relative">
-                {/* Dot on spine */}
-                <div className="absolute -left-[1.65rem] top-3 w-2.5 h-2.5 rounded-full border-2 border-brand-green/50 bg-brand-dark" />
-                <div className="rounded-[1.5rem] border border-white/[0.07] p-6"
-                  style={{ background: 'rgba(255,255,255,0.03)' }}>
+                <div className="absolute -left-[1.65rem] top-4 w-3 h-3 rounded-full border-2 border-brand-green/50 bg-white shadow-[0_0_6px_rgba(163,230,53,0.3)]" />
+                <div className="rounded-[1.5rem] border border-border bg-brand-light p-6">
                   <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.22em] block mb-2">{node.role}</span>
-                  <h3 className="text-lg font-black text-white tracking-tighter mb-2">{node.name}</h3>
-                  <p className="text-white/35 text-xs leading-relaxed">{node.bio}</p>
+                  <h3 className="text-lg font-black text-brand-dark tracking-tighter mb-2">{node.name}</h3>
+                  <p className="text-muted text-xs leading-relaxed">{node.bio}</p>
                   {node.years && (
-                    <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-baseline gap-1.5">
-                      <span className="text-xl font-black text-brand-green tracking-tighter">{node.years}</span>
-                      <span className="text-white/25 text-[10px]">{node.yearsLabel}</span>
+                    <div className="mt-3 pt-3 border-t border-border flex items-baseline gap-1.5">
+                      <span className="text-xl font-black text-brand-dark tracking-tighter">{node.years}</span>
+                      <span className="text-muted/60 text-[10px]">{node.yearsLabel}</span>
                     </div>
                   )}
                 </div>
@@ -217,41 +214,36 @@ export function Equipo() {
 
 function DesktopNode({ node }: { node: typeof NODES[0] }) {
   return (
-    <div className="relative flex flex-col rounded-[1.5rem] border border-white/[0.07] p-6 group
-                    transition-[border-color,box-shadow] duration-300
-                    hover:border-brand-green/30 hover:shadow-[0_0_40px_rgba(163,230,53,0.06)]"
-      style={{ background: 'rgba(255,255,255,0.03)' }}>
-
-      {/* Node connector dot at very top */}
-      <div className="absolute -top-[5px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full
-                      border-2 border-brand-green/40 bg-brand-dark
-                      group-hover:border-brand-green/70 transition-colors duration-300" />
+    <div className="relative flex flex-col rounded-[1.5rem] border border-border bg-white p-6 group
+                    shadow-[0_1px_4px_rgba(0,0,0,0.04)]
+                    transition-[border-color,box-shadow,transform] duration-300
+                    hover:border-brand-dark/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1">
 
       {/* Num */}
-      <span className="text-white/15 text-[9px] font-bold tracking-[0.3em] mb-3">{node.num}</span>
+      <span className="text-brand-dark/15 text-[9px] font-bold tracking-[0.3em] mb-3">{node.num}</span>
 
       {/* Role */}
-      <span className="text-brand-green/70 text-[9px] font-bold uppercase tracking-[0.2em] mb-3 leading-tight">
+      <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.2em] mb-3 leading-tight">
         {node.role}
       </span>
 
       {/* Name */}
-      <h3 className="text-base lg:text-lg font-black text-white tracking-tighter leading-tight mb-3 flex-1">
+      <h3 className="text-base lg:text-lg font-black text-brand-dark tracking-tighter leading-tight mb-3 flex-1">
         {node.name}
       </h3>
 
       {/* Bio */}
-      <p className="text-white/30 text-xs leading-relaxed mb-4">{node.bio}</p>
+      <p className="text-muted text-xs leading-relaxed mb-4">{node.bio}</p>
 
       {/* Years */}
       {node.years ? (
-        <div className="pt-3 border-t border-white/[0.06] flex items-baseline gap-1.5">
-          <span className="text-2xl font-black text-brand-green tracking-tighter">{node.years}</span>
-          <span className="text-white/20 text-[10px]">{node.yearsLabel}</span>
+        <div className="pt-3 border-t border-border flex items-baseline gap-1.5">
+          <span className="text-2xl font-black text-brand-dark tracking-tighter group-hover:text-brand-green transition-colors duration-300">{node.years}</span>
+          <span className="text-muted/60 text-[10px]">{node.yearsLabel}</span>
         </div>
       ) : (
-        <div className="pt-3 border-t border-white/[0.06]">
-          <span className="text-white/15 text-[9px] tracking-widest">REDUCE · 2024</span>
+        <div className="pt-3 border-t border-border">
+          <span className="text-brand-dark/20 text-[9px] tracking-widest">REDUCE · 2024</span>
         </div>
       )}
     </div>
