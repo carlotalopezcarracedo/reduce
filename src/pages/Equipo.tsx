@@ -91,16 +91,16 @@ function NodeCard({
         transition: 'width 500ms cubic-bezier(0.23,1,0.32,1), box-shadow 400ms ease, border-color 300ms ease',
         willChange: 'width',
       }}
-      className={`relative cursor-default select-none glass-dark rounded-[1.75rem] px-5 py-5 border
+      className={`relative cursor-default select-none bg-white rounded-[1.75rem] px-5 py-5 border
                   ${active
-          ? 'border-brand-green/40 shadow-[0_0_60px_rgba(163,230,53,0.22),0_8px_48px_rgba(0,0,0,0.55)]'
-          : 'border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.35)] hover:border-white/[0.14]'
+          ? 'border-brand-green/45 shadow-[0_0_50px_rgba(163,230,53,0.16),0_8px_32px_rgba(0,0,0,0.09)]'
+          : 'border-[#e2e8f0] shadow-[0_2px_16px_rgba(0,0,0,0.07)] hover:border-brand-green/25 hover:shadow-[0_6px_24px_rgba(0,0,0,0.1)]'
         }`}
     >
       {/* Inner glow when active */}
       {active && (
         <div className="absolute inset-0 rounded-[1.75rem] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(163,230,53,0.07) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(163,230,53,0.09) 0%, transparent 65%)' }} />
       )}
 
       {/* Icon + role row */}
@@ -108,18 +108,18 @@ function NodeCard({
         <div className={`flex-shrink-0 flex items-center justify-center rounded-xl border
                          transition-all duration-500
                          ${active
-            ? 'w-10 h-10 bg-brand-green/12 border-brand-green/28'
-            : 'w-8 h-8 bg-brand-green/7 border-brand-green/14'
+            ? 'w-10 h-10 bg-brand-green/12 border-brand-green/30'
+            : 'w-8 h-8 bg-brand-green/8 border-brand-green/18'
           }`}>
           <Icon className={`text-brand-green transition-all duration-500 ${active ? 'w-5 h-5' : 'w-4 h-4'}`} />
         </div>
-        <span className="text-brand-green/55 text-[8px] font-bold uppercase tracking-[0.22em] leading-tight">
+        <span className="text-brand-green text-[8px] font-bold uppercase tracking-[0.22em] leading-tight">
           {person.role}
         </span>
       </div>
 
       {/* Name */}
-      <h3 className="font-black text-white tracking-tighter leading-tight text-[0.95rem]">
+      <h3 className="font-black text-brand-dark tracking-tighter leading-tight text-[0.95rem]">
         {person.name}
       </h3>
 
@@ -130,15 +130,15 @@ function NodeCard({
         overflow: 'hidden',
         transition: 'max-height 500ms cubic-bezier(0.23,1,0.32,1), opacity 380ms ease',
       }}>
-        <p className="text-white/30 text-[11px] leading-relaxed mt-3 mb-3.5">{person.bio}</p>
-        <div className="pt-3 border-t border-white/[0.07]">
+        <p className="text-muted text-[11px] leading-relaxed mt-3 mb-3.5">{person.bio}</p>
+        <div className="pt-3 border-t border-[#e2e8f0]">
           {person.years ? (
             <div className="flex items-baseline gap-2">
-              <span className="text-[1.9rem] font-black text-brand-green leading-none">{person.years}</span>
-              <span className="text-white/20 text-[8px] uppercase tracking-widest">{person.yearsLabel}</span>
+              <span className="text-[1.9rem] font-black text-brand-dark leading-none">{person.years}</span>
+              <span className="text-muted/60 text-[8px] uppercase tracking-widest">{person.yearsLabel}</span>
             </div>
           ) : (
-            <span className="text-white/18 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
+            <span className="text-muted/60 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
           )}
         </div>
       </div>
@@ -184,12 +184,16 @@ export function Equipo() {
       </section>
 
       {/* ── NETWORK ─────────────────────────────────────────────────────── */}
-      <section className="bg-brand-dark grain-dark relative overflow-hidden">
+      <section className="bg-white relative overflow-hidden">
+
+        {/* Subtle dot texture */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.028]"
+          style={{ backgroundImage: 'radial-gradient(circle, #0c1a2e 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
 
         {/* Label strip */}
-        <div className="flex items-center justify-between px-8 py-3.5 border-b border-white/[0.05]">
-          <span className="text-white/18 text-[9px] font-bold uppercase tracking-[0.35em]">Estructura del equipo · 5 personas</span>
-          <span className="text-white/12 text-[9px] font-bold tracking-widest">REDUCE · 2026</span>
+        <div className="flex items-center justify-between px-8 py-3.5 border-b border-border relative z-10">
+          <span className="text-brand-dark/25 text-[9px] font-bold uppercase tracking-[0.35em]">Estructura del equipo · 5 personas</span>
+          <span className="text-brand-dark/20 text-[9px] font-bold tracking-widest">REDUCE · 2026</span>
         </div>
 
         {/* ── Desktop network (lg+) ── */}
@@ -197,9 +201,9 @@ export function Equipo() {
           className="hidden lg:block relative mx-auto"
           style={{ height: '840px', maxWidth: '1200px', padding: '0 48px' }}
         >
-          {/* Ambient radial glow */}
+          {/* Ambient green halo */}
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 55% 55% at 50% 40%, rgba(163,230,53,0.05) 0%, transparent 70%)' }} />
+            style={{ background: 'radial-gradient(ellipse 55% 55% at 50% 40%, rgba(163,230,53,0.07) 0%, transparent 70%)' }} />
 
           {/* ── SVG layer: connections + particles ── */}
           <svg
@@ -221,15 +225,15 @@ export function Equipo() {
                 <path
                   d={c.path}
                   fill="none"
-                  stroke={c.primary ? 'rgba(163,230,53,0.18)' : 'rgba(163,230,53,0.09)'}
-                  strokeWidth="0.22"
+                  stroke={c.primary ? 'rgba(12,26,46,0.1)' : 'rgba(12,26,46,0.06)'}
+                  strokeWidth="0.25"
                   strokeDasharray="1.6 2.8"
                   strokeLinecap="round"
                 >
                   <animate attributeName="stroke-dashoffset" from="0" to="-9" dur={c.dur} repeatCount="indefinite" />
                 </path>
-                {/* Particle traveling along the path */}
-                <circle r="0.85" fill="#a3e635" opacity="0.8" filter="url(#ptglow)">
+                {/* Bright green particle traveling along the path */}
+                <circle r="0.85" fill="#a3e635" opacity="0.9" filter="url(#ptglow)">
                   <animateMotion dur={c.dur} repeatCount="indefinite" begin={c.begin} path={c.path} />
                 </circle>
               </g>
@@ -243,11 +247,11 @@ export function Equipo() {
                 cy={pt.cy}
                 r="3"
                 fill="none"
-                stroke="rgba(163,230,53,0.25)"
-                strokeWidth="0.22"
+                stroke="rgba(163,230,53,0.55)"
+                strokeWidth="0.28"
               >
                 <animate attributeName="r" values="2.2;4.2;2.2" dur={`${3.2 + i * 0.45}s`} repeatCount="indefinite" begin={`${i * 0.55}s`} />
-                <animate attributeName="opacity" values="0.3;0.65;0.3" dur={`${3.2 + i * 0.45}s`} repeatCount="indefinite" begin={`${i * 0.55}s`} />
+                <animate attributeName="opacity" values="0.35;0.75;0.35" dur={`${3.2 + i * 0.45}s`} repeatCount="indefinite" begin={`${i * 0.55}s`} />
               </circle>
             ))}
           </svg>
@@ -281,27 +285,27 @@ export function Equipo() {
         </div>
 
         {/* ── Mobile grid (< lg) ── */}
-        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 px-5 py-10">
+        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 px-5 py-10 relative z-10">
           {TEAM.map((person) => {
             const Icon = person.icon;
             return (
-              <div key={person.name} className="glass-dark border border-white/[0.08] rounded-[1.5rem] p-6">
+              <div key={person.name} className="bg-white border border-[#e2e8f0] rounded-[1.5rem] p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-brand-green/10 border border-brand-green/20 flex items-center justify-center flex-shrink-0">
                     <Icon className="w-4 h-4 text-brand-green" />
                   </div>
-                  <span className="text-brand-green/55 text-[9px] font-bold uppercase tracking-[0.2em] leading-tight">{person.role}</span>
+                  <span className="text-brand-green text-[9px] font-bold uppercase tracking-[0.2em] leading-tight">{person.role}</span>
                 </div>
-                <h3 className="font-black text-white tracking-tighter leading-tight text-base mb-2">{person.name}</h3>
-                <p className="text-white/28 text-xs leading-relaxed mb-4">{person.bio}</p>
+                <h3 className="font-black text-brand-dark tracking-tighter leading-tight text-base mb-2">{person.name}</h3>
+                <p className="text-muted text-xs leading-relaxed mb-4">{person.bio}</p>
                 {person.years ? (
-                  <div className="flex items-baseline gap-2 pt-3 border-t border-white/[0.07]">
-                    <span className="text-2xl font-black text-brand-green">{person.years}</span>
-                    <span className="text-white/20 text-[9px] uppercase tracking-widest">{person.yearsLabel}</span>
+                  <div className="flex items-baseline gap-2 pt-3 border-t border-[#e2e8f0]">
+                    <span className="text-2xl font-black text-brand-dark">{person.years}</span>
+                    <span className="text-muted/50 text-[9px] uppercase tracking-widest">{person.yearsLabel}</span>
                   </div>
                 ) : (
-                  <div className="pt-3 border-t border-white/[0.07]">
-                    <span className="text-white/18 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
+                  <div className="pt-3 border-t border-[#e2e8f0]">
+                    <span className="text-muted/50 text-[8px] uppercase tracking-widest font-bold">incorporación reciente</span>
                   </div>
                 )}
               </div>
