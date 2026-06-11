@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
 import { LayersIndex } from './pages/layers/LayersIndex';
@@ -15,6 +15,7 @@ import { AvisoLegal } from './pages/legal/AvisoLegal';
 import { PoliticaPrivacidad } from './pages/legal/PoliticaPrivacidad';
 import { PoliticaCookies } from './pages/legal/PoliticaCookies';
 import { Accesibilidad } from './pages/legal/Accesibilidad';
+import { NotFound } from './pages/NotFound';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
       { path: 'privacidad', element: <PoliticaPrivacidad /> },
       { path: 'cookies', element: <PoliticaCookies /> },
       { path: 'accesibilidad', element: <Accesibilidad /> },
-      { path: '*', element: <Navigate to="/" replace /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ], { basename: base });

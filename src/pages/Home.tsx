@@ -62,7 +62,7 @@ export function Home() {
         <meta property="og:url" content="https://reduce.es/" />
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] flex items-center py-20 lg:py-0 px-6 bg-brand-dark overflow-hidden">
+      <section className="relative min-h-[86vh] sm:min-h-[90vh] flex items-center py-16 sm:py-20 lg:py-0 px-4 sm:px-6 bg-brand-dark overflow-hidden">
         {/* Gradient mesh — multi-point, no rotation, more premium than spinning orb */}
         <div className="absolute inset-0 pointer-events-none" style={{background: [
           'radial-gradient(ellipse 70% 60% at 8% 80%, rgba(163,230,53,0.24) 0%, transparent 58%)',
@@ -85,11 +85,12 @@ export function Home() {
               Estructura independiente · Operando desde 2012
             </div>
 
-            <h1 className="text-[2.6rem] sm:text-[3.8rem] lg:text-[5.5rem] xl:text-[6.5rem] font-black text-white tracking-tighter leading-[0.87] mb-8"
+            <h1 className="text-[2.2rem] min-[380px]:text-[2.35rem] sm:text-[3.8rem] lg:text-[5.5rem] xl:text-[6.5rem] font-black text-white tracking-tighter leading-[0.92] sm:leading-[0.87] mb-7 sm:mb-8"
               style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.2s'}}>
-              La energía multisede,{' '}
+              <span className="block sm:inline">La energía</span>{' '}
+              <span className="block sm:inline">multisede,</span>{' '}
               <span
-                className="text-transparent bg-clip-text"
+                className="block sm:inline text-transparent bg-clip-text"
                 style={{
                   backgroundImage: 'linear-gradient(90deg, #a3e635, #86efac, #34d399, #a3e635)',
                   backgroundSize: '250% 100%',
@@ -100,22 +101,22 @@ export function Home() {
               </span>
             </h1>
 
-            <p className="text-white/50 text-lg leading-relaxed max-w-md font-medium mb-10"
+            <p className="text-white/50 text-base sm:text-lg leading-relaxed max-w-md font-medium mb-8 sm:mb-10"
               style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.35s'}}>
               Auditamos, operamos y hacemos trazable la energía de empresas retail con decenas o cientos de suministros. Sin vender ni un kWh.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-12"
+            <div className="grid gap-3 mb-10 sm:mb-12 sm:flex sm:flex-wrap"
               style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.48s'}}>
-              <Button to="/contacto" size="lg" arrow className="shadow-[0_0_35px_rgba(163,230,53,0.35)] hover:shadow-[0_0_55px_rgba(163,230,53,0.55)] hover:scale-[1.02]">
+              <Button to="/contacto" size="lg" arrow className="w-full sm:w-auto shadow-[0_0_35px_rgba(163,230,53,0.35)] hover:shadow-[0_0_55px_rgba(163,230,53,0.55)] hover:scale-[1.02]">
                 Analizar mi situación
               </Button>
-              <Button to="/modelo" variant="outline-light" size="lg">
+              <Button to="/modelo" variant="outline-light" size="lg" className="w-full sm:w-auto">
                 El modelo de las 5 capas <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-x-7 gap-y-2 items-center pt-7 border-t border-white/[0.07]"
+            <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:flex sm:flex-wrap sm:gap-x-7 sm:gap-y-2 sm:items-center pt-6 sm:pt-7 border-t border-white/[0.07]"
               style={{animation: 'fade-up 0.55s cubic-bezier(0.23,1,0.32,1) both', animationDelay: '0.62s'}}>
               {[
                 { num: `+${counts.years}`, label: 'años' },
@@ -123,9 +124,9 @@ export function Home() {
                 { num: String(counts.layers), label: 'capas de gestión' },
                 { num: '100%', label: 'independencia' },
               ].map((s) => (
-                <div key={s.label} className="flex items-baseline gap-1.5">
-                  <span className="text-brand-green font-black text-xl tracking-tighter">{s.num}</span>
-                  <span className="text-white/30 text-sm">{s.label}</span>
+                <div key={s.label} className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-1.5">
+                  <span className="text-brand-green font-black text-2xl sm:text-xl tracking-tighter leading-none">{s.num}</span>
+                  <span className="text-white/35 text-xs sm:text-sm leading-tight">{s.label}</span>
                 </div>
               ))}
             </div>
@@ -237,14 +238,14 @@ export function Home() {
       </section>
 
       {/* ── MODELO 5 CAPAS ────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-32 px-6 grain-dark" style={{background: 'linear-gradient(160deg, #0c1a2e 0%, #152741 50%, #0c1a2e 100%)'}}>
+      <section className="py-12 sm:py-16 lg:py-32 px-4 sm:px-6 grain-dark" style={{background: 'linear-gradient(160deg, #0c1a2e 0%, #152741 50%, #0c1a2e 100%)'}}>
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
-          <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-end mb-10 lg:mb-14">
+          <div className="flex flex-col md:flex-row gap-5 sm:gap-6 md:gap-10 items-start md:items-end mb-8 sm:mb-10 lg:mb-14">
             <div className="flex-1">
-              <span className="text-brand-green font-bold tracking-widest uppercase text-sm mb-4 block">Modelo de trabajo</span>
-              <h2 className="text-4xl lg:text-6xl font-black tracking-tighter text-white leading-[1.05]">
+              <span className="text-brand-green font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Modelo de trabajo</span>
+              <h2 className="text-[2rem] sm:text-4xl lg:text-6xl font-black tracking-tighter text-white leading-[1.05]">
                 Las{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">
                   5 capas
@@ -252,13 +253,13 @@ export function Home() {
                 del control energético.
               </h2>
             </div>
-            <p className="flex-1 max-w-md text-white/45 text-lg leading-relaxed">
+            <p className="flex-1 max-w-md text-white/45 text-base sm:text-lg leading-relaxed">
               La gestión energética no es una sola disciplina. Son cinco capas coordinadas. REDUCE opera en todas ellas.
             </p>
           </div>
 
           {/* Interactive panel */}
-          <div className="grid lg:grid-cols-5 gap-4 items-stretch">
+          <div className="grid lg:grid-cols-5 gap-3 sm:gap-4 items-stretch">
 
             {/* Left: layer tabs */}
             <div className="lg:col-span-2 flex flex-col gap-2">
@@ -268,13 +269,13 @@ export function Home() {
                   <button
                     key={layer.id}
                     onClick={() => setActiveId(layer.id)}
-                    className={`group w-full flex items-center gap-5 px-7 py-5 rounded-[1.5rem] text-left transition-[transform,background-color,box-shadow,border-color] duration-200 cursor-pointer ${
+                    className={`group w-full flex items-center gap-4 sm:gap-5 px-4 py-4 sm:px-7 sm:py-5 min-h-[76px] sm:min-h-[92px] rounded-[1.25rem] sm:rounded-[1.5rem] text-left transition-[transform,background-color,box-shadow,border-color] duration-200 cursor-pointer ${
                       isActive
                         ? 'bg-brand-green shadow-[0_8px_40px_rgba(163,230,53,0.3)]'
                         : 'bg-white/[0.04] border border-white/10 hover:bg-white/[0.07] hover:border-white/20'
                     }`}
                   >
-                    <span className={`text-4xl font-black leading-none w-10 transition-colors ${
+                    <span className={`text-3xl sm:text-4xl font-black leading-none w-8 sm:w-10 transition-colors ${
                       isActive ? 'text-brand-dark' : 'text-brand-green'
                     }`}>
                       {layer.id}
@@ -285,7 +286,7 @@ export function Home() {
                       }`}>
                         Capa {layer.id}
                       </p>
-                      <p className={`font-black text-base leading-snug truncate ${
+                      <p className={`font-black text-sm sm:text-base leading-snug ${
                         isActive ? 'text-brand-dark' : 'text-white'
                       }`}>
                         {layer.title}
@@ -304,35 +305,35 @@ export function Home() {
             {/* Right: detail card */}
             <div
               key={activeId}
-              className="lg:col-span-3 bg-gradient-to-br from-white to-slate-50/70 rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
-              style={{ animation: 'layer-fadein 0.28s cubic-bezier(0.23,1,0.32,1) both', minHeight: 400 }}
+              className="lg:col-span-3 bg-gradient-to-br from-white to-slate-50/70 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col min-h-0 sm:min-h-[400px] shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
+              style={{ animation: 'layer-fadein 0.28s cubic-bezier(0.23,1,0.32,1) both' }}
             >
               {/* Accent strip at top */}
-              <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent rounded-full" />
+              <div className="absolute top-0 left-5 right-5 sm:left-8 sm:right-8 h-[2px] bg-gradient-to-r from-brand-green via-emerald-300 to-transparent rounded-full" />
               {/* Giant decorative letter */}
-              <span className="absolute -right-4 -bottom-8 text-[120px] sm:text-[180px] lg:text-[260px] font-black text-slate-100 leading-none select-none pointer-events-none">
+              <span className="hidden sm:block absolute -right-4 -bottom-8 text-[180px] lg:text-[260px] font-black text-slate-100 leading-none select-none pointer-events-none">
                 {active.id}
               </span>
 
               <div className="relative z-10 flex flex-col flex-1">
-                <span className="inline-flex items-center gap-2 text-brand-green font-black text-xs uppercase tracking-widest mb-6">
+                <span className="inline-flex items-center gap-2 text-brand-green font-black text-xs uppercase tracking-widest mb-5 sm:mb-6">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-green inline-block" />
                   Capa {active.id}
                 </span>
 
-                <h3 className="text-3xl lg:text-4xl font-black text-brand-dark tracking-tight leading-tight mb-3">
+                <h3 className="text-[1.85rem] sm:text-3xl lg:text-4xl font-black text-brand-dark tracking-tight leading-tight mb-3">
                   {active.title}
                 </h3>
 
-                <p className="text-brand-dark/45 text-lg italic font-medium mb-6 leading-relaxed">
+                <p className="text-brand-dark/45 text-base sm:text-lg italic font-medium mb-5 sm:mb-6 leading-relaxed">
                   "{active.tagline}"
                 </p>
 
-                <p className="text-muted text-[15px] leading-relaxed mb-8">
+                <p className="text-muted text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-8">
                   {active.intro}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-10">
+                <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
                   {active.topics.map((t) => (
                     <span key={t} className="px-3 py-1.5 bg-brand-light border border-border rounded-full text-xs font-semibold text-muted">
                       {t}
@@ -343,7 +344,7 @@ export function Home() {
                 <div className="mt-auto flex items-center gap-4">
                   <Link
                     to={`/modelo/${active.slug}`}
-                    className="inline-flex items-center gap-2 bg-brand-dark text-white font-bold px-6 py-3 rounded-full text-sm hover:bg-brand-green hover:text-brand-dark transition-[background-color,color] duration-200 active:scale-[0.97]"
+                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-dark text-white font-bold px-5 sm:px-6 py-3 rounded-full text-sm hover:bg-brand-green hover:text-brand-dark transition-[background-color,color] duration-200 active:scale-[0.97]"
                   >
                     Ver capa {active.id} en detalle <ArrowRight className="w-4 h-4" />
                   </Link>
