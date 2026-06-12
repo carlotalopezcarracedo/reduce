@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { TALLY_FORM_URL } from '../../config/links';
+import { TALLY_DESTRIPA_INDEXADO_URL } from '../../config/links';
 
 const reviewItems = [
   {
@@ -143,7 +143,7 @@ const faqs = [
 function TallyButton({ children, className = '' }: { children: string; className?: string }) {
   return (
     <a
-      href={TALLY_FORM_URL}
+      href={TALLY_DESTRIPA_INDEXADO_URL}
       className={`inline-flex items-center justify-center gap-2 rounded-full bg-brand-green px-7 py-4 text-sm font-black text-brand-dark shadow-[0_0_30px_rgba(163,230,53,0.32)] transition-[transform,box-shadow,filter] duration-150 hover:brightness-110 hover:shadow-[0_0_48px_rgba(163,230,53,0.5)] active:scale-[0.97] ${className}`}
     >
       {children}
@@ -191,13 +191,14 @@ export function ProductDestripa() {
           name="description"
           content="Análisis comercial y técnico de contratos eléctricos indexados para saber si el contrato actual compensa frente a un escenario alternativo."
         />
-        <link rel="canonical" href="https://reduce.es/destripa-tu-indexado" />
+        <link rel="canonical" href="https://planreduce.com/destripa-tu-indexado" />
         <meta property="og:title" content="Destripa tu Indexado | REDUCE" />
         <meta
           property="og:description"
           content="Analizamos si tu contrato eléctrico indexado está funcionando a tu favor o si puede estar costándote más de lo necesario."
         />
-        <meta property="og:url" content="https://reduce.es/destripa-tu-indexado" />
+        <meta property="og:url" content="https://planreduce.com/destripa-tu-indexado" />
+        <meta name="twitter:url" content="https://planreduce.com/destripa-tu-indexado" />
       </Helmet>
 
       <section className="relative overflow-hidden bg-brand-dark px-4 py-8 sm:px-6 sm:py-16 lg:py-12">

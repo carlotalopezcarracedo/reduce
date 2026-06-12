@@ -1,2 +1,2 @@
-// Replace this placeholder with the real Tally form URL before publishing the campaign.
-export const TALLY_FORM_URL = 'https://tally.so/r/kdzq0r';
+export const TALLY_DESTRIPA_INDEXADO_URL =
+  'https://tally.so/r/kdzq0r?source=landing&owner=web&campaign=destripa_indexado_v1';
