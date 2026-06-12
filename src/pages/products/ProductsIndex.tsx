@@ -43,7 +43,7 @@ export function ProductsIndex() {
           {PRODUCTS.map((p, i) => (
             <Link
               key={p.slug}
-              to={`/productos/${p.slug}`}
+              to={p.slug === 'destripa-tu-indexado' ? '/destripa-tu-indexado' : `/productos/${p.slug}`}
               className={`group lift rounded-[2rem] p-6 sm:p-10 flex flex-col gap-6 relative overflow-hidden ${
                 p.star
                   ? 'bg-brand-dark shadow-2xl hover:shadow-[0_30px_80px_rgba(12,26,46,0.3)]'

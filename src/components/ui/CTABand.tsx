@@ -12,7 +12,7 @@ interface CTABandProps {
 }
 
 const DEFAULT_ITEMS: CTAItem[] = [
-  { label: 'Destripa tu Indexado', to: '/productos/destripa-tu-indexado', primary: true },
+  { label: 'Destripa tu Indexado', to: '/destripa-tu-indexado', primary: true },
   { label: 'Revisar concurso energético', to: '/productos/concurso-energetico' },
   { label: 'Solicitar auditoría energética', to: '/contacto' },
   { label: 'Solicitar reunión', to: '/contacto' },

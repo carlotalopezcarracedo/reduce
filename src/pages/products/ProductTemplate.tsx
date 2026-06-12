@@ -158,7 +158,7 @@ export function ProductTemplate() {
       <CTABand
         title="También puede interesarte"
         items={[
-          { label: 'Destripa tu Indexado', to: '/productos/destripa-tu-indexado', primary: true },
+          { label: 'Destripa tu Indexado', to: '/destripa-tu-indexado', primary: true },
           { label: 'Ver todos los productos', to: '/productos' },
           { label: 'Modelo de las 5 capas', to: '/modelo' },
         ]}

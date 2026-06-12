@@ -380,7 +380,7 @@ export function Home() {
             {PRODUCTS.filter((p) => p.star).map((p) => (
               <Link
                 key={p.slug}
-                to={`/productos/${p.slug}`}
+                to={p.slug === 'destripa-tu-indexado' ? '/destripa-tu-indexado' : `/productos/${p.slug}`}
                 className="group lift block rounded-[2rem] p-8 lg:p-12 bg-brand-green shadow-[0_20px_60px_rgba(163,230,53,0.25)] hover:shadow-[0_30px_80px_rgba(163,230,53,0.4)] relative overflow-hidden"
               >
                 <div className="absolute -right-8 -bottom-10 text-[240px] font-black select-none pointer-events-none leading-none text-brand-dark/[0.07]">01</div>
@@ -420,7 +420,7 @@ export function Home() {
               {PRODUCTS.filter((p) => !p.star).map((p, i) => (
                 <Link
                   key={p.slug}
-                  to={`/productos/${p.slug}`}
+                  to={p.slug === 'destripa-tu-indexado' ? '/destripa-tu-indexado' : `/productos/${p.slug}`}
                   className="group lift rounded-[2rem] p-6 sm:p-8 flex flex-col gap-5 bg-white border border-border shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)] hover:border-brand-dark/20 relative overflow-hidden"
                 >
                   <div className="absolute -right-3 -bottom-5 text-[130px] font-black select-none pointer-events-none leading-none text-brand-dark/[0.04]">

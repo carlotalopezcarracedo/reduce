@@ -28,6 +28,7 @@ const router = createBrowserRouter([
       { path: 'modelo', element: <LayersIndex /> },
       { path: 'modelo/:slug', element: <LayerPage /> },
       { path: 'productos', element: <ProductsIndex /> },
+      { path: 'destripa-tu-indexado', element: <ProductDestripa /> },
       { path: 'productos/destripa-tu-indexado', element: <ProductDestripa /> },
       { path: 'productos/:slug', element: <ProductTemplate /> },
       { path: 'tecnologia', element: <Technology /> },

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { CONTACT_INFO } from '../../data/content';
 
 const PRODUCTS_LINKS = [
-  { label: 'Destripa tu Indexado', to: '/productos/destripa-tu-indexado' },
+  { label: 'Destripa tu Indexado', to: '/destripa-tu-indexado' },
   { label: 'Concurso energético asistido', to: '/productos/concurso-energetico' },
   { label: 'Control energético multisede', to: '/productos/control-multisede' },
   { label: 'Operativa retail internacional', to: '/productos/operativa-retail' },
