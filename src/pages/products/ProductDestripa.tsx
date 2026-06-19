@@ -164,17 +164,17 @@ function SectionHeading({
   light?: boolean;
 }) {
   return (
-    <div className="max-w-3xl">
+    <div className="min-w-0 max-w-3xl">
       {eyebrow && (
         <span className="mb-4 block text-xs font-black uppercase tracking-[0.2em] text-brand-green">
           {eyebrow}
         </span>
       )}
-      <h2 className={`text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl ${light ? 'text-white' : 'text-brand-dark'}`}>
+      <h2 className={`break-words text-[1.75rem] font-black leading-[1.2] tracking-tight sm:text-4xl sm:leading-tight lg:text-5xl ${light ? 'text-white' : 'text-brand-dark'}`}>
         {title}
       </h2>
       {text && (
-        <p className={`mt-5 text-base font-medium leading-relaxed sm:text-lg ${light ? 'text-white/55' : 'text-muted'}`}>
+        <p className={`mt-5 break-words text-base font-medium leading-relaxed sm:text-lg ${light ? 'text-white/55' : 'text-muted'}`}>
           {text}
         </p>
       )}
@@ -198,7 +198,14 @@ export function ProductDestripa() {
           content="Analizamos si tu contrato eléctrico indexado está funcionando a tu favor o si puede estar costándote más de lo necesario."
         />
         <meta property="og:url" content="https://planreduce.com/destripa-tu-indexado" />
+        <meta property="og:image" content="https://planreduce.com/og-image.svg" />
+        <meta name="twitter:title" content="Destripa tu Indexado | REDUCE" />
+        <meta
+          name="twitter:description"
+          content="Analizamos si tu contrato eléctrico indexado está funcionando a tu favor o si puede estar costándote más de lo necesario."
+        />
         <meta name="twitter:url" content="https://planreduce.com/destripa-tu-indexado" />
+        <meta name="twitter:image" content="https://planreduce.com/og-image.svg" />
       </Helmet>
 
       <section className="relative overflow-hidden bg-brand-dark px-4 py-8 sm:px-6 sm:py-16 lg:py-12">
@@ -316,22 +323,22 @@ export function ProductDestripa() {
       </section>
 
       <section className="bg-white px-4 py-16 sm:px-6 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="mx-auto grid min-w-0 max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeading
             eyebrow="El problema"
             title="Que tu contrato sea indexado no significa que esté optimizado."
             text="Muchos contratos indexados parecen transparentes porque están ligados al mercado, pero el coste real puede depender de fees, condiciones particulares, consumo, potencia, servicios añadidos o fórmulas que no siempre son fáciles de interpretar."
           />
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid min-w-0 gap-3 sm:grid-cols-2">
             {[
               '¿Sabes cuánto estás pagando realmente por tu energía?',
               '¿Tu contrato actual compensa frente a otro escenario?',
               '¿Tienes costes que no estás revisando mes a mes?',
               '¿Sabes si cambiar de condiciones te ayudaría o te perjudicaría?',
             ].map((item) => (
-              <div key={item} className="flex min-h-[116px] items-start gap-4 rounded-2xl border border-border bg-brand-light p-5">
+              <div key={item} className="flex min-h-[116px] min-w-0 items-start gap-4 rounded-2xl border border-border bg-brand-light p-5">
                 <HelpCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-green" />
-                <p className="text-sm font-bold leading-relaxed text-brand-dark">{item}</p>
+                <p className="min-w-0 break-words text-sm font-bold leading-relaxed text-brand-dark">{item}</p>
               </div>
             ))}
           </div>
