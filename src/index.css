@@ -25,6 +25,54 @@ body {
   background-color: #0c1a2e;
 }
 
+/* Mobile containment for the Destripa landing. Kept page-scoped to avoid
+   changing shared grids, cards, and heading scales elsewhere. */
+.destripa-landing {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.destripa-landing,
+.destripa-landing *,
+.destripa-landing *::before,
+.destripa-landing *::after {
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .destripa-landing section,
+  .destripa-landing section > div,
+  .destripa-landing [class*="max-w-"],
+  .destripa-landing [class*="grid"] {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .destripa-landing h1,
+  .destripa-landing h2,
+  .destripa-landing h3,
+  .destripa-landing p,
+  .destripa-landing li,
+  .destripa-landing a,
+  .destripa-landing span,
+  .destripa-landing button,
+  .destripa-landing summary {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .destripa-landing article,
+  .destripa-landing details {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .destripa-landing .destripa-mobile-single-column {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 ::selection {
   background-color: #a3e635;
   color: #0c1a2e;

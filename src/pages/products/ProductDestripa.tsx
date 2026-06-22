@@ -208,6 +208,7 @@ export function ProductDestripa() {
         <meta name="twitter:image" content="https://planreduce.com/og-image.svg" />
       </Helmet>
 
+      <div className="destripa-landing">
       <section className="relative overflow-hidden bg-brand-dark px-4 py-8 sm:px-6 sm:py-16 lg:py-12">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(12,26,46,0.96)_0%,rgba(21,39,65,0.92)_48%,rgba(12,26,46,0.98)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-green/30 to-transparent" />
@@ -329,7 +330,7 @@ export function ProductDestripa() {
             title="Que tu contrato sea indexado no significa que esté optimizado."
             text="Muchos contratos indexados parecen transparentes porque están ligados al mercado, pero el coste real puede depender de fees, condiciones particulares, consumo, potencia, servicios añadidos o fórmulas que no siempre son fáciles de interpretar."
           />
-          <div className="grid min-w-0 gap-3 sm:grid-cols-2">
+          <div className="destripa-mobile-single-column grid min-w-0 gap-3 sm:grid-cols-2">
             {[
               '¿Sabes cuánto estás pagando realmente por tu energía?',
               '¿Tu contrato actual compensa frente a otro escenario?',
@@ -346,21 +347,21 @@ export function ProductDestripa() {
       </section>
 
       <section id="que-analizamos" className="bg-brand-light px-4 py-16 sm:px-6 lg:py-24">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto min-w-0 max-w-7xl">
           <SectionHeading eyebrow="Qué analizamos" title="Qué revisamos" />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <div className="destripa-mobile-single-column mt-10 grid min-w-0 gap-4 md:grid-cols-2 lg:grid-cols-5">
             {reviewItems.map((item, index) => {
               const Icon = item.icon;
               return (
                 <article
                   key={item.title}
-                  className={`lift rounded-2xl p-5 ${index === 0 ? 'bg-brand-dark text-white shadow-[0_18px_50px_rgba(12,26,46,0.18)]' : 'border border-border bg-white text-brand-dark'}`}
+                  className={`lift min-w-0 max-w-full rounded-2xl p-5 ${index === 0 ? 'bg-brand-dark text-white shadow-[0_18px_50px_rgba(12,26,46,0.18)]' : 'border border-border bg-white text-brand-dark'}`}
                 >
                   <div className={`mb-6 inline-flex h-11 w-11 items-center justify-center rounded-full ${index === 0 ? 'bg-brand-green text-brand-dark' : 'bg-brand-green/12 text-brand-green'}`}>
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-black tracking-tight">{item.title}</h3>
-                  <p className={`mt-3 text-sm font-medium leading-relaxed ${index === 0 ? 'text-white/58' : 'text-muted'}`}>{item.text}</p>
+                  <h3 className="break-words text-lg font-black tracking-tight">{item.title}</h3>
+                  <p className={`mt-3 break-words text-sm font-medium leading-relaxed ${index === 0 ? 'text-white/58' : 'text-muted'}`}>{item.text}</p>
                 </article>
               );
             })}
@@ -532,6 +533,7 @@ export function ProductDestripa() {
           </Link>
         </div>
       </section>
+      </div>
     </>
   );
 }
