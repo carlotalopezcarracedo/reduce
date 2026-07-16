@@ -69,10 +69,10 @@ export function Equipo() {
       <Helmet>
         <title>El Equipo | REDUCE</title>
         <meta name="description" content="El equipo técnico de REDUCE: ingeniería energética, tecnología y operativa de suministros sin vínculo comercial con ninguna comercializadora." />
-        <link rel="canonical" href="https://reduce.es/equipo" />
+        <link rel="canonical" href="https://planreduce.com/equipo" />
         <meta property="og:title" content="El Equipo | REDUCE" />
         <meta property="og:description" content="Ingeniería energética, tecnología y operativa de suministros. Sin vínculo comercial con ninguna comercializadora." />
-        <meta property="og:url" content="https://reduce.es/equipo" />
+        <meta property="og:url" content="https://planreduce.com/equipo" />
       </Helmet>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}

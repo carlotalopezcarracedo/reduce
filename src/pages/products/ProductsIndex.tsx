@@ -10,10 +10,10 @@ export function ProductsIndex() {
       <Helmet>
         <title>Productos | REDUCE</title>
         <meta name="description" content="Auditoría de contratos indexados, concursos energéticos, control multisede y operativa retail internacional. Lo que hace REDUCE." />
-        <link rel="canonical" href="https://reduce.es/productos" />
+        <link rel="canonical" href="https://planreduce.com/productos" />
         <meta property="og:title" content="Productos | REDUCE" />
         <meta property="og:description" content="Auditoría de contratos indexados, concursos energéticos, control multisede y operativa retail internacional. Lo que hace REDUCE." />
-        <meta property="og:url" content="https://reduce.es/productos" />
+        <meta property="og:url" content="https://planreduce.com/productos" />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">

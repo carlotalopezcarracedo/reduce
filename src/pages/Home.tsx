@@ -56,10 +56,10 @@ export function Home() {
       <Helmet>
         <title>REDUCE | Control, Auditoría y Gestión Energética Multisede</title>
         <meta name="description" content="Estructura independiente de control, auditoría y gestión energética para operaciones multisede. Operando desde 2012 en España, Portugal, Italia y Andorra." />
-        <link rel="canonical" href="https://reduce.es/" />
+        <link rel="canonical" href="https://planreduce.com/" />
         <meta property="og:title" content="REDUCE | Control, Auditoría y Gestión Energética Multisede" />
         <meta property="og:description" content="Estructura independiente de control, auditoría y gestión energética para operaciones multisede. Operando desde 2012 en España, Portugal, Italia y Andorra." />
-        <meta property="og:url" content="https://reduce.es/" />
+        <meta property="og:url" content="https://planreduce.com/" />
       </Helmet>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[86vh] sm:min-h-[90vh] flex items-center py-16 sm:py-20 lg:py-0 px-4 sm:px-6 bg-brand-dark overflow-hidden">

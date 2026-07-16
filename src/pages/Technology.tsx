@@ -44,10 +44,10 @@ export function Technology() {
       <Helmet>
         <title>Tecnología | REDUCE</title>
         <meta name="description" content="Infraestructura técnica propia para auditoría energética: base de datos, ingestión automática de facturas y dashboards de control multisede." />
-        <link rel="canonical" href="https://reduce.es/tecnologia" />
+        <link rel="canonical" href="https://planreduce.com/tecnologia" />
         <meta property="og:title" content="Tecnología | REDUCE" />
         <meta property="og:description" content="Infraestructura técnica propia para auditoría energética: base de datos, ingestión automática de facturas y dashboards de control multisede." />
-        <meta property="og:url" content="https://reduce.es/tecnologia" />
+        <meta property="og:url" content="https://planreduce.com/tecnologia" />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden grain-dark">

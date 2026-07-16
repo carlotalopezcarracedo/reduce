@@ -27,10 +27,10 @@ export function ProductTemplate() {
       <Helmet>
         <title>{product.name} | REDUCE</title>
         <meta name="description" content={product.tagline} />
-        <link rel="canonical" href={`https://reduce.es/productos/${product.slug}`} />
+        <link rel="canonical" href={`https://planreduce.com/productos/${product.slug}`} />
         <meta property="og:title" content={`${product.name} | REDUCE`} />
         <meta property="og:description" content={product.tagline} />
-        <meta property="og:url" content={`https://reduce.es/productos/${product.slug}`} />
+        <meta property="og:url" content={`https://planreduce.com/productos/${product.slug}`} />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">

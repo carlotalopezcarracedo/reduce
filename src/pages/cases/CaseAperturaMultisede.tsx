@@ -129,7 +129,7 @@ export function CaseAperturaMultisede() {
       <Helmet>
         <title>Caso Real: Apertura Energética Multisede | REDUCE</title>
         <meta name="description" content="Gestión integral de apertura energética de flagship store en campaña de Navidad. Expediente desbloqueado, infraestructura resuelta, apertura en fecha." />
-        <link rel="canonical" href="https://reduce.es/casos/apertura-multisede" />
+        <link rel="canonical" href="https://planreduce.com/casos/apertura-multisede" />
       </Helmet>
 
       {/* ── HERO ── */}

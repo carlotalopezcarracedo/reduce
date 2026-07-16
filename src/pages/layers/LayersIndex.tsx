@@ -13,10 +13,10 @@ export function LayersIndex() {
       <Helmet>
         <title>Modelo de 5 Capas | REDUCE</title>
         <meta name="description" content="El modelo estructural de REDUCE: compra, control de facturación, operativa retail, eficiencia y reporting. Cinco capas para gestionar la energía multisede." />
-        <link rel="canonical" href="https://reduce.es/modelo" />
+        <link rel="canonical" href="https://planreduce.com/modelo" />
         <meta property="og:title" content="Modelo de 5 Capas | REDUCE" />
         <meta property="og:description" content="El modelo estructural de REDUCE: compra, control de facturación, operativa retail, eficiencia y reporting. Cinco capas para gestionar la energía multisede." />
-        <meta property="og:url" content="https://reduce.es/modelo" />
+        <meta property="og:url" content="https://planreduce.com/modelo" />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">

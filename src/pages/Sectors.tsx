@@ -11,10 +11,10 @@ export function Sectors() {
       <Helmet>
         <title>Sectores | REDUCE</title>
         <meta name="description" content="Empresas retail, perfumerías y superficies con operaciones multisede. Control energético centralizado desde 2012." />
-        <link rel="canonical" href="https://reduce.es/sectores" />
+        <link rel="canonical" href="https://planreduce.com/sectores" />
         <meta property="og:title" content="Sectores | REDUCE" />
         <meta property="og:description" content="Empresas retail, perfumerías y superficies con operaciones multisede. Control energético centralizado desde 2012." />
-        <meta property="og:url" content="https://reduce.es/sectores" />
+        <meta property="og:url" content="https://planreduce.com/sectores" />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden grain-dark">

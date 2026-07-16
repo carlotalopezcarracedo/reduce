@@ -20,10 +20,10 @@ export function LayerPage() {
       <Helmet>
         <title>{layer.title} | REDUCE</title>
         <meta name="description" content={layer.tagline} />
-        <link rel="canonical" href={`https://reduce.es/modelo/${layer.slug}`} />
+        <link rel="canonical" href={`https://planreduce.com/modelo/${layer.slug}`} />
         <meta property="og:title" content={`${layer.title} | REDUCE`} />
         <meta property="og:description" content={layer.tagline} />
-        <meta property="og:url" content={`https://reduce.es/modelo/${layer.slug}`} />
+        <meta property="og:url" content={`https://planreduce.com/modelo/${layer.slug}`} />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark py-28 px-6 relative overflow-hidden">

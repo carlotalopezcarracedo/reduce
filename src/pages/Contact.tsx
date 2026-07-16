@@ -48,10 +48,10 @@ export function Contact() {
       <Helmet>
         <title>Contacto | REDUCE</title>
         <meta name="description" content="Contacta con REDUCE para analizar tu estructura energética multisede. Auditoría independiente, control y operativa desde 2012." />
-        <link rel="canonical" href="https://reduce.es/contacto" />
+        <link rel="canonical" href="https://planreduce.com/contacto" />
         <meta property="og:title" content="Contacto | REDUCE" />
         <meta property="og:description" content="Contacta con REDUCE para analizar tu estructura energética multisede. Auditoría independiente, control y operativa desde 2012." />
-        <meta property="og:url" content="https://reduce.es/contacto" />
+        <meta property="og:url" content="https://planreduce.com/contacto" />
       </Helmet>
       {/* Hero */}
       <section className="bg-brand-dark min-h-[50vh] flex items-center py-16 lg:py-24 px-6 relative overflow-hidden">
